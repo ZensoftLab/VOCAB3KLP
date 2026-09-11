@@ -1,0 +1,9736 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  background: #fffaf0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .mobile-cta-arrow {
+    display: none !important;
+  }
+}
+
+.app {
+  width: 100%;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  width: 100%;
+  height: 58px;
+  background: #050c1c;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 18px;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-circle {
+  width: 30px;
+  height: 30px;
+
+  border: 1px solid #ffd43b;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffd43b;
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.logo strong {
+  display: block;
+  font-size: 10px;
+}
+
+.logo small {
+  display: block;
+  font-size: 6px;
+  color: #929aaa;
+  margin-top: 2px;
+}
+
+.navbar nav {
+  display: none;
+}
+
+.menu-btn {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 24px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 480px;
+
+  background: radial-gradient(
+    circle at 80% 30%,
+    #17325d 0%,
+    #0a1730 35%,
+    #050c1c 75%
+  );
+
+  color: white;
+
+  padding: 55px 18px 25px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-content {
+  width: 100%;
+}
+
+.tag {
+  display: inline-block;
+
+  font-size: 8px;
+  color: #ffd43b;
+
+  border: 1px solid #5b501e;
+  border-radius: 20px;
+
+  padding: 5px 9px;
+
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  color: #ffd43b;
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+.hero h2 {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.hero p {
+  color: #b8c0ce;
+  font-size: 11px;
+  line-height: 1.8;
+
+  margin-top: 14px;
+
+  max-width: 330px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 8px;
+
+  margin-top: 20px;
+}
+
+.primary-btn,
+.secondary-btn {
+  border-radius: 6px;
+  padding: 10px 14px;
+
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.primary-btn {
+  border: none;
+  background: #ffd43b;
+  color: #111;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid #3b4962;
+}
+
+.hero-note {
+  display: block;
+
+  margin-top: 9px;
+
+  color: #6f7b90;
+  font-size: 7px;
+}
+
+/* =========================
+   HERO BOOK / PHONE
+========================= */
+
+.hero-image {
+  width: 100%;
+  height: 210px;
+
+  position: relative;
+
+  margin-top: 20px;
+}
+
+.book {
+  width: 105px;
+  height: 145px;
+
+  background: #f4efd9;
+
+  color: #17223b;
+
+  position: absolute;
+
+  right: 28%;
+  bottom: 15px;
+
+  transform: rotate(8deg);
+
+  border-radius: 4px;
+
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.book span {
+  font-size: 12px;
+}
+
+.book strong {
+  font-size: 28px;
+}
+
+.book small {
+  font-size: 7px;
+}
+
+.phone {
+  width: 52px;
+  height: 100px;
+
+  border-radius: 8px;
+
+  background: #0b1b39;
+
+  border: 2px solid #586680;
+
+  position: absolute;
+
+  bottom: 35px;
+
+  color: #ffd43b;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.phone-one {
+  right: 16%;
+  transform: rotate(17deg);
+}
+
+.phone-two {
+  right: 5%;
+  transform: rotate(23deg);
+}
+
+.phone b {
+  font-size: 15px;
+}
+
+.phone span {
+  font-size: 7px;
+  color: white;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+  background: #050c1c;
+
+  color: white;
+
+  padding: 18px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+
+  border-top: 1px solid #1d2940;
+}
+
+.stats div {
+  text-align: center;
+}
+
+.stats strong {
+  display: block;
+
+  color: #ffd43b;
+
+  font-size: 11px;
+}
+
+.stats span {
+  display: block;
+
+  color: #7e899d;
+
+  font-size: 7px;
+
+  margin-top: 3px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (min-width: 768px) {
+  .navbar {
+    padding: 0 45px;
+    min-height: auto;
+    padding: 28px 0 40px;
+
+    .menu-btn {
+      display: none;
+    }
+    width: calc(100% - 24px);
+    .navbar nav {
+      display: flex;
+
+      padding: 24px;
+
+      gap: 24px;
+    }
+
+    .navbar nav a {
+      color: white;
+      text-decoration: none;
+
+      font-size: 9px;
+    }
+
+    .navbar nav button {
+      border: none;
+
+      background: #ffd43b;
+
+      padding: 9px 15px;
+
+      border-radius: 6px;
+
+      font-size: 9px;
+      font-weight: bold;
+    }
+
+    .hero {
+      min-height: 430px;
+
+      padding: 80px 8%;
+
+      flex-direction: row;
+
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-content {
+      width: 50%;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+    }
+
+    .hero h2 {
+      font-size: 25px;
+    }
+
+    .hero p {
+      font-size: 13px;
+    }
+
+    .hero-image {
+      width: 45%;
+    }
+
+    .stats {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  /* =========================
+   VIDEO SECTION
+========================= */
+
+  .video-section {
+    background: #fffaf0;
+    padding: 70px 18px;
+    text-align: center;
+  }
+
+  .video-container {
+    max-width: 850px;
+    margin: auto;
+  }
+
+  .section-label {
+    color: #b68b00;
+    font-size: 8px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .video-section h2,
+  .features-section h2 {
+    font-size: 24px;
+    color: #111827;
+    margin-bottom: 8px;
+  }
+
+  .video-section > .video-container > p {
+    color: #777;
+    font-size: 10px;
+  }
+
+  .video-card {
+    margin-top: 25px;
+    width: 100%;
+    height: 210px;
+
+    border-radius: 10px;
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .video-content {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: radial-gradient(
+      circle at 70% 50%,
+      #a67c31,
+      #47191d 45%,
+      #141b27
+    );
+  }
+
+  .video-text {
+    position: absolute;
+    left: 25px;
+    top: 35px;
+
+    color: white;
+
+    transform: rotate(-5deg);
+
+    text-align: left;
+  }
+
+  .video-text span {
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .video-text strong {
+    display: block;
+    font-size: 38px;
+    color: #fff;
+  }
+
+  .play-button {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: #ffd43b;
+    color: #111;
+
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-badge {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+
+    background: white;
+    color: #222;
+
+    font-size: 8px;
+
+    padding: 5px 8px;
+    border-radius: 5px;
+  }
+
+  /* =========================
+   FEATURES
+========================= */
+
+  .features-section {
+    background: #fffaf0;
+    padding: 65px 18px;
+  }
+
+  .features-container {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .section-description {
+    color: #777;
+    font-size: 10px;
+    margin-bottom: 25px;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+
+    text-align: left;
+  }
+
+  .feature-card {
+    background: white;
+
+    border: 1px solid #e7dfcf;
+
+    border-radius: 9px;
+
+    padding: 14px;
+
+    min-height: 145px;
+  }
+
+  .feature-icon {
+    width: 25px;
+    height: 25px;
+
+    background: #fff1bd;
+    color: #967300;
+
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 10px;
+
+    margin-bottom: 10px;
+  }
+
+  .feature-card h3 {
+    font-size: 11px;
+    margin-bottom: 7px;
+    color: #172033;
+  }
+
+  .feature-card p {
+    font-size: 8px;
+    color: #777;
+    line-height: 1.7;
+  }
+
+  .feature-bottom {
+    margin-top: 10px;
+
+    background: #09162b;
+
+    color: white;
+
+    padding: 11px;
+
+    border-radius: 7px;
+
+    font-size: 8px;
+  }
+
+  /* =========================
+   MOBILE SMALL SCREEN
+========================= */
+
+  @media (max-width: 380px) {
+    .video-section,
+    .features-section {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    .video-card {
+      height: 190px;
+    }
+
+    .video-text span {
+      font-size: 25px;
+    }
+
+    .video-text strong {
+      font-size: 32px;
+    }
+
+    .feature-card {
+      padding: 11px;
+    }
+
+    .feature-card h3 {
+      font-size: 10px;
+    }
+  }
+
+  /* =========================
+   TABLET / DESKTOP
+========================= */
+
+  @media (min-width: 768px) {
+    .video-section {
+      padding: 90px 30px;
+    }
+
+    .video-card {
+      height: 330px;
+    }
+
+    .video-text span {
+      font-size: 45px;
+    }
+
+    .video-text strong {
+      font-size: 55px;
+    }
+
+    .features-section {
+      padding: 90px 30px;
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .feature-card {
+      min-height: 150px;
+      padding: 18px;
+    }
+  }
+
+  /* =========================================================
+   INSIDE THE BOOK
+========================================================= */
+
+  .inside-book-section {
+    width: 100%;
+    min-height: 984.5px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 62px 20px 80px;
+
+    background: radial-gradient(
+      circle at 50% 42%,
+      #f0ebe1 0%,
+      #e7e0d3 48%,
+      #ddd5c7 100%
+    );
+
+    color: #101d31;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* =========================================================
+   HEADER
+========================================================= */
+
+  .inside-book-header {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .inside-book-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #7c5d20;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 2.8px;
+  }
+
+  .inside-book-label span {
+    width: 15px;
+    height: 1.5px;
+
+    background: #7c5d20;
+
+    border-radius: 5px;
+  }
+
+  .inside-book-header h2 {
+    margin-top: 8px;
+
+    color: #0b1b31;
+
+    font-size: 39px;
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+  }
+
+  .inside-book-header p {
+    margin-top: 10px;
+
+    color: #596576;
+
+    font-size: 12px;
+
+    line-height: 20px;
+  }
+
+  /* =========================================================
+   BOOK WRAPPER
+========================================================= */
+
+  .inside-book-wrapper {
+    width: 100%;
+
+    margin-top: 58px;
+
+    display: flex;
+    justify-content: center;
+
+    perspective: 1800px;
+  }
+
+  /* =========================================================
+   BOOK
+========================================================= */
+
+  .inside-book {
+    width: 680px;
+    height: 432px;
+
+    position: relative;
+
+    display: flex;
+
+    border-radius: 5px;
+
+    box-shadow:
+      0 35px 45px rgba(36, 27, 12, 0.22),
+      0 12px 20px rgba(36, 27, 12, 0.12);
+
+    transform: translateZ(0);
+  }
+
+  /* =========================================================
+   LEFT PAGE
+========================================================= */
+
+  .book-left-page {
+    width: 50%;
+    height: 100%;
+
+    position: relative;
+
+    padding: 34px 22px 24px 30px;
+
+    background: linear-gradient(90deg, #fffdf4 0%, #fffdf4 90%, #f4edda 100%);
+
+    border-radius: 4px 0 0 4px;
+
+    box-shadow: inset -8px 0 14px rgba(84, 67, 34, 0.07);
+
+    overflow: hidden;
+  }
+
+  .book-page-top {
+    padding-bottom: 9px;
+
+    border-bottom: 1px solid #ded7c8;
+
+    color: #aa9c83;
+
+    font-size: 6px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+  }
+
+  .letter-a {
+    margin-top: 17px;
+
+    color: #e7dfcf;
+
+    font-size: 61px;
+
+    line-height: 62px;
+
+    font-weight: 400;
+  }
+
+  .letter-line {
+    width: 21px;
+    height: 2px;
+
+    margin-top: 4px;
+
+    background: #f5bd2e;
+  }
+
+  /* =========================================================
+   WORD LIST
+========================================================= */
+
+  .book-word-list {
+    margin-top: 18px;
+  }
+
+  .book-word-row {
+    height: 42px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid #eee7d8;
+
+    opacity: 0.32;
+  }
+
+  .book-word-row.selected {
+    opacity: 1;
+  }
+
+  .book-word-row.selected::before {
+    content: "";
+
+    position: absolute;
+
+    left: -30px;
+    top: 9px;
+
+    width: 3px;
+    height: 24px;
+
+    background: #f4bd2e;
+
+    border-radius: 2px;
+  }
+
+  .book-word-row span {
+    width: 31px;
+
+    color: #a99b82;
+
+    font-size: 6px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+  }
+
+  .book-word-row strong {
+    color: #17243a;
+
+    font-size: 18px;
+
+    font-weight: 400;
+  }
+
+  .book-word-row small {
+    margin-left: auto;
+
+    color: #b2a58d;
+
+    font-size: 6px;
+  }
+
+  /* =========================================================
+   LEFT FOOTER
+========================================================= */
+
+  .book-left-footer {
+    position: absolute;
+
+    left: 30px;
+    right: 22px;
+    bottom: 24px;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #b9ad96;
+
+    font-size: 6px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+  }
+
+  /* =========================================================
+   BOOK SPINE
+========================================================= */
+
+  .inside-book-spine {
+    width: 30px;
+    height: 100%;
+
+    position: relative;
+
+    z-index: 5;
+
+    flex-shrink: 0;
+
+    background: linear-gradient(90deg, #0e2746 0%, #193b60 40%, #0a1d36 100%);
+
+    box-shadow:
+      inset 3px 0 6px rgba(255, 255, 255, 0.08),
+      inset -4px 0 8px rgba(0, 0, 0, 0.3),
+      0 0 8px rgba(0, 0, 0, 0.18);
+  }
+
+  .inside-book-spine span {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) rotate(-90deg);
+
+    white-space: nowrap;
+
+    color: #b7a889;
+
+    font-size: 5px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+  }
+
+  /* =========================================================
+   RIGHT PAGE
+========================================================= */
+
+  .book-right-page {
+    width: calc(50% - 0px);
+    height: 100%;
+
+    position: relative;
+
+    padding: 34px 28px 24px 20px;
+
+    background: linear-gradient(90deg, #fffdf4 0%, #fffdf4 95%, #f3ecd9 100%);
+
+    border-radius: 0 4px 4px 0;
+
+    box-shadow: inset 8px 0 14px rgba(84, 67, 34, 0.07);
+
+    overflow: hidden;
+  }
+
+  /* =========================================================
+   WORD HEADER
+========================================================= */
+
+  .word-header {
+    height: 27px;
+
+    display: flex;
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    border-bottom: 2px solid #0c1b32;
+  }
+
+  .word-header span {
+    color: #5d594e;
+
+    font-size: 6px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.7px;
+  }
+
+  .word-header b {
+    padding: 3px 10px;
+
+    background: #f7c83d;
+
+    border-radius: 20px;
+
+    color: #111c2e;
+
+    font-size: 6px;
+
+    letter-spacing: 1px;
+  }
+
+  /* =========================================================
+   WORD TITLE
+========================================================= */
+
+  .word-heading {
+    margin-top: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+  }
+
+  .word-heading h3 {
+    margin: 0;
+
+    color: #07172c;
+
+    font-size: 52px;
+
+    line-height: 53px;
+
+    font-weight: 400;
+
+    letter-spacing: -2px;
+  }
+
+  .word-heading span {
+    margin-top: 3px;
+
+    padding: 3px 10px;
+
+    background: #07172c;
+
+    border-radius: 20px;
+
+    color: white;
+
+    font-size: 6px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+  }
+
+  .word-pronunciation {
+    margin-top: 2px;
+
+    color: #776b57;
+
+    font-size: 8px;
+  }
+
+  /* =========================================================
+   WORD DETAILS
+========================================================= */
+
+  .word-details {
+    min-height: 39px;
+
+    margin-top: 12px;
+
+    padding: 7px 0;
+
+    display: flex;
+    align-items: center;
+
+    border-top: 1px solid #e1dacb;
+    border-bottom: 1px solid #e1dacb;
+  }
+
+  .detail-item {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+  }
+
+  .detail-item small {
+    color: #a89b82;
+
+    font-size: 5px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+  }
+
+  .detail-item strong {
+    color: #2b2418;
+
+    font-size: 8px;
+
+    font-weight: 500;
+  }
+
+  .detail-divider {
+    width: 1px;
+    height: 18px;
+
+    margin: 0 11px;
+
+    background: #ded6c5;
+  }
+
+  .detail-item.meaning strong {
+    font-weight: 700;
+  }
+
+  /* =========================================================
+   EXAMPLE
+========================================================= */
+
+  .word-example {
+    margin-top: 13px;
+  }
+
+  .word-example > small,
+  .word-note > small {
+    color: #a18f6c;
+
+    font-size: 5px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.7px;
+  }
+
+  .word-example p {
+    margin-top: 7px;
+
+    color: #1d1a14;
+
+    font-size: 8px;
+
+    line-height: 15px;
+  }
+
+  .word-example .example-bangla {
+    margin-top: 2px;
+
+    color: #706754;
+
+    font-size: 7px;
+  }
+
+  /* =========================================================
+   SHORT NOTE
+========================================================= */
+
+  .word-note {
+    margin-top: 12px;
+
+    padding: 9px 12px;
+
+    background: #fff0bd;
+
+    border: 1px solid #e6c65e;
+
+    border-radius: 0 7px 7px 0;
+  }
+
+  .word-note p {
+    margin-top: 5px;
+
+    color: #4f442c;
+
+    font-size: 6.5px;
+
+    line-height: 11px;
+  }
+
+  /* =========================================================
+   PRACTICE CHECK
+========================================================= */
+
+  .practice-box {
+    height: 29px;
+
+    margin-top: 9px;
+
+    padding: 0 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    border: 1px solid #ddd4c1;
+
+    border-radius: 7px;
+
+    color: #8b806c;
+
+    font-size: 6.5px;
+  }
+
+  .practice-box input {
+    width: 12px;
+    height: 12px;
+
+    accent-color: #f5c23d;
+  }
+
+  /* =========================================================
+   RIGHT FOOTER
+========================================================= */
+
+  .book-right-footer {
+    position: absolute;
+
+    left: 20px;
+    right: 28px;
+    bottom: 22px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #b9ad96;
+
+    font-size: 6px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+  }
+
+  /* =========================================================
+   BUTTONS
+========================================================= */
+
+  .inside-book-controls {
+    margin-top: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+  }
+
+  .inside-book-controls button {
+    height: 37px;
+
+    min-width: 108px;
+
+    padding: 0 15px;
+
+    border-radius: 9px;
+
+    border: 1px solid #d8c9ad;
+
+    background: rgba(255, 252, 241, 0.9);
+
+    color: #66583e;
+
+    font-size: 9px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+  }
+
+  .inside-book-controls button:hover {
+    background: white;
+
+    transform: translateY(-1px);
+  }
+
+  .book-next-btn {
+    opacity: 0.38;
+  }
+
+  /* =========================================================
+   DOTS
+========================================================= */
+
+  .book-dots {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+  }
+
+  .book-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #cbbd9f;
+  }
+
+  .book-dot.active {
+    width: 22px;
+
+    border-radius: 10px;
+
+    background: #74580e;
+  }
+
+  /* =========================================================
+   KEYBOARD
+========================================================= */
+
+  .book-keyboard-hint {
+    margin-top: 12px;
+
+    color: #b9ac94;
+
+    font-size: 7px;
+
+    letter-spacing: 0.5px;
+  }
+
+  .book-preview-controls-wrap {
+    width: min(100%, 820px);
+    margin: 6px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .book-preview-controls {
+    width: min(100%, 700px);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 40px;
+    margin: 0 auto;
+  }
+
+  .book-preview-btn {
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 124px;
+    height: 40px;
+    padding: 9px 20px;
+    border-radius: 9px;
+    font-family: "Baloo Da 2", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+
+  .book-preview-btn-prev {
+    background: #fff8e8;
+    border: 1px solid #d4bc88;
+    color: #2c1e0a;
+  }
+
+  .book-preview-btn-next {
+    background: #fff8e8;
+    border: 1px solid #d4bc88;
+    color: #2c1e0a;
+  }
+
+  .book-preview-btn-muted {
+    opacity: 0.42 !important;
+    filter: grayscale(0.8) !important;
+    background: #d8d0c5 !important;
+    border-color: #bdb3a6 !important;
+    color: #766d63 !important;
+  }
+
+  .book-preview-icon {
+    width: 14px;
+    height: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .book-preview-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .book-preview-label {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .book-preview-structure {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 50px;
+    height: 6px;
+    flex-shrink: 0;
+  }
+
+  .book-preview-dot {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 99px;
+    background: #c4b898;
+  }
+
+  .book-preview-dot.active {
+    width: 22px;
+    background: #73500c;
+  }
+
+  .book-preview-hint {
+    margin-top: 14px;
+    width: 100%;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    line-height: 15px;
+    letter-spacing: 0.5px;
+    color: #b0a08a;
+  }
+
+  /* =========================================================
+   RESPONSIVE
+========================================================= */
+
+  @media (max-width: 800px) {
+    .inside-book-section {
+      min-height: auto;
+
+      padding-top: 55px;
+      padding-bottom: 65px;
+    }
+
+    .inside-book-header h2 {
+      font-size: 31px;
+    }
+
+    .inside-book-header p {
+      font-size: 10px;
+    }
+
+    .inside-book-wrapper {
+      margin-top: 40px;
+
+      overflow-x: auto;
+
+      justify-content: flex-start;
+
+      padding: 0 10px 20px;
+    }
+
+    .inside-book {
+      flex-shrink: 0;
+    }
+
+    .book-preview-controls-wrap {
+      width: 100%;
+      max-width: 350px;
+      margin: 16px auto 0;
+    }
+
+    .book-preview-controls {
+      width: 100%;
+      max-width: 350px;
+      gap: 16px;
+      height: 44px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .book-preview-btn {
+      min-width: 0;
+      width: 137px;
+      height: 44px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 15px;
+      line-height: 20px;
+      justify-content: center;
+      font-family: "Baloo Da 2", sans-serif;
+      font-weight: 600;
+    }
+
+    .book-preview-btn-prev {
+      background: #f4ead8;
+      border: 1px solid #d7c9a9;
+      color: #16243a;
+    }
+
+    .book-preview-btn-next {
+      background: #ffffff;
+      border: 1px solid #dce8f1;
+      color: #16243a;
+    }
+
+    .book-preview-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .book-preview-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .book-preview-structure {
+      width: 50px;
+      gap: 8px;
+    }
+
+    .book-preview-dot {
+      width: 6px;
+      height: 6px;
+      background: #b9c3ce;
+    }
+
+    .book-preview-dot.active {
+      width: 22px;
+      background: #6a4a08;
+      border-radius: 99px;
+    }
+
+    .book-preview-hint {
+      display: block;
+      margin-top: 10px;
+      font-size: 10px;
+      line-height: 15px;
+      letter-spacing: 0.5px;
+      color: #756b5a;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .inside-book-section {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .inside-book-header h2 {
+      font-size: 27px;
+    }
+
+    .inside-book-wrapper {
+      height: 310px;
+
+      overflow: visible;
+
+      justify-content: center;
+    }
+
+    .inside-book {
+      transform: scale(0.6);
+
+      transform-origin: top center;
+
+      flex-shrink: 0;
+    }
+
+    .inside-book-controls {
+      margin-top: 5px;
+
+      gap: 8px;
+    }
+
+    .inside-book-controls button {
+      min-width: 90px;
+
+      font-size: 8px;
+
+      padding: 0 8px;
+    }
+
+    .book-preview-controls-wrap {
+      max-width: 350px;
+      width: 100%;
+      margin: 14px auto 0;
+    }
+
+    .book-preview-controls {
+      gap: 16px;
+      width: 100%;
+      max-width: 350px;
+      justify-content: space-between;
+      margin: 0 auto;
+    }
+
+    .book-preview-btn {
+      min-width: 0;
+      width: 137px;
+      padding: 12px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #dce8f1;
+      color: #16243a;
+      gap: 8px;
+    }
+
+    .book-preview-btn-prev {
+      background: #f4ead8;
+      border-color: #d7c9a9;
+      color: #16243a;
+    }
+
+    .book-preview-btn-next {
+      background: #ffffff;
+      border-color: #dce8f1;
+      color: #16243a;
+    }
+
+    .book-preview-hint {
+      display: block;
+    }
+  }
+  /* =========================================================
+   INSIDE THE BOOK — EXACT BOOK LAYOUT
+   ========================================================= */
+
+  .inside-book-section {
+    width: 100%;
+    min-height: 984.5px;
+    box-sizing: border-box;
+    padding: 88px 24px 108px;
+    background: radial-gradient(
+      78.1% 78.1% at 50% 40%,
+      #ede8de 0%,
+      #ddd5c6 100%
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ---------- HEADER ---------- */
+
+  .inside-book-header {
+    width: 100%;
+    max-width: 1392px;
+    height: 127.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .inside-book-label {
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #73500c;
+    font-family: Inter, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .inside-book-label span {
+    display: block;
+    width: 16px;
+    height: 2px;
+    background: #73500c;
+    border-radius: 2px;
+  }
+
+  .inside-book-header h2 {
+    margin: 18px 0 0;
+    color: #0d1f35;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 38px;
+    line-height: 46px;
+    font-weight: 700;
+  }
+
+  .inside-book-header p {
+    margin: 12px 0 0;
+    color: #424f5f;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 15px;
+    line-height: 27px;
+  }
+
+  /* ---------- BOOK WRAPPER ---------- */
+
+  .inside-book-wrapper {
+    width: 100%;
+    height: 548px;
+    margin-top: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-shrink: 0;
+  }
+
+  .inside-book {
+    position: relative;
+    width: 735.89px;
+    height: 467.43px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.00001);
+    border-radius: 4px 6px 6px 4px;
+
+    box-shadow:
+      0 2px 0 #b8a888,
+      0 50px 100px rgba(20, 12, 4, 0.38),
+      0 12px 28px rgba(20, 12, 4, 0.22),
+      4px 4px 0 rgba(20, 12, 4, 0.06);
+
+    overflow: visible;
+  }
+
+  /* ---------- LEFT PAGE ---------- */
+
+  .book-left-page {
+    position: relative;
+    width: 329.95px;
+    height: 467.43px;
+    flex: 0 0 329.95px;
+    box-sizing: border-box;
+
+    padding: 35.9px 21.94px 27.92px 29.92px;
+
+    background: #fffcf0;
+    border-radius: 4px 0 0 4px;
+
+    font-family: Inter, sans-serif;
+    overflow: hidden;
+  }
+
+  /* ---------- RIGHT PAGE ---------- */
+
+  .book-right-page {
+    position: relative;
+    width: 329.95px;
+    height: 467.43px;
+    flex: 0 0 329.95px;
+    box-sizing: border-box;
+
+    padding: 35.9px 29.92px 27.92px 21.94px;
+
+    background: #fffcf0;
+    border-radius: 0 4px 4px 0;
+
+    font-family: Inter, sans-serif;
+    overflow: hidden;
+  }
+
+  /* ---------- BOOK SPINE ---------- */
+
+  .inside-book-spine {
+    position: relative;
+    width: 32px;
+    height: 467.43px;
+    flex: 0 0 32px;
+    z-index: 10;
+
+    background: linear-gradient(
+      90deg,
+      #071229 0%,
+      #0d1f38 30%,
+      #0f2240 50%,
+      #0d1f38 70%,
+      #071229 100%
+    );
+
+    box-shadow:
+      inset 1px 0 3px rgba(255, 255, 255, 0.06),
+      inset -1px 0 3px rgba(255, 255, 255, 0.06);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .inside-book-spine span {
+    color: rgba(248, 201, 75, 0.55);
+    font-family: Inter, sans-serif;
+    font-size: 5.5px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  /* ---------- LEFT PAGE TOP ---------- */
+
+  .book-page-top {
+    width: 100%;
+    padding-bottom: 15.95px;
+    border-bottom: 1px solid #ede5d4;
+
+    color: #a89878;
+    font-family: Inter, sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    line-height: 10px;
+    text-transform: uppercase;
+  }
+
+  /* ---------- BIG A ---------- */
+
+  .letter-a {
+    margin-top: 20px;
+
+    color: #e6dfd1;
+    font-family: Inter, sans-serif;
+    font-size: 78px;
+    font-weight: 400;
+    line-height: 80px;
+  }
+
+  .letter-line {
+    width: 30px;
+    height: 2px;
+    margin-top: 2px;
+    background: #f8c94b;
+  }
+
+  /* ---------- WORD LIST ---------- */
+
+  .book-word-list {
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .book-word-row {
+    position: relative;
+    width: 100%;
+    height: 45px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid #ede5d4;
+  }
+
+  .book-word-row > span {
+    width: 28px;
+    color: #d7cdb9;
+    font-family: Inter, sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+  }
+
+  .book-word-row strong {
+    color: #b5b5b5;
+    font-family: Inter, sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 26px;
+  }
+
+  .book-word-row small {
+    margin-left: auto;
+    color: #c9c0ad;
+    font-family: Inter, sans-serif;
+    font-size: 8px;
+    font-weight: 400;
+  }
+
+  .book-word-row.selected::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 3px;
+    height: 25px;
+    border-radius: 2px;
+    background: #f8c94b;
+  }
+
+  .book-word-row.selected strong {
+    color: #071229;
+  }
+
+  /* ---------- LEFT FOOTER ---------- */
+
+  .book-left-footer {
+    position: absolute;
+    left: 29.92px;
+    right: 21.94px;
+    bottom: 27.92px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #c7b99c;
+    font-family: Inter, sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ---------- RIGHT HEADER ---------- */
+
+  .word-header {
+    width: 100%;
+    height: 31.94px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 11.97px;
+    border-bottom: 2px solid #071229;
+  }
+
+  .word-header > span {
+    color: #6a604e;
+    font-family: Inter, sans-serif;
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .word-header b {
+    padding: 3px 11px;
+
+    border-radius: 100px;
+    background: #f8c94b;
+
+    color: #040914;
+    font-family: Inter, sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ---------- WORD HEADING ---------- */
+
+  .word-heading {
+    width: 100%;
+    margin-top: 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .word-heading h3 {
+    margin: 0;
+
+    color: #071229;
+    font-family: Inter, sans-serif;
+    font-size: 58px;
+    line-height: 62px;
+    font-weight: 400;
+    letter-spacing: -2px;
+  }
+
+  .word-heading > span {
+    margin-top: 8px;
+    padding: 7px 14px;
+
+    border-radius: 50px;
+    background: #071229;
+
+    color: #fff;
+    font-family: Inter, sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  /* ---------- PRONUNCIATION ---------- */
+
+  .word-pronunciation {
+    margin-top: -1px;
+
+    color: #806f52;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  /* ---------- DETAILS ---------- */
+
+  .word-details {
+    width: 100%;
+    min-height: 60px;
+    margin-top: 20px;
+    padding: 15px 0;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    border-top: 1px solid #e0d8c8;
+    border-bottom: 1px solid #e0d8c8;
+  }
+
+  .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .detail-item small {
+    color: #a89878;
+    font-family: Inter, sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+
+  .detail-item strong {
+    color: #2c1e0a;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .detail-divider {
+    width: 1px;
+    height: 18px;
+    margin: 0 16px;
+
+    background: #e0d8c8;
+  }
+
+  .detail-item.meaning {
+    gap: 8px;
+  }
+
+  .detail-item.meaning strong {
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  /* ---------- EXAMPLE ---------- */
+
+  .word-example {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .word-example > small,
+  .word-note > small {
+    color: #a89878;
+    font-family: Inter, sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+  }
+
+  .word-example p {
+    margin: 10px 0 0;
+
+    color: #161616;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .word-example .example-bangla {
+    margin-top: 3px;
+
+    color: #806f52;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  /* ---------- SHORT NOTE ---------- */
+
+  .word-note {
+    width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 14px;
+    padding: 15px 17px;
+
+    border: 1px solid #f0c94c;
+    border-radius: 10px;
+
+    background: #fff0b9;
+  }
+
+  .word-note p {
+    margin: 8px 0 0;
+
+    color: #3d3527;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    line-height: 19px;
+  }
+
+  /* ---------- PRACTICE ---------- */
+
+  .practice-box {
+    width: 100%;
+    min-height: 40px;
+    box-sizing: border-box;
+
+    margin-top: 12px;
+    padding: 8px 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    border: 1px solid #ddd4c3;
+    border-radius: 9px;
+
+    background: #fffdf6;
+
+    color: #806f52;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 13px;
+  }
+
+  .practice-box input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #f8c94b;
+  }
+
+  /* ---------- RIGHT FOOTER ---------- */
+
+  .book-right-footer {
+    position: absolute;
+    left: 21.94px;
+    right: 29.92px;
+    bottom: 27.92px;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #c7b99c;
+    font-family: Inter, sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ---------- CONTROLS ---------- */
+
+  .inside-book-controls {
+    margin-top: -3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .inside-book-controls button {
+    min-width: 145px;
+    height: 42px;
+    padding: 0 18px;
+
+    border: 1px solid #cbbd9d;
+    border-radius: 10px;
+
+    background: rgba(255, 252, 240, 0.7);
+
+    color: #2c2518;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .inside-book-controls button:hover {
+    background: #fffaf0;
+  }
+
+  .book-next-btn:disabled,
+  .book-prev-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .book-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .book-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #b9ad91;
+  }
+
+  .book-dot.active {
+    width: 25px;
+    border-radius: 10px;
+    background: #73500c;
+  }
+
+  /* ---------- KEYBOARD HINT ---------- */
+
+  .book-keyboard-hint {
+    margin-top: 12px;
+
+    color: #b2a58b;
+    font-family: Inter, sans-serif;
+
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  /* =====================================================
+   BOOK INNER CONTENT - FINAL ADJUSTMENT
+   ===================================================== */
+
+  /* LEFT PAGE */
+
+  .book-page-top {
+    padding-bottom: 12px;
+  }
+
+  .letter-a {
+    margin-top: 17px;
+    font-size: 72px;
+    line-height: 72px;
+  }
+
+  .letter-line {
+    width: 27px;
+    height: 2px;
+    margin-top: 1px;
+  }
+
+  .book-word-list {
+    margin-top: 20px;
+  }
+
+  .book-word-row {
+    height: 45px;
+  }
+
+  .book-word-row > span {
+    width: 32px;
+    font-size: 7px;
+  }
+
+  .book-word-row strong {
+    font-size: 23px;
+    line-height: 27px;
+  }
+
+  .book-word-row small {
+    font-size: 8px;
+  }
+
+  .book-word-row.selected::before {
+    top: 10px;
+    height: 25px;
+  }
+
+  /* =====================================================
+   RIGHT PAGE
+   ===================================================== */
+
+  .word-header {
+    height: 32px;
+    padding-bottom: 11px;
+  }
+
+  .word-heading {
+    margin-top: 20px;
+  }
+
+  .word-heading h3 {
+    font-size: 60px;
+    line-height: 61px;
+    letter-spacing: -2px;
+  }
+
+  .word-heading > span {
+    margin-top: 8px;
+    padding: 5px 12px;
+    font-size: 8px;
+  }
+
+  .word-pronunciation {
+    margin-top: 2px;
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  /* IPA + BANGLA MEANING */
+
+  .word-details {
+    min-height: 48px;
+    margin-top: 17px;
+    padding: 10px 0;
+  }
+
+  .detail-item {
+    gap: 8px;
+  }
+
+  .detail-item small {
+    font-size: 7px;
+  }
+
+  .detail-item strong {
+    font-size: 14px;
+  }
+
+  .detail-divider {
+    height: 24px;
+    margin: 0 14px;
+  }
+
+  .detail-item.meaning strong {
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  /* =====================================================
+   EXAMPLE
+   ===================================================== */
+
+  .word-example {
+    margin-top: 18px;
+  }
+
+  .word-example > small,
+  .word-note > small {
+    font-size: 7px;
+    letter-spacing: 2.5px;
+  }
+
+  .word-example p {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .word-example .example-bangla {
+    margin-top: 2px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  /* =====================================================
+   SHORT NOTE
+   ===================================================== */
+
+  .word-note {
+    margin-top: 8px;
+    padding: 13px 15px;
+    min-height: 87px;
+    box-sizing: border-box;
+  }
+
+  .word-note p {
+    margin-top: 7px;
+    font-size: 11px;
+    line-height: 18px;
+  }
+
+  /* =====================================================
+   CHECKBOX
+   ===================================================== */
+
+  .practice-box {
+    height: 38px;
+    margin-top: 10px;
+    padding: 7px 11px;
+    gap: 9px;
+    font-size: 11px;
+  }
+
+  .practice-box input {
+    width: 17px;
+    height: 17px;
+  }
+
+  /* =====================================================
+   RIGHT FOOTER
+   ===================================================== */
+
+  .book-right-footer {
+    bottom: 20px;
+  }
+  /* =====================================================
+   PAGE 2 — ACHIEVE
+===================================================== */
+
+  /* =========================================================
+   PAGE 2 — THE BOOK, UNPACKED
+========================================================= */
+
+  .book-detail-section {
+    width: 100%;
+    min-height: 760px;
+    padding: 72px 7vw 85px;
+    background: #f7f1e5;
+    color: #102034;
+    overflow: hidden;
+  }
+
+  /* HEADER */
+
+  .book-detail-header {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto 42px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 70px;
+
+    text-align: left;
+  }
+
+  .book-detail-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 12px;
+
+    color: #73500c;
+    font-family: Inter, sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .book-detail-label span {
+    width: 15px;
+    height: 2px;
+    background: #73500c;
+    border-radius: 2px;
+  }
+
+  .book-detail-header h2 {
+    margin: 0;
+
+    color: #0d1f35;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 34px;
+    line-height: 1.25;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+
+  .book-detail-header p {
+    margin: 4px 0 0;
+
+    max-width: 390px;
+
+    color: #596576;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  /* IMAGE CARD */
+
+  .book-detail-image-wrap {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #f8f2e6;
+
+    border: 1px solid #dfd3bb;
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow:
+      0 18px 40px rgba(45, 35, 20, 0.1),
+      0 3px 10px rgba(45, 35, 20, 0.06);
+  }
+
+  .book-detail-image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 14px;
+  }
+
+  /* TABLET */
+
+  @media (max-width: 800px) {
+    .book-detail-section {
+      padding: 60px 20px 70px;
+    }
+
+    .book-detail-header {
+      grid-template-columns: 1fr;
+      gap: 15px;
+
+      margin-bottom: 30px;
+    }
+
+    .book-detail-header h2 {
+      font-size: 30px;
+    }
+
+    .book-detail-header p {
+      max-width: 500px;
+    }
+  }
+
+  /* MOBILE */
+
+  @media (max-width: 520px) {
+    .book-detail-section {
+      padding: 45px 12px 55px;
+    }
+
+    .book-detail-header {
+      margin-bottom: 24px;
+    }
+
+    .book-detail-header h2 {
+      font-size: 26px;
+    }
+
+    .book-detail-header p {
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .book-detail-image-wrap {
+      border-radius: 10px;
+    }
+
+    .book-detail-image {
+      border-radius: 10px;
+    }
+  }
+  /* =========================================
+   THE BOOK, UNPACKED — FINAL DESIGN
+========================================= */
+
+  .book-detail-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #f5eee2;
+    padding: 70px 5% 80px;
+    color: #102034;
+  }
+
+  .book-detail-header {
+    width: 100%;
+    max-width: 1385px;
+    margin: 0 auto 52px;
+  }
+
+  .book-detail-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0;
+    color: #8b6500;
+    font-family: Inter, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .book-detail-label span {
+    display: none;
+  }
+
+  .book-detail-label::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: #8b6500;
+    display: block;
+  }
+
+  /* Heading + paragraph */
+
+  .book-detail-title-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: start;
+    margin-top: -18px;
+  }
+
+  .book-detail-title-row > div {
+    grid-column: 2;
+  }
+
+  .book-detail-title-row h2 {
+    margin: 0;
+    color: #071b38;
+    font-family: "Noto Serif Bengali", "Hind Siliguri", serif;
+    font-size: clamp(42px, 4vw, 58px);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -2px;
+  }
+
+  .book-detail-title-row p {
+    grid-column: 2;
+    margin: 10px 0 0;
+    max-width: 560px;
+    color: #637087;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  /* Image */
+
+  .book-detail-image-wrap {
+    width: 100%;
+    max-width: 1390px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 14px;
+  }
+
+  .book-detail-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
+  /* =========================================
+   TABLET
+========================================= */
+
+  @media (max-width: 900px) {
+    .book-detail-section {
+      padding: 55px 4% 65px;
+    }
+
+    .book-detail-title-row {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .book-detail-title-row > div {
+      grid-column: 1;
+    }
+
+    .book-detail-title-row p {
+      grid-column: 1;
+      max-width: 650px;
+    }
+
+    .book-detail-header {
+      margin-bottom: 35px;
+    }
+  }
+
+  /* =========================================
+   MOBILE
+========================================= */
+
+  @media (max-width: 600px) {
+    .book-detail-section {
+      padding: 42px 20px 50px;
+    }
+
+    .book-detail-label {
+      font-size: 9px;
+      letter-spacing: 2.2px;
+    }
+
+    .book-detail-label::before {
+      width: 16px;
+    }
+
+    .book-detail-title-row {
+      margin-top: 22px;
+      gap: 8px;
+    }
+
+    .book-detail-title-row h2 {
+      font-size: 34px;
+      letter-spacing: -1px;
+    }
+
+    .book-detail-title-row p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .book-detail-header {
+      margin-bottom: 28px;
+    }
+
+    .book-detail-image-wrap {
+      border-radius: 9px;
+    }
+  }
+  /* =========================================
+   BOOK DETAIL — FINAL HEADER FIX
+   ========================================= */
+
+  .book-detail-section {
+    width: 100%;
+    min-height: 760px;
+    padding: 72px 7vw 85px;
+    background: #f7f1e5;
+    color: #102034;
+    overflow: hidden;
+  }
+
+  .book-detail-header {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto 42px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+
+    column-gap: 70px;
+    row-gap: 8px;
+
+    text-align: left;
+  }
+
+  /* THE BOOK, UNPACKED */
+  .book-detail-label {
+    grid-column: 1;
+    grid-row: 1;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 0;
+
+    color: #73500c;
+    font-family: Inter, sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .book-detail-label span {
+    width: 15px;
+    height: 2px;
+    background: #73500c;
+    border-radius: 2px;
+  }
+
+  /* বইটিতে যা যা রয়েছে */
+  .book-detail-header h2 {
+    grid-column: 1;
+    grid-row: 2;
+
+    margin: 0;
+
+    color: #0d1f35;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 38px;
+    line-height: 1.25;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+
+  /* ডান পাশের paragraph */
+  .book-detail-header p {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+
+    align-self: start;
+
+    margin: 0;
+    padding-top: 5px;
+
+    max-width: 500px;
+
+    color: #596576;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  /* IMAGE / BOOK CARD */
+  .book-detail-image-wrap {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #f8f2e6;
+
+    border: 1px solid #dfd3bb;
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow:
+      0 18px 40px rgba(45, 35, 20, 0.1),
+      0 3px 10px rgba(45, 35, 20, 0.06);
+  }
+
+  .book-detail-image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 14px;
+  }
+
+  /* =========================================
+   TABLET
+   ========================================= */
+
+  @media (max-width: 800px) {
+    .book-detail-section {
+      padding: 60px 20px 70px;
+    }
+
+    .book-detail-header {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: 15px;
+
+      margin-bottom: 30px;
+    }
+
+    .book-detail-label {
+      grid-column: 1;
+      grid-row: auto;
+    }
+
+    .book-detail-header h2 {
+      grid-column: 1;
+      grid-row: auto;
+
+      font-size: 30px;
+    }
+
+    .book-detail-header p {
+      grid-column: 1;
+      grid-row: auto;
+
+      padding-top: 0;
+      max-width: 500px;
+    }
+  }
+
+  /* =========================================
+   MOBILE
+   ========================================= */
+
+  @media (max-width: 520px) {
+    .book-detail-section {
+      padding: 45px 12px 55px;
+    }
+
+    .book-detail-header {
+      margin-bottom: 24px;
+    }
+
+    .book-detail-header h2 {
+      font-size: 26px;
+    }
+
+    .book-detail-header p {
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .book-detail-image-wrap {
+      border-radius: 10px;
+    }
+
+    .book-detail-image {
+      border-radius: 10px;
+    }
+  }
+  /* =========================================
+   THE BOOK, UNPACKED — CORRECT POSITION
+========================================= */
+
+  .book-detail-section {
+    width: 100%;
+    padding: 70px 7vw 80px;
+    background: #f7f1e5;
+    overflow: hidden;
+  }
+
+  /* Header দুই পাশে ভাগ */
+  .book-detail-header {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto 45px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 70px;
+    row-gap: 15px;
+
+    text-align: left;
+  }
+
+  /* ছোট label — বাম উপরে */
+  .book-detail-label {
+    grid-column: 1;
+    grid-row: 1;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin: 0;
+
+    color: #806000;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+
+  .book-detail-label::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: #806000;
+    display: block;
+  }
+
+  /* title-row-কে parent grid-এর অংশ বানানো */
+  .book-detail-title-row {
+    display: contents;
+  }
+
+  /* বাংলা heading — বাম পাশে */
+  .book-detail-header h2 {
+    grid-column: 1;
+    grid-row: 2;
+
+    margin: 0;
+
+    color: #0a1d38;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 38px !important;
+    font-weight: 800;
+    line-height: 1.2;
+
+    letter-spacing: -0.5px;
+  }
+
+  /* Description — ডান পাশে */
+  .book-detail-header p {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+
+    margin: 0;
+    padding-top: 5px;
+
+    max-width: 500px;
+
+    color: #617087;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* =========================================
+   IMAGE 4
+========================================= */
+
+  .book-detail-image-wrap {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border: 1px solid #dfd3bb;
+    border-radius: 14px;
+
+    background: #f8f2e6;
+  }
+
+  .book-detail-image {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+  }
+
+  /* =========================================
+   TABLET
+========================================= */
+
+  @media (max-width: 800px) {
+    .book-detail-section {
+      padding: 55px 25px 65px;
+    }
+
+    .book-detail-header {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .book-detail-label {
+      grid-column: 1;
+      grid-row: auto;
+    }
+
+    .book-detail-header h2 {
+      grid-column: 1;
+      grid-row: auto;
+
+      font-size: 32px !important;
+    }
+
+    .book-detail-header p {
+      grid-column: 1;
+      grid-row: auto;
+
+      max-width: 600px;
+    }
+  }
+
+  /* =========================================
+   MOBILE
+========================================= */
+
+  @media (max-width: 520px) {
+    .book-detail-section {
+      padding: 45px 15px 55px;
+    }
+
+    .book-detail-header h2 {
+      font-size: 27px !important;
+    }
+
+    .book-detail-header p {
+      font-size: 12px;
+    }
+  }
+  /* =========================================
+   THE BOOK, UNPACKED — EXACT LOOK
+========================================= */
+
+  .book-detail-section {
+    width: 100%;
+    min-height: 640px;
+    padding: 70px 7.5% 30px;
+    background: #f7f1e5;
+    box-sizing: border-box;
+  }
+
+  /* TOP AREA */
+  .book-detail-header {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto 42px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 80px;
+    align-items: start;
+  }
+
+  /* THE BOOK, UNPACKED */
+  .book-detail-label {
+    grid-column: 1;
+    grid-row: 1;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin: 0 0 8px;
+
+    color: #806000;
+    font-family: Inter, sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .book-detail-label::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: #806000;
+    display: block;
+  }
+
+  /* title wrapper */
+  .book-detail-title-row {
+    display: contents !important;
+  }
+
+  /* বাংলা heading */
+  .book-detail-title-row > div {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+  }
+
+  .book-detail-title-row > div h2 {
+    margin: 0 !important;
+
+    color: #0b1d37 !important;
+    font-family: "Hind Siliguri", sans-serif;
+
+    font-size: 30px !important;
+    line-height: 1.25 !important;
+    font-weight: 800 !important;
+
+    letter-spacing: -0.5px;
+  }
+
+  /* RIGHT DESCRIPTION */
+  .book-detail-title-row > p {
+    grid-column: 2 !important;
+    grid-row: 1 / span 2 !important;
+
+    margin: 2px 0 0 !important;
+    padding: 0 !important;
+
+    max-width: 390px;
+
+    color: #607087;
+    font-family: "Hind Siliguri", sans-serif;
+
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  /* =========================================
+   IMAGE 4 — BOOK
+========================================= */
+
+  .book-detail-image-wrap {
+    width: 100%;
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    padding: 0;
+
+    border: 1px solid #dfd3bb;
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    background: #f8f2e6;
+
+    box-sizing: border-box;
+  }
+
+  .book-detail-image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    object-fit: contain;
+  }
+
+  /* =========================================
+   MOBILE
+========================================= */
+
+  @media (max-width: 800px) {
+    .book-detail-section {
+      padding: 55px 25px 60px;
+    }
+
+    .book-detail-header {
+      grid-template-columns: 1fr;
+      row-gap: 14px;
+    }
+
+    .book-detail-label {
+      grid-column: 1;
+      grid-row: auto;
+    }
+
+    .book-detail-title-row > div {
+      grid-column: 1 !important;
+      grid-row: auto !important;
+    }
+
+    .book-detail-title-row > div h2 {
+      font-size: 30px !important;
+    }
+
+    .book-detail-title-row > p {
+      grid-column: 1 !important;
+      grid-row: auto !important;
+    }
+  } /* =========================================
+   BOOK + DIGITAL SUPPORT
+========================================= */
+
+  .digital-support-section {
+    width: 100%;
+    min-height: 1284px;
+    padding: 86px 0;
+    box-sizing: border-box;
+
+    background: #040914;
+    color: #e8edf5;
+
+    overflow: hidden;
+  }
+
+  .digital-support-container {
+    width: min(1152px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  /* =========================================
+   TOP CONTENT
+========================================= */
+
+  .digital-support-top {
+    min-height: 594px;
+
+    display: grid;
+    grid-template-columns: 453px 1fr;
+    column-gap: 86px;
+
+    align-items: center;
+  }
+
+  .digital-support-intro {
+    align-self: center;
+  }
+
+  .digital-support-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 17px;
+
+    color: #f8c94b;
+
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+
+    line-height: 16px;
+    letter-spacing: 1.56px;
+  }
+
+  .digital-support-label span {
+    width: 16px;
+    height: 2px;
+
+    border-radius: 999px;
+
+    background: #f8c94b;
+  }
+
+  /* MAIN HEADING */
+
+  .digital-support-intro h2 {
+    width: 453px;
+
+    margin: 0;
+
+    color: #e8edf5;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 46px;
+    font-weight: 700;
+
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+  }
+
+  /* DESCRIPTION */
+
+  .digital-support-intro > p {
+    width: 453px;
+
+    margin: 14px 0 0;
+
+    color: #b8c4d5;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+
+    line-height: 30px;
+    letter-spacing: -0.3px;
+  }
+
+  /* =========================================
+   IMAGE 5
+========================================= */
+
+  .digital-support-visual {
+    position: relative;
+
+    width: 613px;
+    height: 594px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .digital-support-glow {
+    position: absolute;
+
+    width: 490px;
+    height: 505px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+      circle,
+      rgba(116, 221, 234, 0.18) 0%,
+      rgba(116, 221, 234, 0) 68%
+    );
+
+    filter: blur(8px);
+  }
+
+  .digital-support-image {
+    position: relative;
+    z-index: 2;
+
+    width: 411px;
+    height: 398px;
+
+    display: block;
+
+    object-fit: contain;
+
+    border-radius: 20px;
+  }
+
+  /* =========================================
+   SIX SUPPORT CARDS
+========================================= */
+
+  .digital-support-grid {
+    width: 100%;
+
+    margin-top: 24px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-rows: repeat(2, 184px);
+
+    gap: 13px;
+  }
+
+  .support-card {
+    position: relative;
+
+    min-height: 184px;
+
+    padding: 22px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: flex-start;
+
+    background: rgba(255, 255, 255, 0.043);
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+  }
+
+  .support-number {
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 16px;
+
+    border-radius: 12px;
+
+    background: #f8c94b;
+
+    color: #040914;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+
+    line-height: 20px;
+  }
+
+  .support-content {
+    padding-top: 1px;
+  }
+
+  .support-content h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+
+    line-height: 31px;
+    letter-spacing: -0.4px;
+  }
+
+  .support-content p {
+    max-width: 273px;
+
+    margin: 7px 0 0;
+
+    color: #b8c4d5;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    line-height: 25px;
+  }
+
+  .support-line {
+    position: absolute;
+
+    left: 80px;
+    bottom: 18px;
+
+    width: 76px;
+    height: 2px;
+
+    background: linear-gradient(90deg, #f8c94b 0%, rgba(248, 201, 75, 0) 78%);
+
+    opacity: 0.68;
+  }
+
+  /* =========================================
+   ORDER BAR
+========================================= */
+
+  .support-order-bar {
+    width: 100%;
+    min-height: 97px;
+
+    margin-top: 16px;
+    padding: 24px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: linear-gradient(
+      90deg,
+      rgba(116, 221, 234, 0.1),
+      rgba(116, 221, 234, 0.03)
+    );
+
+    border: 1px solid rgba(116, 221, 234, 0.18);
+
+    border-radius: 16px;
+  }
+
+  .support-price {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .support-price strong {
+    color: #f8c94b;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+
+    line-height: 34px;
+  }
+
+  .support-price span {
+    color: #b8c4d5;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 14px;
+
+    line-height: 24px;
+  }
+
+  .support-order-btn {
+    min-width: 242px;
+    height: 47px;
+
+    padding: 12px 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 9px;
+
+    border: none;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #ffe38e 0%, #f8c94b 46%, #f2b81e 100%);
+
+    box-shadow:
+      0 11px 26px rgba(248, 201, 75, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+    color: #071229;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .support-order-btn span:last-child {
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  /* =========================================
+   TABLET
+========================================= */
+
+  @media (max-width: 1000px) {
+    .digital-support-top {
+      grid-template-columns: 1fr;
+      gap: 35px;
+    }
+
+    .digital-support-intro {
+      text-align: center;
+    }
+
+    .digital-support-label {
+      justify-content: center;
+    }
+
+    .digital-support-intro h2,
+    .digital-support-intro > p {
+      width: 100%;
+      max-width: 650px;
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .digital-support-visual {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  /* =========================================
+   MOBILE
+========================================= */
+
+  @media (max-width: 760px) {
+    .digital-support-section {
+      padding: 65px 0;
+    }
+
+    .digital-support-container {
+      width: calc(100% - 32px);
+    }
+
+    .digital-support-intro h2 {
+      font-size: 36px;
+    }
+
+    .digital-support-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+
+    .support-card {
+      min-height: 170px;
+    }
+
+    .support-order-bar {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .support-price {
+      justify-content: center;
+    }
+
+    .support-order-btn {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .digital-support-intro h2 {
+      font-size: 30px;
+    }
+
+    .digital-support-intro > p {
+      font-size: 15px;
+      line-height: 27px;
+    }
+
+    .digital-support-visual {
+      width: 100%;
+      height: 420px;
+    }
+
+    .digital-support-image {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+    }
+
+    .support-price {
+      flex-direction: column;
+      gap: 3px;
+    }
+  }
+  /* ================================
+   WHO IT IS FOR SECTION
+================================ */
+
+  .who-section {
+    width: 100%;
+    min-height: 620px;
+    background: #fffdf7;
+    padding: 86px 0;
+    box-sizing: border-box;
+  }
+
+  .who-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .section-label span {
+    width: 16px;
+    height: 2px;
+    background: #73500c;
+    border-radius: 999px;
+  }
+
+  .section-label p {
+    margin: 0;
+    color: #73500c;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.56px;
+  }
+
+  .who-header h2 {
+    margin: 0;
+    color: #0a1730;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.32;
+    letter-spacing: -0.79px;
+    text-align: center;
+  }
+
+  /* Cards */
+
+  .who-cards {
+    width: min(1152px, calc(100% - 48px));
+    margin: 52px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .who-card {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 259px;
+    padding: 28px 29px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 253, 248, 0.82);
+    border: 1px solid #dcd3c0;
+    border-radius: 16px;
+
+    box-shadow: 0 14px 38px rgba(4, 9, 20, 0.09);
+  }
+
+  .card-number {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 20px;
+
+    color: #7f6d4a;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.44px;
+  }
+
+  .who-card h3 {
+    position: relative;
+    z-index: 2;
+
+    margin: 0 0 8px;
+
+    color: #071229;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 18.88px;
+    font-weight: 700;
+    line-height: 32px;
+  }
+
+  .who-card h4 {
+    position: relative;
+    z-index: 2;
+
+    margin: 0 0 12px;
+
+    color: #8d6213;
+    font-family: Inter, sans-serif;
+    font-size: 14.4px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  .who-card p {
+    position: relative;
+    z-index: 2;
+
+    max-width: 314px;
+    margin: 0;
+
+    color: #536174;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+  }
+
+  /* Decorative circles */
+
+  .card-circle {
+    position: absolute;
+    width: 144px;
+    height: 144px;
+
+    right: -44px;
+    bottom: -68px;
+
+    background: #fff0b7;
+    border-radius: 50%;
+  }
+
+  .card-circle.orange {
+    background: #ffd6b7;
+  }
+
+  /* Responsive */
+
+  @media (max-width: 900px) {
+    .who-cards {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+    }
+
+    .who-section {
+      padding: 70px 20px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .who-header h2 {
+      font-size: 32px;
+    }
+
+    .who-cards {
+      width: 100%;
+    }
+
+    .who-card {
+      min-height: 250px;
+    }
+  }
+  /* =========================================================
+   STUDENT PROOF — FINAL
+========================================================= */
+
+  .student-proof {
+    width: 100%;
+    min-height: 1050px;
+    padding: 70px 0 80px;
+
+    background:
+      radial-gradient(
+        circle at 80% 10%,
+        rgba(116, 221, 234, 0.08),
+        transparent 28%
+      ),
+      #040914;
+
+    color: #e8edf5;
+    overflow: hidden;
+  }
+
+  /* =========================
+   MAIN HEADER
+========================= */
+
+  .student-proof-header {
+    width: 1152px;
+    max-width: calc(100% - 40px);
+
+    margin: 0 auto;
+
+    text-align: center;
+  }
+
+  .student-proof-header > .section-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #f8c94b;
+
+    font-family: Inter, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .student-proof-header > .section-label span {
+    width: 16px;
+    height: 2px;
+
+    background: #f8c94b;
+    border-radius: 999px;
+  }
+
+  .student-proof-header h2 {
+    margin: 10px 0 0;
+
+    color: #e8edf5;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  /* =========================================================
+   STUDENT STORIES TITLE
+========================================================= */
+
+  .student-stories-heading {
+    width: 1152px;
+    max-width: calc(100% - 40px);
+
+    margin: 35px auto 0;
+
+    text-align: center;
+  }
+
+  .student-stories-heading .section-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #f8c94b;
+
+    font-family: Inter, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .student-stories-heading .section-label span {
+    width: 16px;
+    height: 2px;
+
+    background: #f8c94b;
+    border-radius: 999px;
+  }
+
+  .student-stories-heading h3 {
+    margin: 8px 0 0;
+
+    color: #ffffff;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  /* =========================================================
+   STUDENT STORY CARDS
+========================================================= */
+
+  .student-stories {
+    width: 1152px;
+    max-width: calc(100% - 40px);
+
+    margin: 25px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 192px);
+
+    justify-content: center;
+
+    gap: 15px;
+  }
+
+  /* CARD */
+
+  .student-story-card {
+    width: 192px;
+    height: 381px;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background: #111722;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    box-sizing: border-box;
+  }
+
+  /* =========================================================
+   CARD VISUAL
+========================================================= */
+
+  .story-visual {
+    position: relative;
+
+    width: 190px;
+    height: 340px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+      radial-gradient(
+        circle at 70% 20%,
+        rgba(76, 157, 190, 0.45),
+        transparent 30%
+      ),
+      linear-gradient(145deg, #173d68 0%, #07142d 55%, #061127 100%);
+  }
+
+  /* diagonal line 01 */
+
+  .story-visual::before {
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 1px;
+
+    background: rgba(248, 201, 75, 0.55);
+
+    transform: rotate(-28deg);
+
+    top: 130px;
+    left: -25px;
+
+    z-index: 1;
+  }
+
+  /* diagonal line 02 */
+
+  .story-visual::after {
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 1px;
+
+    background: rgba(248, 201, 75, 0.55);
+
+    transform: rotate(-28deg);
+
+    bottom: 95px;
+    left: -20px;
+
+    z-index: 1;
+  }
+
+  /* =========================================================
+   NUMBER CIRCLE
+========================================================= */
+
+  .story-visual span {
+    position: relative;
+
+    z-index: 3;
+
+    width: 145px;
+    height: 145px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(248, 201, 75, 0.65);
+
+    border-radius: 50%;
+
+    color: #f8c94b;
+
+    font-family: "Hind Siliguri", sans-serif;
+
+    font-size: 48px;
+    font-weight: 700;
+
+    background: transparent;
+  }
+
+  /* =========================================================
+   YELLOW DOT
+========================================================= */
+
+  .story-visual small::before {
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    background: #f8c94b;
+
+    border-radius: 50%;
+
+    top: -240px;
+    right: -10px;
+
+    z-index: 4;
+  }
+
+  /* =========================================================
+   OXFORD 3000
+========================================================= */
+
+  .story-visual small {
+    position: absolute;
+
+    left: 11px;
+    bottom: 12px;
+
+    z-index: 5;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-family: Inter, sans-serif;
+
+    font-size: 7px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+  }
+
+  /* =========================================================
+   STUDENT INFO
+========================================================= */
+
+  .student-info {
+    width: 100%;
+    height: 40px;
+
+    padding: 7px 11px;
+
+    box-sizing: border-box;
+
+    background: #151a23;
+  }
+
+  .student-info h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-family: "Hind Siliguri", sans-serif;
+
+    font-size: 13px;
+    line-height: 17px;
+
+    font-weight: 700;
+  }
+
+  .student-info p {
+    margin: 0;
+
+    color: #b8c1cf;
+
+    font-family: "Hind Siliguri", sans-serif;
+
+    font-size: 9px;
+    line-height: 13px;
+  }
+
+  /* =========================================================
+   WRITTEN FEEDBACK
+========================================================= */
+
+  .written-feedback {
+    width: 1152px;
+    max-width: calc(100% - 40px);
+
+    margin: 45px auto 0;
+
+    text-align: center;
+  }
+
+  .written-feedback .section-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #f8c94b;
+
+    font-family: Inter, sans-serif;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .written-feedback .section-label span {
+    width: 16px;
+    height: 2px;
+
+    background: #f8c94b;
+    border-radius: 999px;
+  }
+
+  .written-feedback h2 {
+    margin: 8px 0 0;
+
+    color: #ffffff;
+
+    font-family: "Hind Siliguri", sans-serif;
+
+    font-size: 30px;
+    line-height: 1.2;
+
+    font-weight: 700;
+  }
+
+  /* =========================================================
+   FEEDBACK CARDS
+========================================================= */
+
+  .feedback-grid {
+    width: 1152px;
+    max-width: calc(100% - 40px);
+
+    margin: 24px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 24px;
+  }
+
+  .feedback-card {
+    min-height: 120px;
+
+    padding: 20px 20px 20px 55px;
+
+    position: relative;
+
+    box-sizing: border-box;
+
+    text-align: left;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    border-radius: 12px;
+  }
+
+  .feedback-card::before {
+    content: "“";
+
+    position: absolute;
+
+    left: 20px;
+    top: 13px;
+
+    color: #f8c94b;
+
+    font-family: Georgia, serif;
+
+    font-size: 32px;
+    line-height: 1;
+  }
+
+  .feedback-card p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-family: "Hind Siliguri", sans-serif;
+
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* =========================================================
+   TABLET
+========================================================= */
+
+  @media (max-width: 800px) {
+    .student-proof {
+      padding: 60px 0 70px;
+    }
+
+    .student-proof-header h2 {
+      font-size: 32px;
+    }
+
+    .student-stories {
+      grid-template-columns: repeat(3, 192px);
+
+      overflow-x: auto;
+
+      justify-content: start;
+
+      padding: 0 20px 10px;
+
+      max-width: 100%;
+
+      scrollbar-width: none;
+    }
+
+    .student-stories::-webkit-scrollbar {
+      display: none;
+    }
+
+    .feedback-grid {
+      grid-template-columns: 1fr;
+
+      max-width: 600px;
+    }
+  }
+
+  /* =========================================================
+   MOBILE
+========================================================= */
+
+  @media (max-width: 520px) {
+    .student-proof-header,
+    .student-stories-heading,
+    .written-feedback {
+      max-width: calc(100% - 24px);
+    }
+
+    .student-proof-header h2 {
+      font-size: 28px;
+    }
+
+    .student-stories-heading h3,
+    .written-feedback h2 {
+      font-size: 25px;
+    }
+
+    .student-stories {
+      grid-template-columns: repeat(3, 192px);
+
+      gap: 12px;
+
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    .feedback-grid {
+      max-width: calc(100% - 24px);
+
+      gap: 12px;
+    }
+
+    .feedback-card {
+      min-height: 100px;
+
+      padding: 16px 16px 16px 48px;
+    }
+
+    .feedback-card p {
+      font-size: 12px;
+    }
+  }
+  /* ================================
+   STUDENT PROOF - FINAL FIX
+================================ */
+
+  .student-proof {
+    width: 100%;
+    overflow: hidden;
+    background: #050812;
+    padding: 80px 20px;
+  }
+
+  /* Main heading */
+  .student-proof-header {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .student-proof-header .section-label {
+    justify-content: center;
+  }
+
+  .student-proof-header h2 {
+    margin: 12px 0 0;
+    text-align: center;
+  }
+
+  /* Video heading */
+  .stories-heading {
+    width: 100%;
+    max-width: 1000px;
+    margin: 55px auto 28px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stories-heading .section-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .stories-heading h3 {
+    margin: 12px 0 0;
+    text-align: center;
+  }
+
+  /* Student cards */
+  .student-stories {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  /* Individual card */
+  .student-story-card {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  /* Written feedback */
+  .written-feedback {
+    width: 100%;
+    max-width: 1120px;
+    margin: 65px auto 0;
+    text-align: center;
+  }
+
+  .written-feedback .section-label {
+    justify-content: center;
+  }
+
+  .written-feedback h2 {
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .feedback-grid {
+    width: 100%;
+    margin: 28px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .feedback-card {
+    width: 100%;
+  }
+
+  /* ================================
+   RESPONSIVE
+================================ */
+
+  @media (max-width: 900px) {
+    .student-stories {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 760px;
+    }
+
+    .feedback-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 760px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .student-proof {
+      padding: 60px 16px;
+    }
+
+    .student-stories {
+      grid-template-columns: 1fr;
+      max-width: 360px;
+    }
+
+    .feedback-grid {
+      grid-template-columns: 1fr;
+      max-width: 360px;
+    }
+
+    .student-story-card {
+      max-width: 100%;
+    }
+  }
+  /* =========================
+   THE DECISION
+========================= */
+
+  .decision-section {
+    width: 100%;
+    min-height: 700px;
+    padding: 86px 20px;
+    box-sizing: border-box;
+
+    background:
+      radial-gradient(
+        106% 147% at 85% 12%,
+        rgba(248, 201, 75, 0.13) 0%,
+        rgba(248, 201, 75, 0) 21%
+      ),
+      #fffdf7;
+  }
+
+  .decision-container {
+    width: min(1152px, 100%);
+    margin: 0 auto;
+  }
+
+  .decision-heading {
+    width: 752px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .decision-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-bottom: 10px;
+
+    color: #73500c;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.56px;
+  }
+
+  .decision-label span {
+    width: 16px;
+    height: 2px;
+    background: #73500c;
+    border-radius: 999px;
+  }
+
+  .decision-heading h2 {
+    margin: 0;
+
+    color: #0a1730;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .decision-heading p {
+    width: 531px;
+    max-width: 100%;
+    margin: 14px auto 0;
+
+    color: #4d5a6b;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 17.6px;
+    line-height: 30px;
+  }
+
+  /* TABLE */
+
+  .comparison-table {
+    display: grid;
+    grid-template-columns: 30% 42% 28%;
+
+    width: 100%;
+    margin-top: 52px;
+
+    overflow: hidden;
+
+    background: #fffdf8;
+    border: 1px solid #dcd3c0;
+    border-radius: 16px;
+
+    box-shadow: 0 12px 36px rgba(4, 9, 20, 0.08);
+  }
+
+  .table-cell {
+    min-height: 68px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    padding: 16px 24px;
+
+    border-bottom: 1px solid #dcd3c0;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 16px;
+    line-height: 27px;
+  }
+
+  .table-cell:nth-last-child(-n + 3) {
+    border-bottom: none;
+  }
+
+  /* Header */
+
+  .table-cell.header {
+    min-height: 65px;
+
+    font-weight: 700;
+  }
+
+  .table-cell.dark {
+    background: #071229;
+    color: white;
+  }
+
+  .table-cell.yellow {
+    background: #f8c94b;
+    color: #040914;
+    font-family: Inter, sans-serif;
+  }
+
+  /* Left column */
+
+  .row-title {
+    color: #071229;
+    font-weight: 700;
+  }
+
+  /* Middle column */
+
+  .system-cell {
+    gap: 9px;
+
+    background: #fff8dc;
+    color: #071229;
+
+    font-weight: 600;
+    font-family: Inter, "Hind Siliguri", sans-serif;
+  }
+
+  .check {
+    flex: 0 0 21px;
+
+    width: 21px;
+    height: 21px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #071229;
+    color: #fff;
+
+    border-radius: 50%;
+
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* Right column */
+
+  .normal-cell {
+    color: #536174;
+    font-weight: 400;
+  }
+
+  /* Responsive */
+
+  @media (max-width: 900px) {
+    .decision-section {
+      padding: 70px 16px;
+    }
+
+    .decision-heading h2 {
+      font-size: 32px;
+    }
+
+    .comparison-table {
+      grid-template-columns: 28% 44% 28%;
+      overflow-x: auto;
+    }
+
+    .table-cell {
+      padding: 14px 16px;
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .decision-heading h2 {
+      font-size: 27px;
+    }
+
+    .decision-heading p {
+      font-size: 15px;
+      line-height: 25px;
+    }
+
+    .comparison-table {
+      min-width: 720px;
+    }
+
+    .decision-container {
+      overflow-x: auto;
+    }
+  }
+  /* =========================================
+   ANDROID COMPANION
+========================================= */
+
+  .android-section {
+    width: 100%;
+    min-height: 638px;
+    padding: 86px 20px;
+    box-sizing: border-box;
+    background: #fdeec2;
+  }
+
+  .android-container {
+    width: min(1152px, 100%);
+    min-height: 466px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  /* LEFT */
+  .android-content {
+    width: 100%;
+    max-width: 448px;
+  }
+
+  .android-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+
+    color: #73500c;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.56px;
+  }
+
+  .android-label span {
+    width: 16px;
+    height: 2px;
+    background: #73500c;
+    border-radius: 999px;
+  }
+
+  .android-content h2 {
+    margin: 0;
+    padding: 0;
+
+    color: #0a1730;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.32;
+    letter-spacing: -0.79px;
+  }
+
+  .android-subtitle {
+    margin: 14px 0 0;
+
+    color: #0a1730;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    line-height: 27px;
+  }
+
+  .android-note {
+    margin: 18px 0 22px;
+    padding-left: 14px;
+
+    border-left: 2px solid #1f9fb5;
+
+    color: #0a1730;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  .android-download {
+    min-width: 168px;
+    height: 47px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 12px 18px;
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #ffe38e 0%, #f8c94b 46%, #f2b81e 100%);
+
+    box-shadow:
+      0 11px 26px rgba(248, 201, 75, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+    color: #071229;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 15.2px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .android-download:hover {
+    transform: translateY(-2px);
+  }
+
+  .android-download span {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+  }
+
+  /* RIGHT */
+  .android-visual {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .android-image {
+    width: 344px;
+    height: 334px;
+
+    object-fit: contain;
+    display: block;
+
+    filter: drop-shadow(0 18px 48px rgba(0, 0, 0, 0.25));
+  }
+
+  .android-features {
+    width: 100%;
+    max-width: 544px;
+
+    margin-top: 18px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 9px;
+  }
+
+  .android-features div {
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    background: #fffdf7;
+    border: 1px solid rgba(31, 159, 181, 0.25);
+    border-radius: 999px;
+
+    box-shadow: 0 7px 17px rgba(4, 9, 20, 0.06);
+
+    color: #071229;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+  }
+
+  /* =========================================
+   RESPONSIVE
+========================================= */
+
+  @media (max-width: 900px) {
+    .android-section {
+      padding: 70px 20px;
+    }
+
+    .android-container {
+      grid-template-columns: 1fr;
+      gap: 45px;
+    }
+
+    .android-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .android-visual {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .android-section {
+      padding: 55px 18px;
+    }
+
+    .android-content h2 {
+      font-size: 32px;
+      line-height: 1.3;
+    }
+
+    .android-image {
+      width: 290px;
+      height: auto;
+    }
+
+    .android-features {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  }
+  /* =========================
+   FAQ SECTION
+========================= */
+
+  .faq-section {
+    width: 100%;
+    background: #fffdf7;
+    padding: 86px 0;
+    box-sizing: border-box;
+  }
+
+  .faq-container {
+    width: 1152px;
+    max-width: calc(100% - 48px);
+    min-height: 558px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 324px 1fr;
+    column-gap: 72px;
+  }
+
+  /* =========================
+   LEFT SIDE
+========================= */
+
+  .faq-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .faq-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+    color: #73500c;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 1.56px;
+  }
+
+  .faq-label span {
+    width: 16px;
+    height: 2px;
+    background: #73500c;
+    border-radius: 999px;
+  }
+
+  .faq-left h2 {
+    margin: 0;
+
+    color: #071229;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0.3px;
+  }
+
+  .faq-left p {
+    margin: 16px 0 0;
+
+    color: #536174;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+  }
+
+  .faq-phone {
+    display: inline-block;
+    margin-top: 2px;
+
+    color: #72500e;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 27px;
+
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* =========================
+   RIGHT SIDE
+========================= */
+
+  .faq-list {
+    width: 100%;
+    border-top: 1px solid #dcd3c0;
+  }
+
+  .faq-item {
+    width: 100%;
+    border-bottom: 1px solid #dcd3c0;
+    box-sizing: border-box;
+  }
+
+  .faq-question {
+    width: 100%;
+    min-height: 68px;
+
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    cursor: pointer;
+
+    color: #071229;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 27px;
+
+    text-align: left;
+  }
+
+  .faq-question:hover {
+    color: #72500e;
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+
+    width: 21px;
+    height: 21px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #72500e;
+
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+
+    transition: transform 0.2s ease;
+  }
+
+  .faq-item.active .faq-icon {
+    font-size: 24px;
+  }
+
+  .faq-answer {
+    padding: 0 45px 21px 0;
+
+    color: #536174;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+
+    animation: faqOpen 0.2s ease;
+  }
+
+  @keyframes faqOpen {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* =========================
+   RESPONSIVE
+========================= */
+
+  @media (max-width: 1000px) {
+    .faq-container {
+      grid-template-columns: 1fr;
+      row-gap: 45px;
+    }
+
+    .faq-left {
+      max-width: 500px;
+    }
+
+    .faq-list {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .faq-section {
+      padding: 60px 0;
+    }
+
+    .faq-container {
+      max-width: calc(100% - 32px);
+    }
+
+    .faq-left h2 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    .faq-question {
+      min-height: 62px;
+      font-size: 15px;
+      line-height: 24px;
+    }
+
+    .faq-answer {
+      padding-right: 25px;
+      font-size: 15px;
+      line-height: 25px;
+    }
+  }
+  /* =========================
+   FAQ SECTION
+========================= */
+
+  .faq-section {
+    width: 100%;
+    background: #fffdf7;
+    padding: 86px 0 80px;
+    box-sizing: border-box;
+  }
+
+  .faq-container {
+    width: min(1152px, calc(100% - 48px));
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 96px;
+    align-items: start;
+  }
+
+  /* LEFT */
+
+  .faq-intro {
+    padding-top: 8px;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #73500c;
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+  }
+
+  .section-label span {
+    width: 16px;
+    height: 2px;
+    background: #73500c;
+    border-radius: 999px;
+  }
+
+  .faq-intro h2 {
+    margin: 0;
+    color: #0a1730;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 38px;
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+  }
+
+  .faq-intro p {
+    margin: 14px 0 8px;
+
+    color: #687387;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .faq-intro a {
+    color: #73500c;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  /* RIGHT */
+
+  .faq-list {
+    width: 100%;
+    border-top: 1px solid #ded9cd;
+  }
+
+  .faq-list details {
+    border-bottom: 1px solid #ded9cd;
+  }
+
+  .faq-list summary {
+    min-height: 54px;
+    padding: 17px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
+    list-style: none;
+
+    color: #0a1730;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .faq-list summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-list summary span {
+    color: #8b6b2a;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    margin-left: 20px;
+  }
+
+  .faq-list details p {
+    margin: 0;
+    padding: 0 35px 18px 0;
+
+    color: #657084;
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  /* =========================
+   RESPONSIVE
+========================= */
+
+  @media (max-width: 900px) {
+    .faq-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .faq-intro {
+      padding-top: 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .faq-section {
+      padding: 60px 0;
+    }
+
+    .faq-container {
+      width: min(100% - 32px, 520px);
+      gap: 32px;
+    }
+
+    .faq-intro h2 {
+      font-size: 30px;
+    }
+
+    .faq-list summary {
+      font-size: 13px;
+      min-height: 50px;
+    }
+
+    .faq-list details p {
+      font-size: 13px;
+    }
+  }
+  /* =========================================
+   MONEY BACK GUARANTEE
+========================================= */
+
+  .guarantee-section {
+    width: 100%;
+    padding: 57.6px 0;
+    background: #fdeec2;
+    box-sizing: border-box;
+  }
+
+  .guarantee-container {
+    position: relative;
+
+    width: min(1152px, calc(100% - 48px));
+    min-height: 160px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    padding: 30px;
+    box-sizing: border-box;
+
+    background:
+      radial-gradient(
+        93% 668% at 8% 100%,
+        rgba(31, 159, 181, 0.2) 0%,
+        rgba(31, 159, 181, 0) 36%
+      ),
+      radial-gradient(
+        91% 653% at 90% 5%,
+        rgba(248, 201, 75, 0.16) 0%,
+        rgba(248, 201, 75, 0) 31%
+      ),
+      #071229;
+
+    border: 1px solid rgba(248, 201, 75, 0.34);
+    border-radius: 24px;
+
+    box-shadow: 0 28px 70px rgba(4, 9, 20, 0.18);
+
+    overflow: hidden;
+  }
+
+  /* decorative glow */
+
+  .guarantee-container::after {
+    content: "";
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    right: -50px;
+    top: -80px;
+
+    background: rgba(248, 201, 75, 0.12);
+    border-radius: 50%;
+  }
+
+  /* =========================================
+   ICON
+========================================= */
+
+  .guarantee-icon {
+    width: 68px;
+    height: 68px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #f8c94b;
+    border-radius: 50%;
+
+    background: rgba(248, 201, 75, 0.1);
+
+    margin-right: 32px;
+
+    position: relative;
+    z-index: 2;
+  }
+
+  .shield {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #f8c94b;
+    border-radius: 10px;
+
+    color: #f8c94b;
+
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+
+    clip-path: polygon(50% 0%, 90% 18%, 90% 58%, 50% 100%, 10% 58%, 10% 18%);
+  }
+
+  /* =========================================
+   CONTENT
+========================================= */
+
+  .guarantee-content {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+  }
+
+  .guarantee-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 2px;
+
+    color: #f8c94b;
+
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 1.56px;
+  }
+
+  .guarantee-label span {
+    width: 16px;
+    height: 2px;
+
+    background: #f8c94b;
+    border-radius: 999px;
+  }
+
+  .guarantee-content h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 36px;
+    line-height: 41px;
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+  }
+
+  .guarantee-content p {
+    margin: 3px 0 0;
+
+    max-width: 688px;
+
+    color: #b8c4d5;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 16px;
+    line-height: 27px;
+  }
+
+  /* =========================================
+   CONTACT CARD
+========================================= */
+
+  .guarantee-contact {
+    width: 200px;
+    min-height: 83px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 12px 16px;
+    box-sizing: border-box;
+
+    background: #f8c94b;
+    border: 1px solid #ffbd18;
+
+    border-radius: 12px;
+
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+
+    text-decoration: none;
+
+    position: relative;
+    z-index: 2;
+
+    transition: 0.2s ease;
+  }
+
+  .guarantee-contact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+  }
+
+  .guarantee-contact span {
+    color: #040914;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 12.48px;
+    line-height: 16px;
+  }
+
+  .guarantee-contact strong {
+    margin-top: 2px;
+
+    color: #040914;
+
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 700;
+
+    letter-spacing: 0.16px;
+  }
+
+  .guarantee-contact small {
+    margin-top: 3px;
+
+    color: #0d2042;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-size: 12.48px;
+    line-height: 16px;
+    font-weight: 700;
+  }
+
+  /* =========================================
+   TABLET
+========================================= */
+
+  @media (max-width: 900px) {
+    .guarantee-container {
+      width: min(92%, 700px);
+      padding: 25px;
+    }
+
+    .guarantee-content h2 {
+      font-size: 30px;
+    }
+
+    .guarantee-content p {
+      font-size: 14px;
+    }
+
+    .guarantee-contact {
+      width: 180px;
+    }
+  }
+
+  /* =========================================
+   MOBILE
+========================================= */
+
+  @media (max-width: 700px) {
+    .guarantee-section {
+      padding: 40px 0;
+    }
+
+    .guarantee-container {
+      width: calc(100% - 32px);
+
+      flex-direction: column;
+      align-items: flex-start;
+
+      gap: 20px;
+
+      padding: 25px;
+    }
+
+    .guarantee-icon {
+      margin-right: 0;
+    }
+
+    .guarantee-content h2 {
+      font-size: 28px;
+      line-height: 36px;
+    }
+
+    .guarantee-content p {
+      font-size: 14px;
+      line-height: 23px;
+    }
+
+    .guarantee-contact {
+      width: 100%;
+    }
+  }
+  /* =========================================
+   FINAL OFFER / ORDER SECTION
+========================================= */
+
+  .order-section {
+    position: relative;
+
+    width: 100%;
+    min-height: 1046px;
+
+    padding: 80px 0;
+
+    box-sizing: border-box;
+
+    background: #071229;
+
+    overflow: hidden;
+  }
+
+  /* =========================================
+   BACKGROUND GLOW
+========================================= */
+
+  .order-glow {
+    position: absolute;
+    min-height: auto;
+    padding: 24px;
+    filter: blur(12px);
+
+    .order-summary {
+      height: auto;
+      min-height: 142px;
+    }
+
+    .delivery-form h3 {
+      margin-bottom: 14px;
+    }
+
+    .full-field,
+    .address-field {
+      margin-top: 12px;
+    }
+
+    pointer-events: none;
+  }
+
+  padding: 16px;
+  width: 480px;
+  border-radius: 18px;
+
+  right: -90px;
+  top: -230px;
+
+  background: rgba(248, 201, 75, 0.1);
+
+  border-radius: 50%;
+}
+
+.order-glow-left {
+  width: 560px;
+  height: 560px;
+
+  left: -160px;
+  bottom: -100px;
+
+  background: rgba(116, 221, 234, 0.11);
+
+  border-radius: 50%;
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.order-container {
+  position: relative;
+
+  width: min(1152px, calc(100% - 48px));
+  min-height: 828px;
+
+  margin: 20px auto 0;
+
+  display: flex;
+
+  padding: 64px;
+
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      105% 154% at 10% 20%,
+      rgba(248, 201, 75, 0.11) 0%,
+      rgba(248, 201, 75, 0) 35%
+    ),
+    linear-gradient(135deg, #071229 0%, #040914 100%);
+
+  box-shadow: 0 28px 70px rgba(4, 9, 20, 0.18);
+
+  border-radius: 32px;
+}
+
+/* =========================================
+   LEFT SIDE
+========================================= */
+
+.order-left {
+  width: 438px;
+
+  padding-top: 91px;
+
+  flex-shrink: 0;
+}
+
+.order-eyebrow {
+  color: #f8c94b;
+
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  line-height: 19px;
+  font-weight: 500;
+
+  margin-bottom: 20px;
+}
+
+.order-left h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 40px;
+  line-height: 62px;
+  font-weight: 700;
+}
+
+.delivery-promise {
+  margin: 22px 0 0;
+
+  color: #f8c94b;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+/* =========================================
+   BENEFITS
+========================================= */
+
+.benefits-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.benefit-card {
+  position: relative;
+
+  height: 116px;
+
+  box-sizing: border-box;
+
+  padding: 12px;
+
+  display: flex;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.055);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 14px;
+}
+
+.benefit-card p {
+  margin: 0 0 0 48px;
+
+  color: #fffdf8;
+
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 23px;
+}
+
+.benefit-icon {
+  position: absolute;
+
+  left: 11px;
+
+  width: 39px;
+  height: 39px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #f8c94b;
+
+  background: rgba(248, 201, 75, 0.13);
+
+  border: 1px solid rgba(248, 201, 75, 0.22);
+
+  border-radius: 11px;
+
+  font-size: 17px;
+}
+
+.benefit-wide {
+  position: relative;
+
+  width: 100%;
+  height: 74px;
+
+  margin-top: 12px;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.055);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 14px;
+}
+
+.benefit-wide p {
+  margin-left: 63px;
+
+  color: #fffdf8;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 16px;
+  line-height: 23px;
+}
+
+/* =========================================
+   ORDER FORM
+========================================= */
+
+.order-form {
+  width: 514px;
+  min-height: 714px;
+
+  margin-left: 72px;
+
+  padding: 34px;
+
+  box-sizing: border-box;
+
+  background: #fbf5e8;
+
+  border: 1px solid rgba(248, 201, 75, 0.5);
+
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.22);
+
+  border-radius: 24px;
+}
+
+.form-inner {
+  width: 100%;
+}
+
+/* =========================================
+   DELIVERY RIBBON
+========================================= */
+
+.delivery-ribbon {
+  width: 100%;
+  min-height: 45px;
+
+  padding: 11px 24px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  background: #0d1f35;
+
+  border-radius: 12px;
+
+  color: #dbeaf4;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.delivery-ribbon strong {
+  color: #ffe180;
+
+  font-size: 14px;
+}
+
+.truck-icon {
+  color: #f8c94b;
+}
+
+/* =========================================
+   ORDER SUMMARY
+========================================= */
+
+.order-summary {
+  position: relative;
+
+  width: 100%;
+  height: 160px;
+
+  margin-top: 16px;
+
+  padding: 16px;
+
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.6);
+
+  border: 1px solid #dfd4bf;
+
+  border-radius: 14px;
+}
+
+.summary-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary-top > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-label {
+  color: #4d5a6b;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.summary-top strong {
+  margin-top: 4px;
+
+  color: #071229;
+
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.total-price {
+  text-align: right;
+}
+
+.total-price strong {
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 20px;
+}
+
+.price-line {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 20px;
+  padding-top: 10px;
+
+  border-top: 1px solid #dfd4bf;
+
+  color: #4d5a6b;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 12px;
+}
+
+.cod-chip {
+  display: inline-flex;
+
+  margin-top: 12px;
+
+  padding: 5px 9px;
+
+  background: rgba(248, 201, 75, 0.15);
+
+  border-radius: 999px;
+
+  color: #73500c;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.delivery-form {
+  margin-top: 16px;
+}
+
+.delivery-form h3 {
+  margin: 0 0 20px;
+
+  color: #071229;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 17px;
+  line-height: 22px;
+}
+
+.two-inputs {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  margin-bottom: 5px;
+
+  color: #071229;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 13px;
+  line-height: 22px;
+  font-weight: 700;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #cfc5b3;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  color: #0a1730;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 15px;
+}
+
+.form-field input {
+  height: 48px;
+
+  padding: 10px 12px;
+}
+
+.form-field textarea {
+  height: 83px;
+
+  padding: 10px 12px;
+
+  resize: none;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #f8c94b;
+}
+
+.full-field {
+  margin-top: 16px;
+}
+
+.address-field {
+  margin-top: 16px;
+}
+
+/* =========================================
+   FORM BENEFITS
+========================================= */
+
+.form-benefits {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  margin-top: 14px;
+
+  color: #4d5a6b;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+/* =========================================
+   ORDER BUTTON
+========================================= */
+
+.order-button {
+  width: 100%;
+  height: 47px;
+
+  margin-top: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+
+  border: none;
+
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #ffe38e 0%, #f8c94b 46%, #f2b81e 100%);
+
+  box-shadow:
+    0 11px 26px rgba(248, 201, 75, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+  border-radius: 12px;
+
+  color: #071229;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+
+  transition: 0.2s ease;
+}
+
+.order-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 15px 30px rgba(248, 201, 75, 0.3);
+}
+
+.order-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+  transform: none;
+}
+
+.order-button .arrow {
+  font-size: 20px;
+}
+
+/* =========================================
+   PRIVACY
+========================================= */
+
+.privacy-text {
+  margin: 8px 0 0;
+
+  text-align: center;
+
+  color: #4d5a6b;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 12.8px;
+}
+
+.privacy-text span {
+  margin-left: 4px;
+
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+.privacy-page {
+  min-height: 100vh;
+  padding: 80px 20px 0;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(246, 189, 36, 0.18),
+      transparent 30rem
+    ),
+    linear-gradient(180deg, #071024 0%, #09132d 100%);
+  color: #fff;
+}
+
+.privacy-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 32px 0 24px;
+}
+
+.privacy-shell {
+  display: grid;
+  gap: 20px;
+}
+
+.privacy-shell,
+.privacy-content {
+  width: min(100%, 1152px);
+  margin: 0 auto;
+}
+
+.privacy-back {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  color: var(--amber, #f6bd24);
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.privacy-intro h1 {
+  margin: 0;
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.2;
+}
+
+.privacy-eyebrow {
+  margin: 0 0 8px;
+  color: var(--amber, #f6bd24);
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.privacy-summary {
+  margin: 10px 0 0;
+  max-width: 760px;
+  color: #c8d2e6;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.privacy-content {
+  display: grid;
+  gap: 20px;
+  padding: 32px 0 72px;
+}
+
+.privacy-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.privacy-meta-card {
+  display: grid;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 16px 18px;
+}
+
+.privacy-meta-card span {
+  color: var(--muted, #94a3b8);
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.privacy-meta-card strong {
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.privacy-section {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 24px 24px 8px;
+}
+
+.privacy-section h2 {
+  margin: 0 0 12px;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.privacy-section p {
+  margin: 0 0 14px;
+  color: #dce5f6;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.privacy-back:hover {
+  color: #fff;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+  .order-container {
+    padding: 40px;
+  }
+
+  .order-left {
+    width: 42%;
+  }
+
+  .order-form {
+    width: 50%;
+    margin-left: 40px;
+  }
+
+  .order-left h2 {
+    font-size: 34px;
+    line-height: 48px;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1100px) {
+  .order-container {
+    width: calc(100% - 32px);
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .order-left {
+    width: 100%;
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .order-form {
+    width: 100%;
+    max-width: 514px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #order .order-shell {
+    margin-top: 24px !important;
+  }
+
+  #order .order-copy {
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 12px 24px 20px;
+    text-align: center;
+  }
+
+  #order .order-copy h2 {
+    margin-top: 12px;
+    font-size: 32px !important;
+    line-height: 44px !important;
+  }
+
+  #order .checkout-title-underline {
+    display: block;
+    margin: 4px auto 0 !important;
+  }
+
+  #order .order-copy > p {
+    margin-top: 12px;
+  }
+
+  #order .order-benefit-grid {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tablet-order-form {
+    position: relative;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 514px !important;
+    max-width: calc(100% - 32px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 800px) {
+  .order-section {
+    min-height: auto;
+    padding: 48px 0 28px;
+  }
+
+  .order-container {
+    width: calc(100% - 24px);
+    min-height: auto;
+    flex-direction: column;
+    padding: 24px 16px 18px;
+    gap: 22px;
+    border-radius: 22px;
+  }
+
+  .order-left {
+    width: 100%;
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .order-left h2 {
+    font-size: 32px;
+    line-height: 42px;
+    letter-spacing: -0.04em;
+  }
+
+  .order-promise-full {
+    display: none;
+  }
+
+  .order-promise-short {
+    display: inline !important;
+  }
+
+  .order-benefit-grid {
+    max-width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .order-form {
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    margin-left: 0;
+    padding: 18px 16px;
+    border-radius: 18px;
+  }
+
+  .order-delivery-ribbon {
+    justify-content: center;
+  }
+
+  .order-summary {
+    min-height: 142px;
+  }
+}
+
+@media (max-width: 520px) {
+  .order-container {
+    width: calc(100% - 18px);
+    padding: 20px 14px 18px;
+    border-radius: 18px;
+  }
+
+  .order-left h2 {
+    font-size: 27px;
+    line-height: 36px;
+  }
+
+  .order-left p {
+    margin-top: 12px;
+  }
+
+  .order-form {
+    margin-top: 0;
+    padding: 16px 14px;
+    border-radius: 16px;
+  }
+
+  .order-delivery-ribbon {
+    min-height: 38px;
+    padding-inline: 8px;
+  }
+
+  .order-delivery-ribbon span {
+    font-size: 11px;
+    line-height: 15px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .order-summary {
+    min-height: 126px;
+    padding: 12px;
+  }
+
+  .order-summary .order-price-details {
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  .order-button {
+    height: 44px;
+    font-size: 14px;
+  }
+
+  .privacy-text {
+    font-size: 11px;
+    line-height: 18px;
+  }
+}
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+  box-sizing: border-box;
+
+  width: 100%;
+  min-height: 286.78px;
+
+  padding: 52px 0 20px;
+
+  background: #040914;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+
+  color: #d0d9e6;
+}
+
+/* =========================================
+   FOOTER CONTAINER
+========================================= */
+
+.footer-container {
+  width: min(1152px, calc(100% - 48px));
+
+  min-height: 136.78px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 48px;
+}
+
+/* =========================================
+   LEFT SIDE
+========================================= */
+
+.footer-left {
+  width: 371.5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* BRAND */
+
+.footer-brand {
+  min-height: 44px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  text-decoration: none;
+
+  color: inherit;
+}
+
+/* LOGO */
+
+.footer-logo {
+  width: 49px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+
+  font-family: Georgia, serif;
+
+  font-size: 22px;
+  font-weight: 400;
+
+  position: relative;
+}
+
+.footer-logo::after {
+  content: "";
+
+  position: absolute;
+
+  width: 40px;
+  height: 3px;
+
+  left: 4px;
+  bottom: 3px;
+
+  background: #f8c94b;
+
+  transform: skewX(-25deg);
+
+  border-radius: 5px;
+}
+
+/* BRAND TEXT */
+
+.footer-brand-text {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.footer-brand-text strong {
+  color: #ffffff;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 15.36px;
+  line-height: 16px;
+
+  font-weight: 700;
+}
+
+.footer-brand-text span {
+  margin-top: 4px;
+
+  color: #f8c94b;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 11.36px;
+  line-height: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.18px;
+
+  text-transform: uppercase;
+}
+
+/* DESCRIPTION */
+
+.footer-left p {
+  margin: 8px 0 0;
+
+  color: #b2bfd0;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 13.76px;
+
+  line-height: 23px;
+}
+
+/* =========================================
+   RIGHT LINKS
+========================================= */
+
+.footer-links {
+  width: 204px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+}
+
+.footer-links a {
+  min-height: 44px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  text-decoration: none;
+
+  color: #d0d9e6;
+
+  font-family: "Hind Siliguri", sans-serif;
+
+  font-size: 16px;
+
+  line-height: 27px;
+
+  transition: 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #f8c94b;
+}
+
+/* PHONE */
+
+.footer-links a:first-child {
+  width: 199px;
+}
+
+/* PRIVACY */
+
+.footer-links a:nth-child(2) {
+  width: 93px;
+
+  margin-top: 2px;
+}
+
+/* BACK TOP */
+
+.footer-links .back-top {
+  width: 113px;
+
+  gap: 6px;
+
+  margin-top: 2px;
+}
+
+.back-top span {
+  font-family: Arial, sans-serif;
+
+  font-size: 18px;
+
+  line-height: 18px;
+}
+
+.footer-container {
+  width: min(1152px, calc(100% - 48px));
+  min-height: 136.78px;
+
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 48px;
+}
+
+/* LEFT */
+.footer-left {
+  width: 371.5px;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* RIGHT */
+.footer-links {
+  width: 204px;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* RIGHT SIDE LINKS */
+.footer-links a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  min-height: 44px;
+
+  white-space: nowrap;
+
+  text-decoration: none;
+
+  color: #d0d9e6;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 16px;
+  line-height: 27px;
+
+  transition: 0.2s ease;
+}
+
+/* PHONE */
+.footer-links a:first-child {
+  width: 199px;
+  white-space: nowrap;
+}
+
+/* PRIVACY */
+.footer-links a:nth-child(2) {
+  width: 93px;
+  white-space: nowrap;
+}
+
+/* BACK TO TOP */
+.footer-links .back-top {
+  width: 113px;
+
+  display: flex;
+  flex-direction: row;
+
+  gap: 6px;
+
+  white-space: nowrap;
+}
+/* =========================================
+   FOOTER — FINAL FIX
+========================================= */
+
+.site-footer {
+  width: 100%;
+  min-height: 286.78px;
+  padding: 52px 0 20px;
+  box-sizing: border-box;
+
+  background: #040914;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  color: #d0d9e6;
+}
+
+.footer-container {
+  width: min(1152px, calc(100% - 48px));
+  height: 136.78px;
+  min-height: 136.78px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 48px;
+}
+
+/* LEFT SIDE */
+
+.footer-left {
+  width: 371.5px;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-brand {
+  min-height: 44px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer-logo {
+  width: 49.59px;
+  height: 37.64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+
+  position: relative;
+}
+
+.footer-logo::after {
+  content: "";
+
+  position: absolute;
+
+  width: 40px;
+  height: 3px;
+
+  left: 4px;
+  bottom: 3px;
+
+  background: #f8c94b;
+
+  transform: skewX(-25deg);
+
+  border-radius: 5px;
+}
+
+.footer-brand-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-brand-text strong {
+  color: #fff;
+
+  font-family: "Inter", sans-serif;
+  font-size: 15.36px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.footer-brand-text span {
+  margin-top: 4px;
+
+  color: #f8c94b;
+
+  font-family: "Inter", sans-serif;
+  font-size: 11.36px;
+  line-height: 12px;
+
+  font-weight: 600;
+  letter-spacing: 1.18px;
+
+  text-transform: uppercase;
+}
+
+.footer-left p {
+  margin: 8px 0 0;
+
+  color: #b2bfd0;
+
+  font-family: "Inter", sans-serif;
+  font-size: 13.76px;
+  line-height: 23px;
+
+  max-width: 371.5px;
+}
+
+/* RIGHT SIDE */
+
+.footer-links {
+  width: 204.31px;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.footer-links a {
+  min-height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  white-space: nowrap;
+
+  text-decoration: none;
+
+  color: #d0d9e6;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 16px;
+  line-height: 27px;
+
+  transition: 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #f8c94b;
+}
+
+.footer-links a:first-child {
+  width: 199px;
+}
+
+.footer-links a:nth-child(2) {
+  width: 93px;
+  margin-top: 2px;
+}
+
+.footer-links .back-top {
+  width: 113px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 6px;
+
+  margin-top: 2px;
+
+  white-space: nowrap;
+}
+
+.back-top span {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+/* =========================================
+   FOOTER BOTTOM
+========================================= */
+
+.site-footer::after {
+  content: "";
+  display: block;
+
+  width: min(1152px, calc(100% - 48px));
+
+  margin: 32px auto 0;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+/* =========================================
+   COPYRIGHT
+========================================= */
+
+.footer-bottom {
+  width: min(1152px, calc(100% - 48px));
+
+  margin: 0 auto;
+
+  padding-top: 24px;
+
+  color: #7f8da2;
+
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 11.47px;
+  line-height: 19px;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .footer-root {
+    width: 100%;
+    height: 237px;
+    min-height: 237px;
+    padding: 28px 20px 48px;
+    gap: 12px;
+    background: #050b18;
+    overflow: hidden;
+  }
+
+  .footer-root > div:first-of-type {
+    display: flex;
+    width: 100%;
+    max-width: 350px;
+    height: 143px;
+    min-height: 143px;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .footer-root .footer-mobile-left {
+    display: contents;
+  }
+
+  .footer-root .footer-mobile-left > a {
+    width: 188px;
+    height: 40px;
+    min-height: 39.6px;
+    gap: 9.36px;
+    align-self: center;
+  }
+
+  .footer-root .footer-mobile-left > a img {
+    width: 44.63px;
+    height: 33.88px;
+  }
+
+  .footer-root .footer-mobile-left > a > div {
+    width: 134.07px;
+    height: 27.9px;
+  }
+
+  .footer-root .footer-mobile-left > a > div > div:first-child {
+    font-family: "Baloo Da 2", sans-serif;
+    font-size: 13.824px;
+    font-weight: 400;
+    line-height: 15px;
+  }
+
+  .footer-root .footer-mobile-left > a > div > div:last-child {
+    margin-top: 3.6px;
+    font-family: "Baloo Da 2", sans-serif;
+    font-size: 10.224px;
+    font-weight: 400;
+    line-height: 11px;
+    letter-spacing: 0;
+  }
+
+  .footer-root .footer-mobile-left p {
+    width: 350px;
+    max-width: 100%;
+    height: 22px;
+    margin: 0;
+    font-family: "Baloo Da 2", sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    white-space: nowrap;
+    color: #b9c3ce;
+  }
+
+  .footer-root .footer-mobile-links {
+    position: relative;
+    width: 350px;
+    max-width: 100%;
+    height: 44px;
+    min-height: 44px;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 28px;
+  }
+
+  .footer-root .footer-mobile-links a,
+  .footer-root .footer-mobile-links a:first-child,
+  .footer-root .footer-mobile-links a:nth-child(2),
+  .footer-root .footer-mobile-links .back-top {
+    position: static;
+    width: auto;
+    height: 36px;
+    min-height: 36px;
+    margin: 0;
+    justify-content: flex-start;
+    font-family: "Baloo Da 2", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+  }
+
+  .footer-root .footer-mobile-links a:first-child {
+    width: auto;
+  }
+
+  .footer-root .footer-mobile-links span {
+    font-family: "Baloo Da 2", sans-serif;
+  }
+
+  .footer-root .footer-mobile-links a:nth-child(2) {
+    width: auto;
+    justify-content: center;
+  }
+
+  .footer-root .footer-mobile-links .back-top {
+    width: auto;
+    justify-content: flex-end;
+    gap: 0;
+  }
+
+  .footer-root .footer-mobile-links .back-top svg {
+    display: none;
+  }
+
+  .footer-root .footer-mobile-copy {
+    width: 350px;
+    max-width: 100%;
+    height: 18px;
+    min-height: 18px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-align: center;
+    align-self: center;
+  }
+
+  .footer-root .footer-mobile-copy > div {
+    font-family: "Baloo Da 2", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: center;
+    color: #b9c3ce;
+  }
+
+  .site-footer {
+    padding: 40px 0 20px;
+  }
+
+  .footer-container {
+    width: calc(100% - 32px);
+
+    height: auto;
+
+    flex-direction: column;
+
+    gap: 30px;
+  }
+
+  .footer-left {
+    width: 100%;
+  }
+
+  .footer-left p {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .footer-links {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .footer-links a,
+  .footer-links a:first-child,
+  .footer-links a:nth-child(2),
+  .footer-links .back-top {
+    width: auto;
+
+    justify-content: flex-start;
+  }
+
+  .site-footer::after {
+    width: calc(100% - 32px);
+    margin-top: 30px;
+  }
+
+  .footer-bottom {
+    width: calc(100% - 32px);
+  }
+}
+
+/* =========================================================
+   STUDENT STORIES - CORRECTED
+   Keep this block at the very end of App.css.
+   It fixes the cards becoming half-width and mobile clipping.
+========================================================= */
+
+.student-proof {
+  width: 100%;
+  overflow: hidden;
+  background: #050812;
+  padding: 80px 20px;
+}
+
+.student-stories {
+  width: 100%;
+  max-width: 1120px;
+  margin: 28px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+
+  align-items: stretch;
+}
+
+.comparison-section {
+  width: 100%;
+  min-height: 872px;
+  padding: 48px 20px;
+  background: #f3f7f8;
+  color: #16243a;
+}
+
+.comparison-content {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comparison-content h2 {
+  max-width: 700px;
+  margin: 0;
+  text-align: center;
+  color: #16243a;
+  font-family: "Baloo Da 2", sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.comparison-underline {
+  display: block;
+  width: 81px;
+  height: auto;
+  margin-top: 10px;
+}
+
+.comparison-feature-table {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 32px;
+  overflow: hidden;
+  border: 1px solid #dde6ef;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 14px 32px rgba(22, 36, 58, 0.06);
+}
+
+.comparison-row {
+  display: grid;
+  grid-template-columns: minmax(0, 2.12fr) minmax(70px, 1fr) minmax(70px, 1fr);
+  min-height: 48px;
+}
+
+.comparison-row > div {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding: 8px 14px;
+  font-family: "Baloo Da 2", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.comparison-header-row {
+  min-height: 56px;
+}
+
+.comparison-header-row > div {
+  justify-content: center;
+  text-align: center;
+  font-size: 13px;
+  line-height: 22px;
+}
+
+.comparison-header-row > div:first-child {
+  justify-content: flex-start;
+  background: #0b2238;
+  color: #fff;
+}
+
+.comparison-header-row > div:nth-child(2) {
+  background: #e8b84e;
+  color: #0b2238;
+}
+
+.comparison-header-row > div:nth-child(3) {
+  background: #e9eff6;
+  color: #0b2238;
+}
+
+.comparison-row:not(.comparison-header-row) > div {
+  border-top: 1px solid #edf1f5;
+}
+
+.comparison-row:not(.comparison-header-row):nth-child(even)
+  .comparison-feature {
+  background: #f1f6f9;
+}
+
+.comparison-feature {
+  background: #fff;
+  color: #16243a;
+}
+
+.comparison-status {
+  justify-content: center;
+  text-align: center;
+}
+
+.comparison-ours {
+  background: #f8f0dc;
+}
+
+.comparison-others {
+  background: #f0f6f8;
+}
+
+.comparison-check {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  color: #2f7a5b !important;
+  font-family: "Baloo Da 2", sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: center;
+}
+
+.comparison-check.is-positive {
+  color: #2f7a5b !important;
+}
+
+.comparison-check.is-negative {
+  color: #000000 !important;
+  font-size: 20px !important;
+  font-weight: 600;
+  line-height: 27px !important;
+  transform: scale(1.15);
+}
+
+.comparison-check-svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3.6;
+}
+
+.comparison-legacy-section {
+  display: none;
+}
+
+/* Comparison table reference styling */
+.comparison-section {
+  min-height: 654.15px;
+  padding: 86.4px 0;
+  background: #eef5f0;
+}
+
+.comparison-content {
+  width: min(1152px, calc(100% - 40px));
+}
+
+.comparison-content h2 {
+  max-width: 752px;
+  color: #0a1730;
+  font-size: 44px;
+  line-height: 74px;
+}
+
+.comparison-underline {
+  width: 120px;
+  margin-top: -3px;
+}
+
+.comparison-feature-table {
+  max-width: 1152px;
+  margin-top: 52px;
+  border: 1px solid #dce8ef;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.comparison-row {
+  grid-template-columns: 1.65fr 0.825fr 0.825fr;
+  min-height: 44px;
+}
+
+.comparison-row > div {
+  padding: 8px 20px;
+  font-size: 16px;
+  line-height: 27px;
+}
+
+.comparison-header-row {
+  min-height: 56px;
+}
+
+.comparison-header-row > div {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.comparison-header-row > div:first-child {
+  background: rgba(5, 11, 24, 1);
+}
+
+.comparison-header-row > div:nth-child(2) {
+  background: #e8b84e;
+}
+
+.comparison-header-row > div:nth-child(3) {
+  background: #e7eef5;
+}
+
+.comparison-row:not(.comparison-header-row) > div {
+  border-top: 0;
+}
+
+.comparison-row:not(.comparison-header-row):nth-child(even)
+  .comparison-feature {
+  background: #f1f6f9;
+}
+
+.comparison-feature {
+  background: #fff;
+  color: #16243a;
+}
+
+.comparison-ours {
+  background: #f8f0dc;
+}
+
+.comparison-row:nth-child(odd) .comparison-ours {
+  background: #fbe9b3;
+}
+
+.comparison-others {
+  background: #eef5f8;
+}
+
+.comparison-row:nth-child(odd) .comparison-others {
+  background: #e7f0f4;
+}
+
+.comparison-check {
+  font-size: 20px;
+  line-height: 27px;
+}
+
+@media (max-width: 600px) {
+  .comparison-section {
+    min-height: 654px;
+    padding: 48px 10px;
+  }
+
+  .comparison-content {
+    width: 100%;
+  }
+
+  .comparison-content h2 {
+    max-width: 350px;
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .comparison-feature-table {
+    width: 100%;
+    margin-top: 32px;
+  }
+
+  .comparison-row {
+    grid-template-columns: minmax(0, 1fr) 85px 85px;
+  }
+
+  .comparison-row > div {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+.faq-title-underline {
+  display: block;
+  width: 120px;
+  height: auto;
+  align-self: flex-start;
+  margin-top: -2px;
+}
+
+.checkout-title-underline {
+  display: block;
+  width: 120px;
+  height: auto;
+  margin: 6px 0 0;
+}
+
+.order-promise-short {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  #order form {
+    position: absolute !important;
+    top: 64px !important;
+    right: 64px !important;
+    width: 514.09px !important;
+    max-width: none !important;
+    height: 714px !important;
+    margin: 0 !important;
+    padding: 34px !important;
+  }
+
+  #order form .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  #order .order-copy {
+    top: 155.64px;
+  }
+
+  #order .order-copy h2 {
+    font-size: 44px;
+    line-height: 74px;
+    letter-spacing: 0;
+  }
+
+  #order .order-benefit-grid {
+    margin-top: 28px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .checkout-title-underline {
+    display: none;
+  }
+
+  .order-promise-full {
+    display: none;
+  }
+
+  .order-promise-short {
+    display: block;
+  }
+}
+
+@media (max-width: 1023px) {
+  #faq .faq-sidebar {
+    align-items: center;
+    text-align: center;
+  }
+
+  #faq .faq-sidebar > div:first-child,
+  #faq .faq-sidebar > div:last-child {
+    display: none;
+  }
+
+  #faq .faq-sidebar h2 {
+    white-space: normal;
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  #faq .faq-sidebar .faq-title-underline {
+    align-self: center;
+    margin-top: 3px;
+  }
+}
+
+@media (max-width: 600px) {
+  .comparison-section {
+    min-height: 0;
+    padding: 48px 20px 40px;
+  }
+
+  .comparison-content h2 {
+    max-width: 350px;
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .comparison-underline {
+    width: 81px;
+  }
+
+  .comparison-feature-table {
+    position: static;
+    width: 100%;
+    margin-top: 32px;
+    transform: none;
+  }
+
+  .comparison-row {
+    grid-template-columns: 1fr 85px 85px;
+  }
+
+  .comparison-row > div {
+    padding: 6px 14px;
+  }
+
+  .comparison-header-row > div {
+    padding: 6px 8px;
+  }
+
+  .comparison-content h2 {
+    font-family: "Baloo Da 2", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .comparison-row > div {
+    font-family: "Baloo Da 2", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .comparison-header-row > div {
+    font-family: "Baloo Da 2", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  .comparison-check {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+    color: rgba(47, 122, 91, 1) !important;
+    font-family: "Baloo Da 2", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px !important;
+    line-height: 100% !important;
+    letter-spacing: 0;
+    text-align: center;
+    transform: none;
+  }
+
+  .comparison-check.is-negative {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f1f6f9;
+    color: rgba(90, 104, 120, 1) !important;
+    font-family: "Baloo Da 2", sans-serif;
+    font-size: 24px !important;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100% !important;
+    letter-spacing: 0;
+    transform: none;
+  }
+}
+
+.student-story-card {
+  width: 100%;
+  max-width: none;
+  height: 476px;
+  margin: 0;
+
+  overflow: hidden;
+  border-radius: 14px;
+  background: #111722;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-sizing: border-box;
+}
+
+.story-visual {
+  position: relative;
+  width: 100%;
+  height: 425px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(76, 157, 190, 0.45),
+      transparent 32%
+    ),
+    linear-gradient(145deg, #173d68 0%, #07142d 55%, #061127 100%);
+}
+
+.story-visual span {
+  position: relative;
+  z-index: 3;
+
+  width: 145px;
+  height: 145px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(248, 201, 75, 0.65);
+  border-radius: 50%;
+
+  color: #f8c94b;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  background: transparent;
+}
+
+.story-visual small {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 5;
+
+  color: rgba(255, 255, 255, 0.72);
+  font-family: Inter, sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.student-proof-underline {
+  width: 120px;
+  height: auto;
+  margin-top: 2px;
+}
+
+.student-card-caption {
+  z-index: 60 !important;
+  height: 48px !important;
+  padding: 4px 0 !important;
+  background: transparent !important;
+  transform: translateY(54px);
+}
+
+.student-card-caption > div:first-child {
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+
+.student-card-caption > div:last-child {
+  font-size: 10px !important;
+  line-height: 16px !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+.student-info {
+  width: 100%;
+  height: 51px;
+
+  padding: 7px 14px;
+  box-sizing: border-box;
+
+  background: #151a23;
+}
+
+.student-info h3 {
+  margin: 0;
+
+  color: #ffffff;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 17px;
+  line-height: 21px;
+  font-weight: 700;
+}
+
+.student-info p {
+  margin: 0;
+
+  color: #b8c1cf;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .student-stories {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 760px;
+    gap: 20px;
+  }
+
+  .student-story-card {
+    height: 430px;
+  }
+
+  .story-visual {
+    height: 379px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .student-proof {
+    padding: 60px 16px;
+  }
+
+  .student-proof-header,
+  .stories-heading,
+  .written-feedback {
+    max-width: 100%;
+  }
+
+  .student-proof-header h2 {
+    font-size: 30px;
+  }
+
+  .stories-heading h3 {
+    font-size: 24px;
+  }
+
+  .student-stories {
+    width: 100%;
+    max-width: 360px;
+
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    margin-top: 24px;
+  }
+
+  .student-story-card {
+    width: 100%;
+    height: 360px;
+  }
+
+  .story-visual {
+    width: 100%;
+    height: 309px;
+  }
+
+  .story-visual span {
+    width: 120px;
+    height: 120px;
+    font-size: 40px;
+  }
+
+  .story-visual small {
+    left: 12px;
+    bottom: 12px;
+    font-size: 7px;
+  }
+
+  .student-info {
+    height: 51px;
+    padding: 7px 12px;
+  }
+
+  .student-info h3 {
+    font-size: 16px;
+  }
+
+  .student-info p {
+    font-size: 10px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .student-proof {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .student-stories {
+    max-width: 100%;
+  }
+
+  .student-story-card {
+    height: 330px;
+  }
+
+  .story-visual {
+    height: 279px;
+  }
+}
+/* =========================================================
+   MOBILE RESPONSIVE FIX
+   Existing desktop design unchanged
+========================================================= */
+
+@media (max-width: 767px) {
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  img,
+  svg,
+  canvas,
+  iframe {
+    max-width: 100%;
+  }
+
+  /* =========================
+     HEADER
+  ========================= */
+
+  header {
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  header img {
+    max-width: 38px !important;
+    height: auto !important;
+  }
+
+  /* =========================
+     HERO
+  ========================= */
+
+  #top {
+    width: 100%;
+    overflow: hidden !important;
+  }
+
+  #top h1,
+  #top h2,
+  #top h3 {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+
+  #top h1 {
+    font-size: clamp(32px, 10vw, 48px) !important;
+    line-height: 1.05 !important;
+  }
+
+  #top h2 {
+    font-size: clamp(25px, 8vw, 40px) !important;
+    line-height: 1.15 !important;
+  }
+
+  #top .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #top .relative.justify-self-end {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    transform: none !important;
+  }
+
+  #top .relative.justify-self-end img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  #top {
+    height: 696px !important;
+    min-height: 696px !important;
+  }
+
+  #top > .relative.mx-auto {
+    padding-top: 80px !important;
+    padding-bottom: 0 !important;
+  }
+
+  #top > .relative.mx-auto > .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    padding: 0 22px !important;
+  }
+
+  #top .hero-artwork {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: 390px !important;
+    margin: 28px auto 0 !important;
+    transform: none !important;
+  }
+
+  #top .hero-artwork img {
+    width: 100% !important;
+    max-height: 270px !important;
+    object-fit: contain !important;
+  }
+
+  #top .hero-copy {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: -2px !important;
+  }
+
+  #top .hero-copy h1,
+  #top .hero-copy h2 {
+    max-width: 100% !important;
+    font-size: 32px !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.04em !important;
+    color: #e8b84e !important;
+  }
+
+  #top .hero-copy h1 {
+    max-width: 100% !important;
+    font-size: clamp(20px, 7vw, 30px) !important;
+    white-space: nowrap !important;
+  }
+
+  #top .hero-copy h2 {
+    font-size: clamp(27px, 8vw, 34px) !important;
+  }
+
+  #top .hero-copy h1 .hero-word {
+    display: inline !important;
+  }
+
+  #top .hero-copy p {
+    margin-top: 16px !important;
+    font-size: 14px !important;
+    line-height: 24px !important;
+  }
+
+  #top .hero-copy > div:nth-of-type(2) {
+    width: 100% !important;
+    margin-top: 16px !important;
+    gap: 12px !important;
+  }
+
+  #top .hero-copy > div:nth-of-type(2) > a {
+    width: calc(50% - 6px) !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  #top .hero-copy > div:nth-of-type(2) > a > span {
+    white-space: nowrap !important;
+  }
+
+  /* =========================
+     STATS
+  ========================= */
+
+  #top .mx-3.grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0 !important;
+    margin-left: 12px !important;
+    margin-right: 12px !important;
+  }
+
+  #top .mx-3.grid > div {
+    min-width: 0 !important;
+    padding: 12px 8px !important;
+  }
+
+  #top .mx-3.grid .text-2xl {
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+  }
+
+  #top .mx-3.grid .text-sm {
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* =========================
+     ALL SECTIONS
+  ========================= */
+
+  section {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  /* =========================
+     VIDEO
+  ========================= */
+
+  .video-section,
+  #how-it-works {
+    width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .video-card,
+  #how-it-works .aspect-video {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 190px !important;
+  }
+
+  /* =========================
+     FEATURE CARDS
+  ========================= */
+
+  .feature-grid,
+  .included-card-grid {
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .feature-card,
+  .included-card {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* =========================
+     INSIDE BOOK
+  ========================= */
+
+  .inside-book-section {
+    width: 100% !important;
+    min-height: auto !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    overflow: hidden !important;
+  }
+
+  .inside-book-header {
+    width: 100% !important;
+  }
+
+  .inside-book-header h2 {
+    font-size: clamp(28px, 8vw, 39px) !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+  }
+
+  .inside-book-header p {
+    font-size: 12px !important;
+    line-height: 20px !important;
+  }
+
+  .inside-book-wrapper {
+    width: 100% !important;
+    overflow: hidden !important;
+    margin-top: 30px !important;
+  }
+
+  .inside-book {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    transform: none !important;
+  }
+
+  .book-left-page,
+  .book-right-page {
+    min-width: 0 !important;
+  }
+
+  /* =========================
+     PDF
+  ========================= */
+
+  .pdf-viewer-shell,
+  .pdf-frame,
+  .pdf-page-viewport,
+  .pdf-mobile-single-stage,
+  .pdf-mobile-single-sheet {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .pdf-mobile-single-sheet canvas,
+  .pdf-page canvas,
+  .pdf-preload-page canvas,
+  .pdf-frame canvas {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+  }
+
+  .pdf-controls {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .pdf-control-button {
+    min-width: 0 !important;
+    flex: 1 !important;
+    height: 44px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    font-size: 13px !important;
+  }
+
+  /* =========================
+     MASTERY LOOP
+  ========================= */
+
+  .mastery-loop-grid {
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .mastery-loop-grid > * {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* =========================
+     STUDENT STORIES
+  ========================= */
+
+  .student-proof {
+    width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    overflow: hidden !important;
+  }
+
+  .student-stories {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .student-story-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .story-visual {
+    width: 100% !important;
+  }
+
+  /* =========================
+     FAQ
+  ========================= */
+
+  .faq-section {
+    width: 100% !important;
+    padding: 55px 0 !important;
+    overflow: hidden !important;
+  }
+
+  .faq-container {
+    width: calc(100% - 32px) !important;
+    max-width: 100% !important;
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+
+  .faq-intro h2 {
+    font-size: 30px !important;
+    line-height: 1.25 !important;
+  }
+
+  .faq-list {
+    width: 100% !important;
+  }
+
+  .faq-list summary {
+    min-height: 55px !important;
+    padding: 15px 0 !important;
+    gap: 12px !important;
+    font-size: 14px !important;
+  }
+
+  .faq-list details p {
+    padding-right: 0 !important;
+    font-size: 13px !important;
+    line-height: 1.7 !important;
+  }
+
+  /* =========================
+     GUARANTEE
+  ========================= */
+
+  .guarantee-section {
+    width: 100% !important;
+    padding: 40px 0 !important;
+  }
+
+  .guarantee-container {
+    width: calc(100% - 32px) !important;
+    max-width: 100% !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+    padding: 24px !important;
+  }
+
+  .guarantee-icon {
+    margin-right: 0 !important;
+  }
+
+  .guarantee-content h2 {
+    font-size: 28px !important;
+    line-height: 1.3 !important;
+  }
+
+  .guarantee-content p {
+    font-size: 14px !important;
+    line-height: 23px !important;
+  }
+
+  .guarantee-contact {
+    width: 100% !important;
+  }
+
+  /* =========================
+     ORDER SECTION
+  ========================= */
+
+  #order {
+    width: 100% !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    overflow: hidden !important;
+  }
+
+  #order > .relative.mx-auto {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 22px !important;
+  }
+
+  #order h2 {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    font-size: clamp(27px, 8vw, 36px) !important;
+    line-height: 1.45 !important;
+  }
+
+  #order .whitespace-nowrap {
+    white-space: normal !important;
+  }
+
+  /* Order benefit cards */
+
+  #order .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Order form */
+
+  #order form {
+    width: calc(100% - 24px) !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 16px !important;
+    box-sizing: border-box !important;
+    border-radius: 18px !important;
+  }
+
+  #order form input,
+  #order form textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  #order form .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Delivery ribbon */
+
+  #order form .whitespace-nowrap {
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  /* Order summary */
+
+  #order form .flex.items-start.justify-between {
+    gap: 10px !important;
+  }
+
+  /* =========================
+     FOOTER
+  ========================= */
+
+  .site-footer {
+    width: 100% !important;
+    overflow: hidden !important;
+    padding: 40px 16px 20px !important;
+  }
+
+  .footer-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    flex-direction: column !important;
+    gap: 25px !important;
+  }
+
+  .footer-left,
+  .footer-links {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .footer-links {
+    align-items: flex-start !important;
+  }
+
+  .footer-links a,
+  .footer-links a:first-child,
+  .footer-links a:nth-child(2),
+  .footer-links .back-top {
+    width: auto !important;
+    margin-left: 0 !important;
+    justify-content: flex-start !important;
+  }
+
+  .footer-left p {
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .footer-bottom {
+    width: 100% !important;
+  }
+
+  /* =========================
+     SMALL MOBILE
+  ========================= */
+
+  @media (max-width: 380px) {
+    #top .mx-3.grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    #top .mx-3.grid > div {
+      border-left: 0 !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    #top .mx-3.grid > div:first-child {
+      border-top: 0 !important;
+    }
+
+    .pdf-control-button {
+      font-size: 11px !important;
+    }
+
+    #order form {
+      padding: 13px !important;
+    }
+
+    .guarantee-container {
+      padding: 20px !important;
+    }
+  }
+}
+
+/* =========================================================
+   WORD PAGE ATLAS
+========================================================= */
+
+.word-atlas-container {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  color: #102034;
+}
+
+#package {
+  min-height: 877.09px;
+  padding: 80px 0;
+  scroll-margin-top: 92px;
+  background: #fffcf7;
+}
+
+.word-atlas-intro {
+  min-height: 102.58px;
+  display: grid;
+  grid-template-columns: 675px 405px;
+  justify-content: space-between;
+}
+
+.word-atlas-eyebrow {
+  position: relative;
+  padding-left: 24px;
+  color: #7a5200;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.56px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.word-atlas-eyebrow::before {
+  position: absolute;
+  top: 7px;
+  left: 0;
+  width: 16px;
+  height: 2px;
+  border-radius: 999px;
+  background: #73500c;
+  content: "";
+}
+
+.word-atlas-intro h2 {
+  margin: 8px 0 0;
+  color: #132033;
+  font-family: "Baloo Da 2", sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.79px;
+  line-height: 56px;
+}
+
+.word-atlas-intro img {
+  display: block;
+  width: 120px;
+  height: auto;
+  margin-top: -1px;
+}
+
+.word-atlas-intro p {
+  width: 405px;
+  margin: 12.58px 0 0;
+  color: #5b6675;
+  font-family: "Baloo Da 2", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.44px;
+  line-height: 28px;
+}
+
+.word-atlas-shell {
+  position: relative;
+  z-index: 1;
+  width: 1152px;
+  height: 566.52px;
+  margin-top: 48px;
+  padding-left: 38.59px;
+  box-sizing: border-box;
+  border: 1px solid #d9cbb2;
+  border-radius: 9.6px 20px 20px 9.6px;
+  background: #fffdf8;
+  filter: none;
+}
+
+.word-atlas-shell::before,
+.word-atlas-shell::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  content: "";
+  height: 100%;
+  border: 1px solid #d8cbb2;
+  border-radius: 9.6px 20px 20px 9.6px;
+}
+
+.word-atlas-shell::before {
+  top: 10px;
+  left: -10px;
+  width: calc(100% - 10px);
+  background: #eee5d3;
+}
+
+.word-atlas-shell::after {
+  top: 20px;
+  left: -20px;
+  width: calc(100% - 20px);
+  background: #dfd2b8;
+}
+
+.word-atlas-shell::before {
+  top: 9px;
+  left: -8px;
+}
+
+.word-atlas-shell::after {
+  top: 18px;
+  left: -16px;
+}
+
+/* The atlas is intentionally wider than the text column: it reads as a
+   full-width book spread, with the two offset sheets visible behind it. */
+@media (min-width: 761px) {
+  .word-atlas-shell {
+    width: min(1314px, calc(100vw - 52px));
+    height: 646px;
+    /* Keep the spread centred without creating a stacking context.  The
+       offset sheets use negative z-index, so transform would place them
+       over the white page. */
+    margin-left: max(-97px, calc((1172px - 100vw) / 2));
+    padding-left: 44px;
+    border-radius: 14px 20px 20px 14px;
+  }
+
+  .word-atlas-shell::before,
+  .word-atlas-shell::after {
+    border-radius: 14px 20px 20px 14px;
+  }
+
+  .word-atlas-spine {
+    width: 42px;
+    border-radius: 14px 0 0 14px;
+  }
+
+  .word-atlas-topbar {
+    width: 100%;
+    height: 120px;
+    padding: 28px 48px 22px 72px;
+  }
+
+  .word-atlas-body {
+    grid-template-columns: 393px minmax(0, 730px);
+    gap: 18px;
+    padding: 36px 54px 20px 72px;
+  }
+
+  .word-atlas-practice,
+  .word-atlas-anatomy {
+    height: 440px;
+    min-height: 440px;
+  }
+
+  .word-atlas-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 6px;
+  }
+}
+
+.word-atlas-spine {
+  position: absolute;
+  z-index: 3;
+  inset: 1px auto 1px 1px;
+  width: 37.59px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  padding-top: 19.2px;
+  border-right: 1px solid #dcc9a8;
+  border-radius: 9.6px 0 0 9.6px;
+  background: #f3e7cc;
+  color: #7a5d2b;
+}
+
+.word-atlas-spine span {
+  font-family: Inter, sans-serif;
+  font-size: 9.92px;
+  font-weight: 700;
+  letter-spacing: 1.31px;
+  line-height: 17px;
+  position: absolute;
+  white-space: nowrap;
+  transform: rotate(-90deg);
+  transform-origin: left top;
+}
+
+.word-atlas-spine span:first-child {
+  top: 101px;
+  left: 0;
+}
+
+.word-atlas-spine span:last-child {
+  top: 135px;
+  left: 0;
+}
+
+.word-atlas-topbar {
+  width: 1112.41px;
+  height: 105.98px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 48px 20px 64px;
+  border-bottom: 1px solid #dfd4c1;
+}
+
+.word-atlas-mark {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  flex: 0 0 43px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e8b84e;
+  color: #16233b;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.word-atlas-topbar h3,
+.word-atlas-practice h3,
+.word-atlas-anatomy h3 {
+  margin: 0;
+  font-family: "Hind Siliguri", sans-serif;
+}
+
+.word-atlas-topbar h3 {
+  color: #0d1d34;
+  font-family: "Baloo Da 2", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.word-atlas-topbar p {
+  margin: 3px 0 0;
+  color: #7b7c80;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.word-atlas-body {
+  display: grid;
+  grid-template-columns: 344.53px 639.88px;
+  gap: 16px;
+  padding: 32px 48px 20px 64px;
+}
+
+.word-atlas-practice,
+.word-atlas-anatomy {
+  height: 386.53px;
+  min-height: 386.53px;
+  border-radius: 12px;
+}
+
+.word-atlas-practice {
+  padding: 20px;
+  border: 1px solid #0a1934;
+  background: linear-gradient(135deg, #0a1934 0%, #040914 100%);
+  color: #fff;
+}
+
+.word-atlas-practice > span,
+.word-atlas-anatomy > span {
+  color: #e8b84e;
+  font-family: Inter, sans-serif;
+  font-size: 10.56px;
+  font-weight: 700;
+  letter-spacing: 1.15px;
+}
+
+.word-atlas-practice h3 {
+  margin-top: 7.2px;
+  padding-bottom: 12.8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-family: "Baloo Da 2", sans-serif;
+  font-size: 18.24px;
+  line-height: 24px;
+}
+
+.word-atlas-practice-row {
+  display: flex;
+  gap: 8px;
+  padding: 12.8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.word-atlas-practice-row b {
+  flex: 0 0 26.39px;
+  color: #edb521;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 11.04px;
+}
+
+.word-atlas-practice-row strong,
+.word-atlas-practice-row small {
+  display: block;
+}
+
+.word-atlas-practice-row strong {
+  color: #fff;
+  font-family: Inter, sans-serif;
+  font-size: 13.44px;
+  line-height: 19px;
+}
+
+.word-atlas-practice-row small {
+  margin-top: 1.6px;
+  color: #aeb8c9;
+  font-family: "Hind Siliguri", sans-serif;
+  font-family: "Baloo Da 2", sans-serif;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.word-atlas-anatomy {
+  padding: 20px;
+  border: 1px solid #ddcfb8;
+  background: #fffefa;
+}
+
+.word-atlas-anatomy h3 {
+  margin-top: 7.2px;
+  padding-bottom: 12.8px;
+  border-bottom: 1px solid #dacdb9;
+  color: #101d32;
+  font-family: "Baloo Da 2", sans-serif;
+  font-size: 18.24px;
+  line-height: 24px;
+}
+
+.word-atlas-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 299.73px);
+  column-gap: 6.4px;
+  padding-top: 12.8px;
+}
+
+.word-atlas-field {
+  position: relative;
+  min-width: 0;
+  min-height: 34.34px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px 8px 6px;
+  border-bottom: 1px solid #e5ded0;
+  border-radius: 10px;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
+  animation: wordAtlasRowGlow 5s ease-in-out infinite;
+}
+
+.word-atlas-field:nth-child(2n) {
+  animation-delay: 0.35s;
+}
+
+.word-atlas-field::before {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    rgba(232, 184, 78, 0.18),
+    rgba(232, 184, 78, 0.04),
+    transparent 72%
+  );
+  opacity: 0;
+  transition: opacity 220ms ease;
+  content: "";
+}
+
+.word-atlas-field:hover {
+  transform: translateX(4px);
+  border-color: rgba(232, 184, 78, 0.7);
+  box-shadow: 0 8px 16px rgba(16, 29, 52, 0.04);
+}
+
+.word-atlas-field:hover::before {
+  opacity: 1;
+}
+
+.word-atlas-field b,
+.word-atlas-field strong {
+  position: relative;
+  z-index: 1;
+}
+
+.word-atlas-field b {
+  flex: 0 0 26.39px;
+  color: #bb850d;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 11.04px;
+  font-weight: 700;
+}
+
+.word-atlas-field strong {
+  min-width: 0;
+  overflow: hidden;
+  color: #15233a;
+  font-family: Inter, "Baloo Da 2", sans-serif;
+  font-size: 13.44px;
+  font-weight: 700;
+  line-height: 19px;
+}
+
+@keyframes wordAtlasRowGlow {
+  0%,
+  100% {
+    box-shadow: inset 0 0 0 rgba(232, 184, 78, 0);
+  }
+  50% {
+    box-shadow: inset 0 0 0 1px rgba(232, 184, 78, 0.14);
+  }
+}
+
+@media (max-width: 1023px) {
+  #package {
+    min-height: 0;
+    padding: 56px 16px 64px;
+  }
+
+  .word-atlas-container {
+    width: 100%;
+  }
+
+  .word-atlas-intro {
+    min-height: 0;
+    display: block;
+  }
+
+  .word-atlas-intro h2 {
+    font-size: clamp(30px, 9vw, 44px);
+    line-height: 1.25;
+  }
+
+  .word-atlas-intro p {
+    width: auto;
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .word-atlas-shell {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin-top: 32px;
+    padding-left: 38px;
+    border-radius: 13px;
+  }
+
+  .word-atlas-shell::before,
+  .word-atlas-shell::after {
+    border-radius: 13px;
+  }
+
+  .word-atlas-spine {
+    width: 38px;
+    padding-top: 18px;
+    border-radius: 13px 0 0 13px;
+  }
+
+  .word-atlas-spine span {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .word-atlas-topbar {
+    width: 100%;
+    height: auto;
+    min-height: 74px;
+    gap: 10px;
+    padding: 14px 15px;
+  }
+
+  .word-atlas-mark {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+    font-size: 13px;
+  }
+
+  .word-atlas-topbar h3 {
+    font-size: 13px;
+  }
+
+  .word-atlas-topbar p {
+    font-size: 9px;
+  }
+
+  .word-atlas-body {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 15px 15px 22px;
+  }
+
+  .word-atlas-practice,
+  .word-atlas-anatomy {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 17px 14px;
+  }
+
+  .word-atlas-practice h3,
+  .word-atlas-anatomy h3 {
+    font-size: 17px;
+  }
+
+  .word-atlas-practice-row {
+    padding: 11px 0;
+  }
+
+  .word-atlas-fields {
+    width: min(100%, 420px);
+    margin-inline: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
+  }
+
+  .word-atlas-field {
+    gap: 7px;
+    padding: 9px 8px 9px 4px;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .word-atlas-field strong {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+}
+@media (max-width: 767px) {
+  #decision > div > div:first-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+
+  #decision > div > div:first-child > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Keep the mobile decision copy readable without changing desktop sizing. */
+  #decision p {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 14px !important;
+    line-height: 23px !important;
+    overflow-wrap: break-word !important;
+  }
+
+  #decision img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 520px !important;
+    height: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    object-fit: contain !important;
+  }
+}
+
+/* =====================================================
+     INCLUDED / FEATURE CARDS
+  ===================================================== */
+
+.included-card-grid {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  grid-template-columns: 1fr !important;
+
+  gap: 14px !important;
+}
+
+.included-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* =====================================================
+     MASTERY LOOP
+  ===================================================== */
+
+.mastery-loop-grid {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  grid-template-columns: 1fr !important;
+
+  gap: 14px !important;
+}
+
+/* =====================================================
+     STUDENT STORIES
+  ===================================================== */
+
+.student-stories {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  grid-template-columns: 1fr !important;
+
+  gap: 20px !important;
+}
+
+.student-story-card {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* =====================================================
+     FAQ
+  ===================================================== */
+
+.faq-container {
+  width: calc(100% - 32px) !important;
+  max-width: 100% !important;
+
+  grid-template-columns: 1fr !important;
+
+  gap: 30px !important;
+}
+
+.faq-intro h2 {
+  font-size: 30px !important;
+  line-height: 1.25 !important;
+
+  white-space: normal !important;
+}
+
+.faq-list {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.faq-list summary {
+  white-space: normal !important;
+  min-height: 52px !important;
+  gap: 10px !important;
+}
+
+.faq-list details p {
+  padding-right: 0 !important;
+}
+
+/* =====================================================
+     GUARANTEE
+  ===================================================== */
+
+.guarantee-container {
+  width: calc(100% - 32px) !important;
+  max-width: 100% !important;
+
+  flex-direction: column !important;
+  align-items: flex-start !important;
+
+  gap: 20px !important;
+
+  padding: 24px !important;
+}
+
+.guarantee-icon {
+  margin-right: 0 !important;
+}
+
+.guarantee-content {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.guarantee-content h2 {
+  font-size: 28px !important;
+  line-height: 1.3 !important;
+}
+
+.guarantee-content p {
+  font-size: 14px !important;
+  line-height: 23px !important;
+}
+
+.guarantee-contact {
+  width: 100% !important;
+}
+
+/* =====================================================
+     ORDER SECTION
+  ===================================================== */
+
+#order {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  overflow-x: hidden !important;
+
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+#order h2 {
+  white-space: normal !important;
+
+  font-size: clamp(27px, 8vw, 38px) !important;
+  line-height: 1.35 !important;
+
+  overflow-wrap: normal !important;
+}
+
+@media (max-width: 767px) {
+  #order form {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    padding: 16px !important;
+
+    box-sizing: border-box !important;
+  }
+
+  #order form input,
+  #order form textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    box-sizing: border-box !important;
+  }
+
+  #order form .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* =====================================================
+     FOOTER
+  ===================================================== */
+
+.site-footer {
+  width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+.footer-container {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  height: auto !important;
+
+  flex-direction: column !important;
+
+  gap: 25px !important;
+}
+
+.footer-left,
+.footer-links {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.footer-links {
+  align-items: flex-start !important;
+}
+
+.footer-links a,
+.footer-links a:first-child,
+.footer-links a:nth-child(2),
+.footer-links .back-top {
+  width: auto !important;
+
+  margin-left: 0 !important;
+
+  justify-content: flex-start !important;
+}
+
+.footer-left p {
+  max-width: 100% !important;
+
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+/* =====================================================
+     VERY SMALL PHONE
+  ===================================================== */
+
+@media (max-width: 380px) {
+  #top h1 {
+    font-size: 29px !important;
+  }
+
+  #top h2 {
+    font-size: 24px !important;
+  }
+
+  #decision img {
+    max-width: 100% !important;
+  }
+
+  #order form {
+    padding: 14px !important;
+  }
+}
+/* =====================================================
+   DECISION — FINAL MOBILE FIX
+===================================================== */
+
+@media (max-width: 767px) {
+  .decision-section {
+    width: 100%;
+    min-height: auto;
+    padding: 52px 16px 40px;
+    overflow-x: hidden;
+    background: #050b18;
+  }
+
+  .decision-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .decision-section > div {
+    width: 100%;
+  }
+
+  .decision-section > div > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .decision-section > div > div:first-child > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .decision-section
+    > div
+    > div:first-child
+    > div:first-child
+    > div:first-child {
+    justify-content: center;
+  }
+
+  .decision-section > div > div:first-child > div:first-child > p,
+  .decision-section > div > div:first-child > div:first-child > a {
+    display: none;
+  }
+
+  .decision-section h2 {
+    width: 100%;
+    max-width: 332px;
+    margin: 0;
+    text-align: center;
+    font-size: 28px !important;
+    line-height: 1.3 !important;
+  }
+
+  .decision-section > div > div:first-child > div:first-child > p,
+  .decision-section > div > div:first-child > div:first-child > a {
+    display: none;
+  }
+
+  .decision-section h2 {
+    width: 100%;
+    max-width: 332px;
+    margin: 0;
+    text-align: center;
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.3px;
+    white-space: normal !important;
+    overflow: visible !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  #decision img.learning-underline {
+    display: block;
+    width: 92px !important;
+    max-width: 92px !important;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .learning-download-desktop {
+    display: none;
+  }
+
+  .decision-section > div > div:first-child > div:last-child {
+    width: min(100%, 320px);
+    margin: 0 auto;
+  }
+
+  .decision-section > div > div:first-child > div:last-child img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .decision-section > div > div:nth-child(2) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+    padding: 12px;
+    border: 1px solid #173a57;
+    border-radius: 20px;
+    background: rgba(7, 21, 38, 0.92);
+  }
+
+  .decision-section > div > div:nth-child(2) article {
+    min-height: 72px;
+    height: 72px;
+    padding: 0;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .decision-section > div > div:nth-child(2) article > div:first-child {
+    height: 72px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .decision-section
+    > div
+    > div:nth-child(2)
+    article
+    > div:first-child
+    > div:first-child {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .decision-section > div > div:nth-child(2) article h3 {
+    font-size: 15px;
+    line-height: 22px;
+    white-space: nowrap;
+  }
+
+  .decision-section > div > div:nth-child(2) article p,
+  .decision-section > div > div:nth-child(2) article > div:last-child {
+    display: none;
+  }
+
+  .learning-desktop-title {
+    display: none;
+  }
+
+  .learning-mobile-title {
+    display: inline;
+  }
+
+  .learning-download-mobile {
+    display: flex;
+    width: 100%;
+    max-width: 280px;
+    margin: 18px auto 0;
+  }
+
+  .decision-cta {
+    display: flex;
+    min-height: 52px;
+    margin-top: 18px;
+    padding: 0;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+  }
+
+  .decision-cta > div:first-child {
+    display: none;
+  }
+
+  .decision-cta > a,
+  .decision-cta > button {
+    width: 100%;
+    min-width: 0;
+    height: 52px;
+    border-radius: 12px;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #order form {
+    position: absolute !important;
+    top: 64px !important;
+    right: 64px !important;
+    width: 514.09px !important;
+    max-width: none !important;
+    height: 714px !important;
+    margin: 0 !important;
+    padding: 34px !important;
+  }
+
+  #order form .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .decision-heading h2 {
+    font-size: 25px !important;
+  }
+
+  .decision-heading p {
+    font-size: 13px !important;
+  }
+}

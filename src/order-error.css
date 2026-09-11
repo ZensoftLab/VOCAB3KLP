@@ -1,0 +1,124 @@
+.order-error-page {
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #09101f;
+}
+
+.order-error-card {
+  box-sizing: border-box;
+  width: min(350px, 100%);
+  min-height: 746px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #fffcf7;
+  border: 1px solid #dce8f1;
+  border-radius: 24px;
+}
+
+.order-error-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.order-error-icon {
+  width: 44px;
+  height: 43px;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  background: #e8b84e;
+  border-radius: 14px;
+  color: #071526;
+}
+
+.order-error-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.order-error-content h1 {
+  width: 100%;
+  margin: 0;
+  color: #132033;
+  font-family: "Baloo Da 2", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.order-error-content p {
+  max-width: 290px;
+  margin: 0;
+  color: #566477;
+  font-family: "Baloo Da 2", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@media (min-width: 521px) {
+  .order-error-page {
+    padding: 40px;
+    background: #fffcf7;
+  }
+
+  .order-error-card {
+    width: auto;
+    min-height: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .order-error-content {
+    width: auto;
+    gap: 18px;
+  }
+
+  .order-error-icon {
+    width: 52px;
+    height: 51px;
+  }
+
+  .order-error-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .order-error-content h1 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .order-error-content p {
+    max-width: 360px;
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+@media (max-width: 520px) {
+  .order-error-page {
+    min-height: 100svh;
+    padding: 4px 8px;
+  }
+
+  .order-error-card {
+    width: 100%;
+    min-height: calc(100svh - 8px);
+    border-radius: 24px;
+  }
+}

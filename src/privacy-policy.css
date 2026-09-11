@@ -1,0 +1,126 @@
+.privacy-page {
+  min-height: 100vh;
+  padding: 80px 20px 0;
+  background:
+    radial-gradient(circle at top right, rgba(246, 189, 36, 0.18), transparent 30rem),
+    linear-gradient(180deg, #071024 0%, #09132d 100%);
+  color: #fff;
+}
+
+.privacy-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 32px 0 24px;
+}
+
+.privacy-shell {
+  display: grid;
+  gap: 20px;
+  width: min(100%, 1152px);
+  margin: 0 auto;
+}
+
+.privacy-back {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  color: #f6bd24;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.privacy-intro h1 {
+  margin: 0;
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.2;
+}
+
+.privacy-eyebrow {
+  margin: 0 0 8px;
+  color: #f6bd24;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.privacy-summary {
+  margin: 10px 0 0;
+  max-width: 760px;
+  color: #c8d2e6;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.privacy-content {
+  display: grid;
+  gap: 20px;
+  width: min(100%, 1152px);
+  margin: 0 auto;
+  padding: 32px 0 72px;
+}
+
+.privacy-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.privacy-meta-card {
+  display: grid;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 16px 18px;
+}
+
+.privacy-meta-card span {
+  color: #94a3b8;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.privacy-meta-card strong {
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.privacy-section {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 24px 24px 8px;
+}
+
+.privacy-section h2 {
+  margin: 0 0 12px;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.privacy-section p {
+  margin: 0 0 14px;
+  color: #dce5f6;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.privacy-back:hover {
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .privacy-page { padding-right: 16px; padding-left: 16px; }
+  .privacy-section { border-radius: 18px; padding: 20px 18px 6px; }
+}
