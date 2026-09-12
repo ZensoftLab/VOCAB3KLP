@@ -39,8 +39,25 @@
   display: grid;
   place-items: center;
   background: #e8b84e;
+  border: 0;
   border-radius: 14px;
   color: #071526;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.order-error-icon:hover,
+.order-error-icon:focus-visible {
+  background: #ffd86d;
+  transform: scale(1.06);
+}
+
+.order-error-icon:focus-visible {
+  outline: 3px solid rgba(232, 184, 78, 0.35);
+  outline-offset: 4px;
 }
 
 .order-error-icon svg {

@@ -2,12 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import logo from "./images/logo.png";
 import heroArtwork from "./images/Heroimage.webp";
-import heroArtworkDesktop from "./images/Heroimage.svg";
+import heroArtworkDesktop from "./images/Heroimaged.webp";
 import videoThumb from "./images/image2.png";
 import androidApp from "./images/image5.webp";
 import explainerUnderline from "./images/Vector 35.png";
 import infoIcon from "./assets/Info icon.svg";
 import sparkleIcon from "./assets/Icon.svg";
+import iconBase from "./assets/IconBase.svg";
 import Footer from "./footer";
 import Header from "./header";
 import PrivacyPolicy from "./privacy-policy";
@@ -301,7 +302,7 @@ function YouTubeReviewVideo({ videoId, title, className = "" }) {
         src={`https://www.youtube.com/embed/${videoId}?controls=1&playsinline=1&rel=0`}
         title={title}
         loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       />
     </div>
@@ -581,6 +582,7 @@ function App() {
 
   const flipBookRef = useRef(null);
   const flipBookReadyRef = useRef(false);
+  const flipBookEngineReadyRef = useRef(false);
   const bookVisibleRef = useRef(false);
   const autoAdvanceScheduledRef = useRef(false);
   const autoAdvancedForEntryRef = useRef(false);
@@ -588,6 +590,10 @@ function App() {
   const flipBookPageCount = 27;
 
   const navigateFlipBook = (direction) => {
+    if (!flipBookEngineReadyRef.current) {
+      return;
+    }
+
     if (
       (direction === "previous" && flipBookPage <= 1) ||
       (direction === "next" && flipBookPage >= flipBookPageCount)
@@ -607,6 +613,10 @@ function App() {
   };
 
   const resetFlipBook = () => {
+    if (!flipBookEngineReadyRef.current) {
+      return;
+    }
+
     setFlipBookPage(1);
     flipBookRef.current?.contentWindow?.postMessage(
       { type: "flipbook-first-page" },
@@ -617,6 +627,7 @@ function App() {
   const autoAdvanceFlipBookOnce = () => {
     if (
       !flipBookReadyRef.current ||
+      !flipBookEngineReadyRef.current ||
       !bookVisibleRef.current ||
       autoAdvanceScheduledRef.current ||
       autoAdvancedForEntryRef.current
@@ -642,8 +653,7 @@ function App() {
 
   const handleFlipBookLoad = () => {
     flipBookReadyRef.current = true;
-    resetFlipBook();
-    autoAdvanceFlipBookOnce();
+    flipBookEngineReadyRef.current = false;
   };
 
   useEffect(() => {
@@ -698,6 +708,13 @@ function App() {
         event.origin !== window.location.origin ||
         event.source !== flipBookRef.current?.contentWindow
       ) {
+        return;
+      }
+
+      if (event.data?.type === "flipbook-ready") {
+        flipBookEngineReadyRef.current = true;
+        resetFlipBook();
+        autoAdvanceFlipBookOnce();
         return;
       }
 
@@ -803,7 +820,14 @@ function App() {
   }
 
   if (showOrderError) {
-    return <OrderError />;
+    return (
+      <OrderError
+        onClose={() => {
+          setShowOrderError(false);
+          window.history.replaceState({}, "", "/");
+        }}
+      />
+    );
   }
 
   return (
@@ -955,7 +979,7 @@ function App() {
             <div className="hero-artwork order-1 relative mx-auto w-full max-w-[568.59px] justify-self-center translate-x-0 lg:order-2 lg:translate-x-0">
               <picture className="block h-full w-full">
                 <source
-                  media="(min-width: 768px)"
+                  media="(min-width: 1024px)"
                   srcSet={heroArtworkDesktop}
                 />
                 <img
@@ -1323,18 +1347,7 @@ function App() {
                     className="word-atlas-practice-icon word-atlas-mic-icon"
                     aria-hidden="true"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 18 18"
-                      fill="none"
-                    >
-                      <path
-                        d="M8.09023 3.25975C8.06116 3.23067 8.02607 3.20831 7.98742 3.19426C7.94878 3.18021 7.90752 3.17481 7.86656 3.17843C7.8256 3.18205 7.78593 3.1946 7.75035 3.21521C7.71477 3.23582 7.68414 3.26399 7.66062 3.29772C7.06731 4.14452 6.74937 5.15359 6.75007 6.18756C6.75059 6.40906 6.76538 6.6303 6.79437 6.8499L1.90695 13.5155C1.74698 13.7319 1.67024 13.9986 1.69077 14.2669C1.71129 14.5352 1.82772 14.7871 2.01875 14.9766L3.02351 15.9814C3.21301 16.1724 3.46495 16.2888 3.73324 16.3094C4.00153 16.3299 4.26825 16.2532 4.4846 16.0932L11.1509 11.2044C11.3703 11.2338 11.5913 11.249 11.8126 11.2501C12.8462 11.251 13.8549 10.9336 14.7017 10.3409C14.7354 10.3174 14.7636 10.2868 14.7842 10.2512C14.8048 10.2156 14.8174 10.1759 14.821 10.135C14.8246 10.094 14.8192 10.0528 14.8052 10.0141C14.7911 9.97547 14.7688 9.94038 14.7397 9.91131L8.09023 3.25975ZM8.27375 10.5216L7.14875 11.6466C7.09703 11.7011 7.03495 11.7446 6.96614 11.7746C6.89734 11.8047 6.82322 11.8207 6.74815 11.8216C6.67307 11.8226 6.59856 11.8085 6.52902 11.7802C6.45947 11.752 6.39629 11.71 6.3432 11.6569C6.29011 11.6038 6.24818 11.5407 6.2199 11.4711C6.19161 11.4016 6.17753 11.3271 6.17849 11.252C6.17945 11.1769 6.19543 11.1028 6.22549 11.034C6.25555 10.9652 6.29908 10.9031 6.35351 10.8514L7.47851 9.72639C7.58486 9.62535 7.72647 9.56985 7.87315 9.57173C8.01982 9.57361 8.15997 9.63271 8.26369 9.73644C8.36742 9.84017 8.42652 9.98031 8.4284 10.127C8.43028 10.2737 8.37478 10.4153 8.27375 10.5216ZM15.9659 9.076C15.9424 9.10984 15.9118 9.13811 15.8761 9.1588C15.8405 9.17948 15.8007 9.19208 15.7597 9.1957C15.7186 9.19933 15.6773 9.19388 15.6385 9.17976C15.5998 9.16563 15.5647 9.14317 15.5356 9.11396L8.88617 2.46451C8.85696 2.43544 8.8345 2.4003 8.82037 2.36158C8.80625 2.32287 8.80081 2.28152 8.80443 2.24047C8.80805 2.19942 8.82065 2.15966 8.84134 2.12402C8.86202 2.08837 8.89029 2.05771 8.92414 2.0342C9.8981 1.35459 11.0802 1.03941 12.2632 1.14388C13.4462 1.24836 14.5547 1.76582 15.3945 2.60561C16.2343 3.44539 16.7518 4.55392 16.8562 5.73695C16.9607 6.91997 16.6455 8.10204 15.9659 9.076Z"
-                        fill="#F6C84B"
-                      />
-                    </svg>
+                    <img src={iconBase} alt="" width="18" height="18" />
                   </span>
                   <div>
                     <strong>Tongue Twister</strong>
@@ -5742,11 +5755,7 @@ function App() {
           lg:leading-[62px]
         "
             >
-              <span className="order-heading-first-line">
-                আগে বই বুঝে নিন তার পরে
-              </span>
-              <br />
-              <span className="order-heading-second-line">টাকা দিন</span>
+              আগে বই বুঝে নিন তার পরে টাকা দিন
             </h2>
 
             <img

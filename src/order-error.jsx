@@ -1,20 +1,25 @@
 import { useEffect } from "react";
 import "./order-error.css";
 
-function OrderError() {
+function OrderError({ onClose }) {
   useEffect(() => {
-    const redirectTimer = window.setTimeout(() => {
-      window.location.assign("/");
-    }, 10000);
+    const dismissTimer = window.setTimeout(() => {
+      onClose?.();
+    }, 1500);
 
-    return () => window.clearTimeout(redirectTimer);
-  }, []);
+    return () => window.clearTimeout(dismissTimer);
+  }, [onClose]);
 
   return (
     <main className="order-error-page" aria-labelledby="order-error-title">
       <section className="order-error-card">
         <div className="order-error-content">
-          <div className="order-error-icon" aria-hidden="true">
+          <button
+            type="button"
+            className="order-error-icon"
+            aria-label="অর্ডার ত্রুটি বন্ধ করুন"
+            onClick={onClose}
+          >
             <svg viewBox="0 0 14 14" fill="none">
               <path
                 d="M2 2L12 12M12 2L2 12"
@@ -23,7 +28,7 @@ function OrderError() {
                 strokeLinecap="round"
               />
             </svg>
-          </div>
+          </button>
           <h1 id="order-error-title">দুঃখিত!</h1>
           <p>
             আপনার অর্ডারটি নিশ্চিত করা সম্ভব হয়নি।

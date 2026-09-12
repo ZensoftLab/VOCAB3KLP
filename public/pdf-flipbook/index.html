@@ -1384,6 +1384,10 @@
             heyzineDesign.load(flipbookcfg.design);
             heyzine.load('Oxford_3k.pdf', flipbookcfg).then(() => {
                 heyzineDesign.afterLoad(flipbookcfg.design);
+                window.parent.postMessage(
+                    { type: 'flipbook-ready' },
+                    window.location.origin,
+                );
                 // initServiceWorker();
                 if (typeof app != 'undefined' && app != null && app.bus != null) {
                     app.bus().$emit('flipbookLoaded');

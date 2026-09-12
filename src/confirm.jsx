@@ -5,7 +5,7 @@ function Confirm() {
   useEffect(() => {
     const redirectTimer = window.setTimeout(() => {
       window.location.assign("/");
-    }, 10000);
+    }, 1500);
 
     return () => window.clearTimeout(redirectTimer);
   }, []);
