@@ -25,9 +25,11 @@ const reviewVideos = [
   "EVRAAp-3nE8",
 ];
 
-// In dev, "/api" is proxied by Vite (see vite.config.js). In production builds
-// there is no dev server proxy, so we need the real API origin.
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+// Vite proxies /api during development, and Vercel proxies /api in production.
+// Keeping the browser request same-origin avoids the order API's missing CORS headers.
+const API_BASE_URL = import.meta.env.DEV
+  ? import.meta.env.VITE_API_BASE_URL || ""
+  : "";
 
 const normalizePhoneDigits = (value = "") =>
   value.replace(/[০-৯]/g, (digit) => "০১২৩৪৫৬৭৮৯".indexOf(digit));
