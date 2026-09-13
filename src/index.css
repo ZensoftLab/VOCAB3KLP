@@ -8856,12 +8856,358 @@ textarea:-webkit-autofill:focus {
   }
 }
 
+/* Tablet audience reference layout: one shared panel with two columns. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .audience-section {
+    box-sizing: border-box;
+    height: auto;
+    min-height: 458px;
+    padding: 32px 0 56px;
+    background: #eef5f0;
+  }
+
+  .audience-section > div {
+    width: 88%;
+    max-width: 738px;
+    height: auto;
+  }
+
+  .audience-section > div > div:first-child {
+    height: 76px;
+    justify-content: flex-start;
+  }
+
+  .audience-section > div > div:first-child > div:first-child,
+  .audience-lead {
+    display: none;
+  }
+
+  .audience-section h2 {
+    width: 100%;
+    margin: 0;
+    font-family: "Baloo Da 2", sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 42px;
+    letter-spacing: 0;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .audience-underline {
+    width: 80.7px;
+    margin: 4px auto 0;
+  }
+
+  .audience-section > div > div:nth-child(2) {
+    display: grid;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    height: 262px;
+    margin: 32px auto 0;
+    padding: 18px 26px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+    row-gap: 12px;
+    border: 1px solid #dce8f1;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(5, 11, 24, 0.07);
+  }
+
+  .audience-section > div > div:nth-child(2) article {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .audience-section > div > div:nth-child(2) article > div:first-child {
+    display: none;
+  }
+
+  .audience-section > div > div:nth-child(2) article > div:nth-child(2) {
+    display: grid;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    grid-template-columns: 34px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 14px;
+    row-gap: 4px;
+    align-items: center;
+    align-content: center;
+    margin: 0;
+  }
+
+  .audience-section
+    > div
+    > div:nth-child(2)
+    article
+    > div:nth-child(2)
+    > div:first-child {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    grid-row: 1;
+    place-items: center;
+    border-radius: 50%;
+    background: #fff4d9;
+    color: #7f5b0d;
+    font-family: "Baloo Da 2", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+    align-self: center;
+  }
+
+  .audience-section > div > div:nth-child(2) article h3 {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    overflow-wrap: normal;
+    color: #16243a;
+    font-family: "Baloo Da 2", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    white-space: nowrap;
+    align-self: center;
+  }
+
+  .audience-section
+    > div
+    > div:nth-child(2)
+    article
+    > div:nth-child(2)
+    > div:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+    min-width: 0;
+    color: #5a6878;
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-top: -8px !important;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .audience-section > div > div:nth-child(2) article p {
+    display: none;
+  }
+}
+
 /* Responsive motion for the audience cards. Keep the copy still and animate
    only the entrance, index, and decorative circle. */
 
 @media (prefers-reduced-motion: reduce) {
   .audience-section > div > div:nth-child(2) article::after {
     animation: none;
+  }
+}
+
+/* Desktop decision layout: use the tablet composition at a larger scale. */
+@media (min-width: 1024px) {
+  #decision {
+    box-sizing: border-box;
+    height: auto !important;
+    min-height: 700px !important;
+    padding: 52px 0 72px !important;
+    background: #050b18 !important;
+  }
+
+  #decision > div {
+    display: grid !important;
+    box-sizing: border-box;
+    width: min(1000px, calc(100% - 48px)) !important;
+    max-width: 1000px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    grid-template-columns: 420px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto 424px auto !important;
+    column-gap: 32px !important;
+    row-gap: 18px !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  #decision > div > div:first-child {
+    display: contents !important;
+    min-height: 0 !important;
+  }
+
+  #decision > div > div:first-child > div:first-child {
+    display: contents !important;
+    text-align: center !important;
+  }
+
+  #decision
+    > div
+    > div:first-child
+    > div:first-child
+    > div:first-child,
+  #decision > div > div:first-child > div:first-child > p,
+  #decision .learning-download-desktop {
+    display: none !important;
+  }
+
+  #decision h2 {
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    font-family: "Baloo Da 2", sans-serif !important;
+    font-size: 46px !important;
+    font-weight: 700 !important;
+    line-height: 56px !important;
+    letter-spacing: 0 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+
+  #decision img.learning-underline {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    width: 96px !important;
+    max-width: 96px !important;
+    margin: 0 auto !important;
+  }
+
+  #decision > div > div:first-child > div:last-child {
+    display: flex !important;
+    box-sizing: border-box;
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+    width: 420px !important;
+    max-width: 420px !important;
+    height: 424px !important;
+    min-height: 424px !important;
+    flex: 0 0 420px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    align-self: center !important;
+    justify-self: start !important;
+  }
+
+  #decision img.decision-artwork {
+    display: block !important;
+    width: 420px !important;
+    max-width: 420px !important;
+    height: 424px !important;
+    flex: 0 0 420px !important;
+    object-fit: contain !important;
+  }
+
+  #decision > div > div:nth-child(2) {
+    display: grid !important;
+    box-sizing: border-box;
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(3, 96px) !important;
+    width: 100% !important;
+    height: 312px !important;
+    margin: 0 !important;
+    padding: 8px 18px !important;
+    gap: 0 18px !important;
+    border: 1px solid #173a57 !important;
+    border-radius: 20px !important;
+    background: #071526 !important;
+    align-self: center !important;
+    justify-self: stretch !important;
+  }
+
+  #decision > div > div:nth-child(2) article {
+    display: block !important;
+    width: 100% !important;
+    height: 96px !important;
+    min-height: 96px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    animation: none !important;
+  }
+
+  #decision > div > div:nth-child(2) article > div:first-child {
+    display: flex !important;
+    width: 100% !important;
+    height: 96px !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 14px !important;
+    text-align: left !important;
+  }
+
+  #decision
+    > div
+    > div:nth-child(2)
+    article
+    > div:first-child
+    > div:first-child {
+    width: 44px !important;
+    height: 44px !important;
+    flex: 0 0 44px !important;
+    margin: 0 !important;
+    border-radius: 999px !important;
+    font-family: "Baloo Da 2", sans-serif !important;
+    font-size: 15px !important;
+    line-height: 20px !important;
+  }
+
+  #decision > div > div:nth-child(2) article h3 {
+    width: auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    font-family: "Baloo Da 2", sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    line-height: 26px !important;
+    text-align: left !important;
+  }
+
+  #decision > div > div:nth-child(2) article p,
+  #decision > div > div:nth-child(2) article > div:last-child {
+    display: none !important;
+  }
+
+  #decision .learning-desktop-title {
+    display: none !important;
+  }
+
+  #decision .learning-mobile-title {
+    display: inline !important;
+  }
+
+  #decision .learning-download-mobile {
+    display: flex !important;
+    grid-column: 2 !important;
+    grid-row: 4 !important;
+    width: 240px !important;
+    height: 58px !important;
+    margin: 0 !important;
+    justify-self: start !important;
+    border-radius: 12px !important;
+    font-family: "Baloo Da 2", sans-serif !important;
+    font-size: 19px !important;
+    line-height: 26px !important;
+  }
+
+  #decision .decision-cta {
+    display: none !important;
   }
 }
 

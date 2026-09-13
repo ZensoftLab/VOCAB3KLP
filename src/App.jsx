@@ -30,6 +30,7 @@ const reviewVideos = [
 const API_BASE_URL = import.meta.env.DEV
   ? import.meta.env.VITE_API_BASE_URL || ""
   : "";
+const FLIPBOOK_URL = `${import.meta.env.BASE_URL}pdf-flipbook/index.html`;
 
 const normalizePhoneDigits = (value = "") =>
   value.replace(/[০-৯]/g, (digit) => "০১২৩৪৫৬৭৮৯".indexOf(digit));
@@ -1194,7 +1195,7 @@ function App() {
             <div className="mx-auto w-full max-w-[820px]">
               <iframe
                 title="Oxford 3000 PDF Flipbook"
-                src="/pdf-flipbook/index.html"
+                src={FLIPBOOK_URL}
                 ref={flipBookRef}
                 onLoad={handleFlipBookLoad}
                 className="block h-[540px] w-full overflow-hidden border-0 bg-transparent"
