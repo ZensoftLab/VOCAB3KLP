@@ -24,11 +24,9 @@ const reviewVideos = [
   "EVRAAp-3nE8",
 ];
 
-// Vite proxies /api during development, and Vercel proxies /api in production.
-// Keeping the browser request same-origin avoids the order API's missing CORS headers.
-const API_BASE_URL = import.meta.env.DEV
-  ? import.meta.env.VITE_API_BASE_URL || ""
-  : "";
+// Vite embeds VITE_* variables during the production build. Static deployments
+// therefore call the configured order API directly from the browser.
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/+$/, "");
 const FLIPBOOK_URL = `${import.meta.env.BASE_URL}pdf-flipbook/index.html`;
 
 const normalizePhoneDigits = (value = "") =>
