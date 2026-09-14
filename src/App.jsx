@@ -3,8 +3,8 @@ import "./App.css";
 import logo from "./images/logo.png";
 import heroArtwork from "./images/Heroimage.webp";
 import heroArtworkDesktop from "./images/Heroimaged.webp";
-import videoThumb from "./images/image2.png";
 import androidApp from "./images/image5.webp";
+import videoOverlay from "./images/videooverlay.webp";
 import explainerUnderline from "./images/Vector 35.png";
 import infoIcon from "./assets/Info icon.svg";
 import sparkleIcon from "./assets/Icon.svg";
@@ -14,7 +14,6 @@ import Header from "./header";
 import PrivacyPolicy from "./privacy-policy";
 import Confirm from "./confirm";
 import OrderError from "./order-error";
-import mainVideo from "./Video/Main.mp4";
 
 const reviewVideos = [
   "V1VpUy3DuVs",
@@ -428,21 +427,8 @@ function App() {
     );
   };
 
-  const [videoPlaying, setVideoPlaying] = useState(false);
-  const mainVideoRef = useRef(null);
-
-  const toggleMainVideo = () => {
-    const video = mainVideoRef.current;
-    if (!video) return;
-
-    if (video.paused) {
-      video.play();
-    } else {
-      video.pause();
-    }
-  };
-
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mainYouTubeStarted, setMainYouTubeStarted] = useState(false);
 
   const [activeSection, setActiveSection] = useState("");
 
@@ -1041,52 +1027,40 @@ function App() {
           <div className="mt-6 lg:mt-[52px]">
             <div
               className="group relative mx-auto h-[197px] w-full overflow-hidden rounded-2xl border border-[#12345A] bg-[#071526] shadow-[0_18px_42px_rgba(2,8,24,0.28)] lg:h-[558px] lg:w-[992px] lg:rounded-[32px] lg:border-[#E8B84E]/[0.28]"
-              onClick={toggleMainVideo}
             >
-              <video
-                ref={mainVideoRef}
-                className={`absolute inset-0 h-full w-full object-cover transition-opacity ${videoPlaying ? "opacity-100" : "opacity-0"}`}
-                src={mainVideo}
-                poster={videoThumb}
+              <iframe
+                className={`absolute inset-0 h-full w-full border-0 transition-opacity duration-200 ${mainYouTubeStarted ? "opacity-100" : "opacity-0"}`}
+                src={`https://www.youtube.com/embed/brdP8Tgy1nM?controls=1&playsinline=1&rel=0&start=4&autoplay=${mainYouTubeStarted ? 1 : 0}`}
                 title="Oxford 3000 Vocab introduction"
-                controls={false}
-                disablePictureInPicture
-                playsInline
-                preload="auto"
-                draggable="false"
-                onPlay={() => setVideoPlaying(true)}
-                onPause={() => setVideoPlaying(false)}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
               />
-              {!videoPlaying && (
-                <>
+              {!mainYouTubeStarted && (
+                <button
+                  type="button"
+                  className="video-overlay-button absolute inset-0 z-10 block h-full w-full cursor-pointer border-0 bg-[#071526] p-0"
+                  aria-label="১ মিনিটের ভিডিও চালু করুন"
+                  onClick={() => setMainYouTubeStarted(true)}
+                >
                   <img
-                    src={videoThumb}
-                    alt="Watch 1 minute"
-                    className="video-thumbnail absolute inset-0 h-full w-full object-cover"
+                    src={videoOverlay}
+                    alt="Watch the Oxford 3000 introduction"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
-                  <button
-                    type="button"
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      mainVideoRef.current?.play();
-                    }}
-                    aria-label="১ মিনিটের ভিডিও চালু করুন"
-                    className="absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[#F6C84B] transition hover:scale-105 hover:bg-[#ffd86d] lg:h-20 lg:w-20 lg:shadow-[0_0_0_12.8px_rgba(232,184,78,0.12)]"
+                  <span
+                    className="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[#F6C84B] text-[#071526] transition-transform hover:scale-105 lg:h-20 lg:w-20"
+                    aria-hidden="true"
                   >
                     <svg
                       viewBox="0 0 24 24"
-                      className="h-5 w-5 text-[#071526] lg:h-7 lg:w-7"
+                      className="h-6 w-6 lg:h-8 lg:w-8"
                       aria-hidden="true"
                     >
                       <path d="M10 8l6 4-6 4V8z" fill="currentColor" />
                     </svg>
-                  </button>
-                </>
-              )}
-              {!videoPlaying && (
-                <span className="absolute right-3 top-3 rounded-full border border-white/[0.14] bg-[#050B18]/[0.78] px-2 py-1 font-['Baloo_Da_2'] text-[12px] font-normal leading-[18px] text-white lg:right-4 lg:top-4 lg:px-3 lg:py-[6.4px] lg:text-[12.8px] lg:font-semibold lg:text-white">
-                  ১ মিনিটে দেখুন
-                </span>
+                  </span>
+                </button>
               )}
             </div>
           </div>

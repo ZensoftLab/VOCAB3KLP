@@ -10520,6 +10520,12 @@ section h3 {
   background: #ffffff !important;
 }
 
+/* The video overlay fills the frame; prevent legacy centered-play hover motion. */
+#how-it-works .video-overlay-button:hover {
+  box-shadow: none !important;
+  transform: none !important;
+}
+
 /* Tablet video frame from the provided layout specification. */
 @media (min-width: 768px) and (max-width: 1023px) {
   #how-it-works {
