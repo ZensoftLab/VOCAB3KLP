@@ -1,4 +1,15 @@
 {
+  "headers": [
+    {
+      "source": "/pdf-flipbook/pdf.6.2.108.hz.10.l.min.js",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript; charset=utf-8"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/:path*",
