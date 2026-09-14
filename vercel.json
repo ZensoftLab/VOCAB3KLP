@@ -12,10 +12,6 @@
   ],
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "https://orderapi.englishcommando.bd/api/:path*"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
