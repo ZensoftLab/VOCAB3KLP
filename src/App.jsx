@@ -32,6 +32,20 @@ const FLIPBOOK_URL = `${import.meta.env.BASE_URL}pdf-flipbook/index.html`;
 const normalizePhoneDigits = (value = "") =>
   value.replace(/[০-৯]/g, (digit) => "০১২৩৪৫৬৭৮৯".indexOf(digit));
 
+const normalizePhoneNumber = (value = "") => {
+  const normalized = normalizePhoneDigits(value).replace(/[\s-]/g, "");
+
+  if (/^\+8801\d{9}$/.test(normalized)) {
+    return `0${normalized.slice(4)}`;
+  }
+
+  if (/^8801\d{9}$/.test(normalized)) {
+    return `0${normalized.slice(3)}`;
+  }
+
+  return normalized;
+};
+
 const featureCards = [
   {
     badge: "যেকোনো জায়গায়",
@@ -501,7 +515,7 @@ function App() {
       return;
     }
 
-    const normalizedPhone = normalizePhoneDigits(phone);
+    const normalizedPhone = normalizePhoneNumber(phone);
     if (!/^01\d{9}$/.test(normalizedPhone)) {
       setOrderError("সঠিক ১১ সংখ্যার মোবাইল নম্বর দিন।");
       setIsSubmitting(false);
@@ -6356,9 +6370,9 @@ function App() {
                       name="phone"
                       type="tel"
                       required
-                      inputMode="numeric"
-                      pattern="(01|০১)[0-9০-৯]{9}"
-                      placeholder="01xxxxxxxxx"
+                      inputMode="tel"
+                      pattern="(?:(?:01|০১)[0-9০-৯]{9}|\+8801[0-9০-৯]{9})"
+                      placeholder="আপনার মোবাইল নম্বর"
                       className="
                   mt-[4.47px]
                   box-border
