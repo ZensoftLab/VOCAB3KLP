@@ -917,6 +917,20 @@ function App() {
       )}
 
       {/* Section - 01 */}
+      <link
+        rel="preload"
+        as="image"
+        href={heroArtworkDesktop}
+        media="(min-width: 1024px)"
+        fetchPriority="high"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href={heroArtwork}
+        media="(max-width: 1023px)"
+        fetchPriority="high"
+      />
       <section
         id="top"
         className="relative overflow-hidden bg-[#040914]"
@@ -1026,6 +1040,11 @@ function App() {
                 <img
                   src={heroArtwork}
                   alt="Oxford 3000 vocabulary pack"
+                  width="568"
+                  height="520"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   className="mx-auto block h-full w-full select-none object-contain drop-shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
                 />
               </picture>
