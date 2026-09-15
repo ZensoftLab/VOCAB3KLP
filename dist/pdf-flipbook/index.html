@@ -66,9 +66,9 @@
             "height": 612,
             "size": "2006589",
             "admin_key": "",
-            "surl": "",
+            "surl": "/flip-book/11701373e3.html",
             "cover": 0,
-            "num_pages": 38,
+            "num_pages": 27,
             "viewer": "MAGAZINE",
             "thumbnail": "11701373e356127b58814c213f6b193ea0e0d444.pdf-thumb.jpg",
             "stats": 0,
@@ -1311,18 +1311,6 @@
 
 
     <script type="text/javascript">
-        const keepLocalViewerNavigation = () => {
-            if (typeof heyzine === 'undefined') return;
-            heyzine.navigate = function (url, mode) {
-                if (mode === 'newtab' && url) {
-                    window.open(url, '_blank', 'noopener,noreferrer');
-                }
-            };
-        };
-        keepLocalViewerNavigation();
-        const navigationGuard = window.setInterval(keepLocalViewerNavigation, 50);
-        window.setTimeout(() => window.clearInterval(navigationGuard), 10000);
-
         document.addEventListener('dragstart', (event) => event.preventDefault());
         document.addEventListener('keydown', (event) => {
             if ((event.ctrlKey || event.metaKey) && ['s', 'u'].includes(event.key.toLowerCase())) {
@@ -1397,10 +1385,7 @@
             heyzine.load('Oxford_3k.pdf', flipbookcfg).then(() => {
                 heyzineDesign.afterLoad(flipbookcfg.design);
                 window.parent.postMessage(
-                    {
-                        type: 'flipbook-ready',
-                        pageCount: heyzine.pdf?.numPages || flipbookcfg.num_pages,
-                    },
+                    { type: 'flipbook-ready' },
                     window.location.origin,
                 );
                 // initServiceWorker();

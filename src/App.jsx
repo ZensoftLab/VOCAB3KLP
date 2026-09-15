@@ -312,16 +312,40 @@ function StudentStoryVideo({ src, title, className = "" }) {
 }
 
 function YouTubeReviewVideo({ videoId, title, className = "" }) {
+  const iframeRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const playVideo = () => {
+    iframeRef.current?.contentWindow?.postMessage(
+      JSON.stringify({ event: "command", func: "playVideo", args: [] }),
+      "*",
+    );
+    setIsPlaying(true);
+  };
+
   return (
-    <div className={`${className} overflow-hidden`}>
+    <div className={`${className} relative overflow-hidden`}>
       <iframe
-        className="absolute inset-0 h-full w-full border-0"
-        src={`https://www.youtube.com/embed/${videoId}?controls=1&playsinline=1&rel=0`}
+        ref={iframeRef}
+        className="youtube-clean-video youtube-title-hidden absolute inset-0 h-full w-full border-0"
+        src={`https://www.youtube.com/embed/${videoId}?controls=0&playsinline=1&rel=0&showinfo=0&modestbranding=1&enablejsapi=1`}
         title={title}
-        loading="lazy"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       />
+      {!isPlaying && (
+        <button
+          type="button"
+          className="absolute left-1/2 top-1/2 z-50 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-0 bg-black/60 text-white transition-transform hover:scale-105"
+          aria-label={`${title} চালু করুন`}
+          onClick={playVideo}
+        >
+          <span
+            className="ml-1 h-0 w-0 border-y-[11px] border-l-[16px] border-y-transparent border-l-white"
+            aria-hidden="true"
+          />
+        </button>
+      )}
     </div>
   );
 }
@@ -444,6 +468,7 @@ function App() {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mainYouTubeStarted, setMainYouTubeStarted] = useState(false);
+  const mainYouTubeRef = useRef(null);
 
   const [activeSection, setActiveSection] = useState("");
 
@@ -1098,10 +1123,10 @@ function App() {
           <div className="mt-6 lg:mt-[52px]">
             <div className="group relative mx-auto h-[197px] w-full overflow-hidden rounded-2xl border border-[#12345A] bg-[#071526] shadow-[0_18px_42px_rgba(2,8,24,0.28)] lg:h-[558px] lg:w-[992px] lg:rounded-[32px] lg:border-[#E8B84E]/[0.28]">
               <iframe
-                className={`absolute inset-0 h-full w-full border-0 transition-opacity duration-200 ${mainYouTubeStarted ? "opacity-100" : "opacity-0"}`}
-                src={`https://www.youtube.com/embed/brdP8Tgy1nM?controls=1&playsinline=1&rel=0&start=4&autoplay=${mainYouTubeStarted ? 1 : 0}`}
+                ref={mainYouTubeRef}
+                className={`youtube-title-hidden absolute inset-0 h-full w-full border-0 transition-opacity duration-200 ${mainYouTubeStarted ? "opacity-100" : "opacity-0"}`}
+                src="https://www.youtube.com/embed/brdP8Tgy1nM?controls=0&playsinline=1&rel=0&showinfo=0&modestbranding=1&start=4&autoplay=1&mute=1&enablejsapi=1"
                 title="Oxford 3000 Vocab introduction"
-                loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />
@@ -1110,7 +1135,27 @@ function App() {
                   type="button"
                   className="video-overlay-button absolute inset-0 z-10 block h-full w-full cursor-pointer border-0 bg-[#071526] p-0"
                   aria-label="১ মিনিটের ভিডিও চালু করুন"
-                  onClick={() => setMainYouTubeStarted(true)}
+                  onClick={() => {
+                    setMainYouTubeStarted(true);
+                    const playerWindow = mainYouTubeRef.current?.contentWindow;
+                    if (!playerWindow) return;
+                    playerWindow.postMessage(
+                      JSON.stringify({
+                        event: "command",
+                        func: "unMute",
+                        args: [],
+                      }),
+                      "*",
+                    );
+                    playerWindow.postMessage(
+                      JSON.stringify({
+                        event: "command",
+                        func: "playVideo",
+                        args: [],
+                      }),
+                      "*",
+                    );
+                  }}
                 >
                   <img
                     src={videoOverlay}

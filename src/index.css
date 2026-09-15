@@ -128,7 +128,11 @@
     padding: 20px !important;
     border: 1px solid #0a1934 !important;
     border-radius: 14px !important;
-    background: linear-gradient(147.63deg, #0a1934 7.1%, #040914 92.9%) !important;
+    background: linear-gradient(
+      147.63deg,
+      #0a1934 7.1%,
+      #040914 92.9%
+    ) !important;
   }
 
   #package .word-atlas-practice h3 {
@@ -167,7 +171,11 @@
     place-items: center !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 8px !important;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)) !important;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.04)
+    ) !important;
   }
 
   #package .word-atlas-practice-icon img,
@@ -618,9 +626,7 @@ body {
     justify-content: flex-start !important;
     column-gap: 22px !important;
     row-gap: 0 !important;
-    transform: translateX(
-      calc(var(--review-slide, 0) * -1 * (50% + 11px))
-    );
+    transform: translateX(calc(var(--review-slide, 0) * -1 * (50% + 11px)));
     transition: transform 420ms ease;
     will-change: transform;
   }
@@ -657,7 +663,9 @@ body {
     font-size: 20px;
     line-height: 1;
     cursor: pointer;
-    transition: background 180ms ease, opacity 180ms ease;
+    transition:
+      background 180ms ease,
+      opacity 180ms ease;
   }
 
   .student-proof-carousel-button svg {
@@ -687,7 +695,9 @@ body {
     border: 0;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.3);
-    transition: width 180ms ease, background 180ms ease;
+    transition:
+      width 180ms ease,
+      background 180ms ease;
     cursor: pointer;
   }
 
@@ -874,6 +884,11 @@ textarea:-webkit-autofill:focus {
 }
 
 /* Keep each YouTube player inside the review card without changing card size. */
+.youtube-title-hidden {
+  top: -72px !important;
+  height: calc(100% + 144px) !important;
+}
+
 .student-proof-section .student-proof-card > div:first-child {
   position: absolute !important;
   inset: 0 0 88px 0 !important;
@@ -889,6 +904,15 @@ textarea:-webkit-autofill:focus {
   height: 100% !important;
   border: 0;
   border-radius: 24px 24px 0 0;
+}
+
+.student-proof-section
+  .student-proof-card
+  > div:first-child
+  iframe.youtube-clean-video {
+  top: -72px !important;
+  bottom: auto !important;
+  height: calc(100% + 144px) !important;
 }
 
 @media (min-width: 768px) {
@@ -8572,10 +8596,7 @@ textarea:-webkit-autofill:focus {
   }
 
   /* Keep the three cards in the mobile second column left-aligned. */
-  .decision-section
-    > div
-    > div:nth-child(2)
-    > article:nth-child(even) {
+  .decision-section > div > div:nth-child(2) > article:nth-child(even) {
     text-align: left !important;
   }
 
@@ -8599,21 +8620,13 @@ textarea:-webkit-autofill:focus {
     margin-left: 0 !important;
   }
 
-  .decision-section
-    > div
-    > div:nth-child(2)
-    > article:nth-child(even)
-    h3 {
+  .decision-section > div > div:nth-child(2) > article:nth-child(even) h3 {
     align-self: flex-start !important;
     text-align: left !important;
   }
 
   /* Match the Figma mobile card rhythm in both grid columns. */
-  .decision-section
-    > div
-    > div:nth-child(2)
-    > article
-    > div:first-child {
+  .decision-section > div > div:nth-child(2) > article > div:first-child {
     justify-content: flex-start !important;
     gap: 12px !important;
     text-align: left !important;
@@ -8630,11 +8643,7 @@ textarea:-webkit-autofill:focus {
     margin-left: 0 !important;
   }
 
-  .decision-section
-    > div
-    > div:nth-child(2)
-    > article
-    h3 {
+  .decision-section > div > div:nth-child(2) > article h3 {
     width: auto !important;
     align-self: flex-start !important;
     text-align: left !important;
@@ -8673,11 +8682,7 @@ textarea:-webkit-autofill:focus {
     text-align: center !important;
   }
 
-  .decision-section
-    > div
-    > div:first-child
-    > div:first-child
-    > div:first-child,
+  .decision-section > div > div:first-child > div:first-child > div:first-child,
   .decision-section > div > div:first-child > div:first-child > p,
   .learning-download-desktop {
     display: none !important;
@@ -9052,11 +9057,7 @@ textarea:-webkit-autofill:focus {
     text-align: center !important;
   }
 
-  #decision
-    > div
-    > div:first-child
-    > div:first-child
-    > div:first-child,
+  #decision > div > div:first-child > div:first-child > div:first-child,
   #decision > div > div:first-child > div:first-child > p,
   #decision .learning-download-desktop {
     display: none !important;
@@ -9260,7 +9261,9 @@ textarea:-webkit-autofill:focus {
    must not be treated as the decorative second-last layer. */
 @media (max-width: 767px) {
   .student-proof-section .student-proof-placeholder-card > div:first-child,
-  .student-proof-section .student-proof-placeholder-card > div:nth-last-child(2) {
+  .student-proof-section
+    .student-proof-placeholder-card
+    > div:nth-last-child(2) {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -9269,7 +9272,10 @@ textarea:-webkit-autofill:focus {
     z-index: 10 !important;
   }
 
-  .student-proof-section .student-proof-placeholder-card > div:first-child iframe {
+  .student-proof-section
+    .student-proof-placeholder-card
+    > div:first-child
+    iframe {
     display: block !important;
     width: 100% !important;
     height: 100% !important;
@@ -9618,7 +9624,11 @@ textarea:-webkit-autofill:focus {
     padding: 27px 54px 20px !important;
     border: 1px solid #0a1934 !important;
     border-radius: 14px !important;
-    background: linear-gradient(147.63deg, #0a1934 7.1%, #040914 92.9%) !important;
+    background: linear-gradient(
+      147.63deg,
+      #0a1934 7.1%,
+      #040914 92.9%
+    ) !important;
   }
 
   #package .word-atlas-practice h3 {
@@ -9661,7 +9671,11 @@ textarea:-webkit-autofill:focus {
     place-items: center !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 8px !important;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)) !important;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.04)
+    ) !important;
   }
 
   #package .word-atlas-practice-icon svg {
@@ -10218,7 +10232,11 @@ section h3 {
     padding: 20px !important;
     border: 1px solid #0a1934 !important;
     border-radius: 14px !important;
-    background: linear-gradient(147.63deg, #0a1934 7.1%, #040914 92.9%) !important;
+    background: linear-gradient(
+      147.63deg,
+      #0a1934 7.1%,
+      #040914 92.9%
+    ) !important;
   }
 
   #package .word-atlas-practice h3 {
@@ -10257,7 +10275,11 @@ section h3 {
     place-items: center !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 8px !important;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)) !important;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.04)
+    ) !important;
   }
 
   #package .word-atlas-practice-icon img,
