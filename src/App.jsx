@@ -26,7 +26,10 @@ const reviewVideos = [
 
 // Vite embeds VITE_* variables during the production build. Static deployments
 // therefore call the configured order API directly from the browser.
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/+$/, "");
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(
+  /\/+$/,
+  "",
+);
 const FLIPBOOK_URL = `${import.meta.env.BASE_URL}pdf-flipbook/index.html`;
 
 const normalizePhoneDigits = (value = "") =>
@@ -595,19 +598,52 @@ function App() {
       return;
     }
 
+    const frameWindow = flipBookRef.current?.contentWindow;
+    const currentPage = Number(
+      frameWindow?.heyzine?.getCurrentPage?.() ?? flipBookPage,
+    );
+
     if (
-      (direction === "previous" && flipBookPage <= 1) ||
-      (direction === "next" && flipBookPage >= flipBookPageCount)
+      (direction === "previous" && currentPage <= 1) ||
+      (direction === "next" && currentPage >= flipBookPageCount)
     ) {
       return;
     }
 
-    setFlipBookPage((page) =>
+    const nativeControl =
       direction === "next"
-        ? Math.min(page + 1, flipBookPageCount)
-        : Math.max(page - 1, 1),
-    );
-    flipBookRef.current?.contentWindow?.postMessage(
+        ? frameWindow?.document?.querySelector(".btnNext")
+        : frameWindow?.document?.querySelector(".btnPrevious");
+
+    if (nativeControl) {
+      nativeControl.click();
+      window.setTimeout(() => {
+        const pageFromLib = Number(frameWindow?.heyzine?.getCurrentPage?.());
+        if (Number.isFinite(pageFromLib)) {
+          setFlipBookPage(pageFromLib);
+        }
+      }, 250);
+      return;
+    }
+
+    const targetPage =
+      direction === "next"
+        ? Math.min(currentPage + 1, flipBookPageCount)
+        : Math.max(currentPage - 1, 1);
+
+    setFlipBookPage(targetPage);
+
+    if (frameWindow?.heyzine?.goToPage) {
+      frameWindow.heyzine.goToPage(targetPage, "button");
+      return;
+    }
+
+    if (frameWindow?.hzflip?.controls?.navigation?.goToPage) {
+      frameWindow.hzflip.controls.navigation.goToPage(targetPage, "button");
+      return;
+    }
+
+    frameWindow?.postMessage(
       { type: "flipbook-page", direction },
       window.location.origin,
     );
@@ -654,7 +690,6 @@ function App() {
 
   const handleFlipBookLoad = () => {
     flipBookReadyRef.current = true;
-    flipBookEngineReadyRef.current = false;
   };
 
   useEffect(() => {
@@ -720,7 +755,12 @@ function App() {
       }
 
       if (event.data?.type === "flipbook-page-change") {
-        navigateFlipBook(event.data.direction);
+        if (
+          event.data?.direction === "next" ||
+          event.data?.direction === "previous"
+        ) {
+          navigateFlipBook(event.data.direction);
+        }
       }
     };
 
@@ -1037,9 +1077,7 @@ function App() {
           </div>
 
           <div className="mt-6 lg:mt-[52px]">
-            <div
-              className="group relative mx-auto h-[197px] w-full overflow-hidden rounded-2xl border border-[#12345A] bg-[#071526] shadow-[0_18px_42px_rgba(2,8,24,0.28)] lg:h-[558px] lg:w-[992px] lg:rounded-[32px] lg:border-[#E8B84E]/[0.28]"
-            >
+            <div className="group relative mx-auto h-[197px] w-full overflow-hidden rounded-2xl border border-[#12345A] bg-[#071526] shadow-[0_18px_42px_rgba(2,8,24,0.28)] lg:h-[558px] lg:w-[992px] lg:rounded-[32px] lg:border-[#E8B84E]/[0.28]">
               <iframe
                 className={`absolute inset-0 h-full w-full border-0 transition-opacity duration-200 ${mainYouTubeStarted ? "opacity-100" : "opacity-0"}`}
                 src={`https://www.youtube.com/embed/brdP8Tgy1nM?controls=1&playsinline=1&rel=0&start=4&autoplay=${mainYouTubeStarted ? 1 : 0}`}
@@ -1255,13 +1293,12 @@ function App() {
                   </span>
                 </button>
               </div>
-
             </div>
           </div>
         </div>
       </section>
 
- <section
+      <section
         id="package"
         className="
     relative
@@ -2526,11 +2563,11 @@ function App() {
                 className="student-proof-grid student-proof-track grid w-full grid-cols-1 gap-[22px] sm:grid-cols-3"
                 style={{ "--review-slide": reviewSlide }}
               >
-              {/* =======================================================
+                {/* =======================================================
             CARD 01
         ======================================================= */}
-              <div
-                className="
+                <div
+                  className="
               student-proof-card
             relative
             h-[570px]
@@ -2541,25 +2578,25 @@ function App() {
             bg-[#07152D]
             shadow-[0_20px_45px_rgba(0,0,0,0.35)]
           "
-              >
-                <YouTubeReviewVideo
-                  className="absolute inset-0 z-0"
-                  videoId={reviewVideos[0]}
-                  title="Student review video 1"
-                  onSwipe={handleReviewSwipe}
-                />
-                {/* Background */}
-                <div
-                  className="
+                >
+                  <YouTubeReviewVideo
+                    className="absolute inset-0 z-0"
+                    videoId={reviewVideos[0]}
+                    title="Student review video 1"
+                    onSwipe={handleReviewSwipe}
+                  />
+                  {/* Background */}
+                  <div
+                    className="
               absolute
               inset-0
               bg-[radial-gradient(circle_at_70%_18%,rgba(49,108,140,0.48),transparent_34%),linear-gradient(145deg,#183E67_0%,#071A39_42%,#06122A_100%)]
             "
-                />
+                  />
 
-                {/* Top horizontal line */}
-                <div
-                  className="
+                  {/* Top horizontal line */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               left-0
@@ -2570,11 +2607,11 @@ function App() {
               bg-[#718398]
               opacity-60
             "
-                />
+                  />
 
-                {/* ================= DIAGONAL LINE 01 ================= */}
-                <div
-                  className="
+                  {/* ================= DIAGONAL LINE 01 ================= */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               left-[-30px]
@@ -2587,11 +2624,11 @@ function App() {
               bg-[#B79A42]
               opacity-80
             "
-                />
+                  />
 
-                {/* ================= CIRCLE ================= */}
-                <div
-                  className="
+                  {/* ================= CIRCLE ================= */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               left-[58px]
@@ -2604,11 +2641,11 @@ function App() {
               border-[#B79A42]
               opacity-80
             "
-                />
+                  />
 
-                {/* ================= DIAGONAL LINE 02 ================= */}
-                <div
-                  className="
+                  {/* ================= DIAGONAL LINE 02 ================= */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               left-[-30px]
@@ -2621,11 +2658,11 @@ function App() {
               bg-[#B79A42]
               opacity-70
             "
-                />
+                  />
 
-                {/* ================= YELLOW GLOW DOT ================= */}
-                <div
-                  className="
+                  {/* ================= YELLOW GLOW DOT ================= */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               right-[42px]
@@ -2640,21 +2677,21 @@ function App() {
               bg-[#F7C84F]/15
               shadow-[0_0_18px_rgba(247,200,79,0.16)]
             "
-                >
-                  <div
-                    className="
+                  >
+                    <div
+                      className="
                 h-[8px]
                 w-[8px]
                 rounded-full
                 bg-[#F7C84F]
                 shadow-[0_0_10px_3px_rgba(247,200,79,0.35)]
               "
-                  />
-                </div>
+                    />
+                  </div>
 
-                {/* ================= CENTER NUMBER ================= */}
-                <div
-                  className="
+                  {/* ================= CENTER NUMBER ================= */}
+                  <div
+                    className="
               absolute
               left-1/2
               top-[220px]
@@ -2672,13 +2709,13 @@ function App() {
               tracking-[-5px]
               text-[#F7C84F]
             "
-                >
-                  ০১
-                </div>
+                  >
+                    ০১
+                  </div>
 
-                {/* Bottom right line */}
-                <div
-                  className="
+                  {/* Bottom right line */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               bottom-[73px]
@@ -2689,11 +2726,11 @@ function App() {
               bg-[#718398]
               opacity-60
             "
-                />
+                  />
 
-                {/* Oxford label */}
-                <div
-                  className="
+                  {/* Oxford label */}
+                  <div
+                    className="
               absolute
               bottom-[54px]
               left-[18px]
@@ -2705,13 +2742,13 @@ function App() {
               tracking-[1.8px]
               text-white/75
             "
-                >
-                  OXFORD 3000
-                </div>
+                  >
+                    OXFORD 3000
+                  </div>
 
-                {/* Student info */}
-                <div
-                  className="
+                  {/* Student info */}
+                  <div
+                    className="
               student-card-caption
               absolute
               bottom-0
@@ -2723,37 +2760,37 @@ function App() {
               px-[18px]
               py-[10px]
             "
-                >
-                  <div
-                    className="
+                  >
+                    <div
+                      className="
                 font-['Hind_Siliguri']
                 text-[17px]
                 font-bold
                 leading-[24px]
                 text-white
               "
-                  >
-                    শিক্ষার্থী ০১
-                  </div>
+                    >
+                      শিক্ষার্থী ০১
+                    </div>
 
-                  <div
-                    className="
+                    <div
+                      className="
                 font-['Hind_Siliguri']
                 text-[12px]
                 leading-[18px]
                 text-white/55
               "
-                  >
-                    ব্যবহারকারী
+                    >
+                      ব্যবহারকারী
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* =======================================================
+                {/* =======================================================
             CARD 02
         ======================================================= */}
-              <div
-                className="
+                <div
+                  className="
               student-proof-card
             relative
             h-[570px]
@@ -2764,25 +2801,25 @@ function App() {
             bg-[#07152D]
             shadow-[0_20px_45px_rgba(0,0,0,0.35)]
           "
-              >
-                <YouTubeReviewVideo
-                  className="absolute inset-0 z-0"
-                  videoId={reviewVideos[1]}
-                  title="Student review video 2"
-                  onSwipe={handleReviewSwipe}
-                />
-                {/* Background */}
-                <div
-                  className="
+                >
+                  <YouTubeReviewVideo
+                    className="absolute inset-0 z-0"
+                    videoId={reviewVideos[1]}
+                    title="Student review video 2"
+                    onSwipe={handleReviewSwipe}
+                  />
+                  {/* Background */}
+                  <div
+                    className="
               absolute
               inset-0
               bg-[radial-gradient(circle_at_70%_18%,rgba(49,108,140,0.48),transparent_34%),linear-gradient(145deg,#183E67_0%,#071A39_42%,#06122A_100%)]
             "
-                />
+                  />
 
-                {/* Top horizontal line */}
-                <div
-                  className="
+                  {/* Top horizontal line */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               left-0
@@ -2793,11 +2830,11 @@ function App() {
               bg-[#718398]
               opacity-60
             "
-                />
+                  />
 
-                {/* Diagonal line 01 */}
-                <div
-                  className="
+                  {/* Diagonal line 01 */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               left-[-30px]
@@ -2810,11 +2847,11 @@ function App() {
               bg-[#B79A42]
               opacity-80
             "
-                />
+                  />
 
-                {/* Circle */}
-                <div
-                  className="
+                  {/* Circle */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               left-[58px]
@@ -2827,11 +2864,11 @@ function App() {
               border-[#B79A42]
               opacity-80
             "
-                />
+                  />
 
-                {/* Diagonal line 02 */}
-                <div
-                  className="
+                  {/* Diagonal line 02 */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               left-[-30px]
@@ -2844,11 +2881,11 @@ function App() {
               bg-[#B79A42]
               opacity-70
             "
-                />
+                  />
 
-                {/* Yellow glow dot */}
-                <div
-                  className="
+                  {/* Yellow glow dot */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               right-[42px]
@@ -2863,21 +2900,21 @@ function App() {
               bg-[#F7C84F]/15
               shadow-[0_0_18px_rgba(247,200,79,0.16)]
             "
-                >
-                  <div
-                    className="
+                  >
+                    <div
+                      className="
                 h-[8px]
                 w-[8px]
                 rounded-full
                 bg-[#F7C84F]
                 shadow-[0_0_10px_3px_rgba(247,200,79,0.35)]
               "
-                  />
-                </div>
+                    />
+                  </div>
 
-                {/* Center number */}
-                <div
-                  className="
+                  {/* Center number */}
+                  <div
+                    className="
               absolute
               left-1/2
               top-[220px]
@@ -2895,13 +2932,13 @@ function App() {
               tracking-[-5px]
               text-[#F7C84F]
             "
-                >
-                  ০২
-                </div>
+                  >
+                    ০২
+                  </div>
 
-                {/* Bottom right line */}
-                <div
-                  className="
+                  {/* Bottom right line */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               bottom-[73px]
@@ -2912,11 +2949,11 @@ function App() {
               bg-[#718398]
               opacity-60
             "
-                />
+                  />
 
-                {/* Oxford */}
-                <div
-                  className="
+                  {/* Oxford */}
+                  <div
+                    className="
               absolute
               bottom-[54px]
               left-[18px]
@@ -2928,13 +2965,13 @@ function App() {
               tracking-[1.8px]
               text-white/75
             "
-                >
-                  OXFORD 3000
-                </div>
+                  >
+                    OXFORD 3000
+                  </div>
 
-                {/* Student info */}
-                <div
-                  className="
+                  {/* Student info */}
+                  <div
+                    className="
               student-card-caption
               absolute
               bottom-0
@@ -2946,37 +2983,37 @@ function App() {
               px-[18px]
               py-[10px]
             "
-                >
-                  <div
-                    className="
+                  >
+                    <div
+                      className="
                 font-['Hind_Siliguri']
                 text-[17px]
                 font-bold
                 leading-[24px]
                 text-white
               "
-                  >
-                    শিক্ষার্থী ০২
-                  </div>
+                    >
+                      শিক্ষার্থী ০২
+                    </div>
 
-                  <div
-                    className="
+                    <div
+                      className="
                 font-['Hind_Siliguri']
                 text-[12px]
                 leading-[18px]
                 text-white/55
               "
-                  >
-                    ব্যবহারকারী
+                    >
+                      ব্যবহারকারী
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* =======================================================
+                {/* =======================================================
             CARD 03
         ======================================================= */}
-              <div
-                className="
+                <div
+                  className="
               student-proof-card
             relative
             h-[570px]
@@ -2987,25 +3024,25 @@ function App() {
             bg-[#07152D]
             shadow-[0_20px_45px_rgba(0,0,0,0.35)]
           "
-              >
-                <YouTubeReviewVideo
-                  className="absolute inset-0 z-0"
-                  videoId={reviewVideos[2]}
-                  title="Student review video 3"
-                  onSwipe={handleReviewSwipe}
-                />
-                {/* Background */}
-                <div
-                  className="
+                >
+                  <YouTubeReviewVideo
+                    className="absolute inset-0 z-0"
+                    videoId={reviewVideos[2]}
+                    title="Student review video 3"
+                    onSwipe={handleReviewSwipe}
+                  />
+                  {/* Background */}
+                  <div
+                    className="
               absolute
               inset-0
               bg-[radial-gradient(circle_at_70%_18%,rgba(49,108,140,0.48),transparent_34%),linear-gradient(145deg,#183E67_0%,#071A39_42%,#06122A_100%)]
             "
-                />
+                  />
 
-                {/* Top horizontal line */}
-                <div
-                  className="
+                  {/* Top horizontal line */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               left-0
@@ -3016,11 +3053,11 @@ function App() {
               bg-[#718398]
               opacity-60
             "
-                />
+                  />
 
-                {/* Diagonal line 01 */}
-                <div
-                  className="
+                  {/* Diagonal line 01 */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               left-[-30px]
@@ -3033,11 +3070,11 @@ function App() {
               bg-[#B79A42]
               opacity-80
             "
-                />
+                  />
 
-                {/* Circle */}
-                <div
-                  className="
+                  {/* Circle */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               left-[58px]
@@ -3050,11 +3087,11 @@ function App() {
               border-[#B79A42]
               opacity-80
             "
-                />
+                  />
 
-                {/* Diagonal line 02 */}
-                <div
-                  className="
+                  {/* Diagonal line 02 */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               left-[-30px]
@@ -3067,11 +3104,11 @@ function App() {
               bg-[#B79A42]
               opacity-70
             "
-                />
+                  />
 
-                {/* Yellow glow dot */}
-                <div
-                  className="
+                  {/* Yellow glow dot */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               right-[42px]
@@ -3086,21 +3123,21 @@ function App() {
               bg-[#F7C84F]/15
               shadow-[0_0_18px_rgba(247,200,79,0.16)]
             "
-                >
-                  <div
-                    className="
+                  >
+                    <div
+                      className="
                 h-[8px]
                 w-[8px]
                 rounded-full
                 bg-[#F7C84F]
                 shadow-[0_0_10px_3px_rgba(247,200,79,0.35)]
               "
-                  />
-                </div>
+                    />
+                  </div>
 
-                {/* Center number */}
-                <div
-                  className="
+                  {/* Center number */}
+                  <div
+                    className="
               absolute
               left-1/2
               top-[220px]
@@ -3118,13 +3155,13 @@ function App() {
               tracking-[-5px]
               text-[#F7C84F]
             "
-                >
-                  ০৩
-                </div>
+                  >
+                    ০৩
+                  </div>
 
-                {/* Bottom right line */}
-                <div
-                  className="
+                  {/* Bottom right line */}
+                  <div
+                    className="
               pointer-events-none
               absolute
               bottom-[73px]
@@ -3135,11 +3172,11 @@ function App() {
               bg-[#718398]
               opacity-60
             "
-                />
+                  />
 
-                {/* Oxford */}
-                <div
-                  className="
+                  {/* Oxford */}
+                  <div
+                    className="
               absolute
               bottom-[54px]
               left-[18px]
@@ -3151,13 +3188,13 @@ function App() {
               tracking-[1.8px]
               text-white/75
             "
-                >
-                  OXFORD 3000
-                </div>
+                  >
+                    OXFORD 3000
+                  </div>
 
-                {/* Student info */}
-                <div
-                  className="
+                  {/* Student info */}
+                  <div
+                    className="
               student-card-caption
               absolute
               bottom-0
@@ -3169,43 +3206,43 @@ function App() {
               px-[18px]
               py-[10px]
             "
-                >
-                  <div
-                    className="
+                  >
+                    <div
+                      className="
                 font-['Hind_Siliguri']
                 text-[17px]
                 font-bold
                 leading-[24px]
                 text-white
               "
-                  >
-                    শিক্ষার্থী ০৩
-                  </div>
+                    >
+                      শিক্ষার্থী ০৩
+                    </div>
 
-                  <div
-                    className="
+                    <div
+                      className="
                 font-['Hind_Siliguri']
                 text-[12px]
                 leading-[18px]
                 text-white/55
               "
-                  >
-                    ব্যবহারকারী
+                    >
+                      ব্যবহারকারী
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* =======================================================
+                {/* =======================================================
             CARD 04 - URL placeholder
         ======================================================= */}
-              {[
-                ["০৪", reviewVideos[3]],
-                ["০৫", reviewVideos[4]],
-                ["০৬", reviewVideos[5]],
-              ].map(([number, videoId]) => (
-                <div
-                  key={number}
-                  className="
+                {[
+                  ["০৪", reviewVideos[3]],
+                  ["০৫", reviewVideos[4]],
+                  ["০৬", reviewVideos[5]],
+                ].map(([number, videoId]) => (
+                  <div
+                    key={number}
+                    className="
                   student-proof-placeholder-card
               student-proof-card
             relative
@@ -3217,27 +3254,30 @@ function App() {
             bg-[#07152D]
             shadow-[0_20px_45px_rgba(0,0,0,0.35)]
           "
-                >
-                  <YouTubeReviewVideo
-                    className="absolute inset-0 z-0"
-                    videoId={videoId}
-                    title={`Student review video ${number}`}
-                    onSwipe={handleReviewSwipe}
-                  />
-                  <div className="student-card-caption absolute bottom-0 left-0 right-0 z-40 h-[66px] bg-[#121925] px-[18px] py-[10px] text-left">
-                    <div className="font-['Hind_Siliguri'] text-[17px] font-bold leading-[24px] text-white">
-                      শিক্ষার্থী {number}
-                    </div>
-                    <div className="font-['Hind_Siliguri'] text-[12px] leading-[18px] text-white/55">
-                      ব্যবহারকারী
+                  >
+                    <YouTubeReviewVideo
+                      className="absolute inset-0 z-0"
+                      videoId={videoId}
+                      title={`Student review video ${number}`}
+                      onSwipe={handleReviewSwipe}
+                    />
+                    <div className="student-card-caption absolute bottom-0 left-0 right-0 z-40 h-[66px] bg-[#121925] px-[18px] py-[10px] text-left">
+                      <div className="font-['Hind_Siliguri'] text-[17px] font-bold leading-[24px] text-white">
+                        শিক্ষার্থী {number}
+                      </div>
+                      <div className="font-['Hind_Siliguri'] text-[12px] leading-[18px] text-white/55">
+                        ব্যবহারকারী
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
               </div>
             </div>
 
-            <div className="student-proof-carousel-controls" aria-label="Student review navigation">
+            <div
+              className="student-proof-carousel-controls"
+              aria-label="Student review navigation"
+            >
               <button
                 type="button"
                 className="student-proof-carousel-button"
@@ -3245,11 +3285,7 @@ function App() {
                 onClick={() => handleReviewSwipe("previous")}
                 disabled={reviewSlide === 0}
               >
-                <svg
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  aria-hidden="true"
-                >
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path
                     d="M10 4L6 8L10 12"
                     stroke="currentColor"
@@ -3278,11 +3314,7 @@ function App() {
                 onClick={() => handleReviewSwipe("next")}
                 disabled={reviewSlide === 1}
               >
-                <svg
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  aria-hidden="true"
-                >
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path
                     d="M6 4L10 8L6 12"
                     stroke="currentColor"
