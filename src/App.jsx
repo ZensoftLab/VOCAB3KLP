@@ -1855,7 +1855,7 @@ function App() {
             href="https://play.google.com/store/apps/details?id=vocab.englishcommando.bd"
             target="_blank"
             rel="noreferrer"
-            className="learning-download learning-download-mobile"
+            className="learning-download learning-download-mobile max-md:order-3"
           >
             ডাউনলোড করুন
             <span className="mobile-cta-arrow" aria-hidden="true">

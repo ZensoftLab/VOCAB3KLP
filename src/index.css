@@ -10166,6 +10166,7 @@ section h3 {
   #decision {
     height: auto !important;
     min-height: 0 !important;
+    padding: 52px 16px 52px !important;
   }
 
   #decision > div > div:first-child > div:last-child {
@@ -10182,6 +10183,12 @@ section h3 {
 
   #decision .decision-feature-grid {
     margin-top: 58px !important;
+  }
+
+  #decision .learning-download-mobile {
+    display: flex !important;
+    order: 3 !important;
+    margin: 18px auto 0 !important;
   }
 }
 
