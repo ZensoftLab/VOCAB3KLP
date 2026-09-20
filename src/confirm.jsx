@@ -1,19 +1,18 @@
-import { useEffect } from "react";
 import "./confirm.css";
 
 function Confirm() {
-  useEffect(() => {
-    const redirectTimer = window.setTimeout(() => {
-      window.location.assign("/");
-    }, 1500);
-
-    return () => window.clearTimeout(redirectTimer);
-  }, []);
-
   return (
     <main className="confirm-page" aria-labelledby="confirm-title">
       <section className="confirm-card">
         <div className="confirm-content">
+          <button
+            type="button"
+            className="confirm-close"
+            aria-label="সফলতার বার্তা বন্ধ করুন"
+            onClick={() => window.location.assign("/")}
+          >
+            ×
+          </button>
           <div className="confirm-check" aria-hidden="true">
             <svg viewBox="0 0 14 10" fill="none">
               <path

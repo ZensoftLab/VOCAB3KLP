@@ -1,0 +1,24 @@
+/* Shared YouTube player styles. */
+.youtube-title-hidden {
+  top: -72px !important;
+  height: calc(100% + 144px) !important;
+}
+
+.student-proof-section .student-proof-card > div:first-child iframe.youtube-clean-video {
+  top: -72px !important;
+  bottom: auto !important;
+  height: calc(100% + 144px) !important;
+}
+
+#how-it-works .video-overlay-button:hover {
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.decision-video-overlay {
+  width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+  margin: 0 !important;
+  object-fit: cover !important;
+}

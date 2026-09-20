@@ -10,6 +10,7 @@
 
 .confirm-card {
   box-sizing: border-box;
+  position: relative;
   width: min(350px, 100%);
   min-height: 746px;
   display: flex;
@@ -30,6 +31,29 @@
   justify-content: center;
   gap: 16px;
   text-align: center;
+}
+
+.confirm-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #566477;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.confirm-close:hover {
+  background: #eef3f7;
+  color: #132033;
 }
 
 .confirm-check {

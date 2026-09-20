@@ -3,8 +3,8 @@ import "./App.css";
 import logo from "./images/logo.png";
 import heroArtwork from "./images/Heroimage.webp";
 import heroArtworkDesktop from "./images/Heroimaged.webp";
-import androidApp from "./images/image5.webp";
 import videoOverlay from "./images/videooverlay.webp";
+import mobileVideoOverlay from "./images/Mobile_Video_Overlay.png";
 import explainerUnderline from "./images/Vector 35.png";
 import infoIcon from "./assets/Info icon.svg";
 import sparkleIcon from "./assets/Icon.svg";
@@ -14,15 +14,11 @@ import Header from "./header";
 import PrivacyPolicy from "./privacy-policy";
 import Confirm from "./confirm";
 import OrderError from "./order-error";
-
-const reviewVideos = [
-  "V1VpUy3DuVs",
-  "cVzVMOY3kv0",
-  "sPafKu0cRiY",
-  "JYk6MtvYYlY",
-  "jWMazDK0e_M",
-  "EVRAAp-3nE8",
-];
+import {
+  embeddedVideoByName,
+  YouTubeOverlayVideo,
+  YouTubeReviewVideo,
+} from "./Videoplayer";
 
 // Vite embeds VITE_* variables during the production build. Static deployments
 // therefore call the configured order API directly from the browser.
@@ -311,45 +307,6 @@ function StudentStoryVideo({ src, title, className = "" }) {
   );
 }
 
-function YouTubeReviewVideo({ videoId, title, className = "" }) {
-  const iframeRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const playVideo = () => {
-    iframeRef.current?.contentWindow?.postMessage(
-      JSON.stringify({ event: "command", func: "playVideo", args: [] }),
-      "*",
-    );
-    setIsPlaying(true);
-  };
-
-  return (
-    <div className={`${className} relative overflow-hidden`}>
-      <iframe
-        ref={iframeRef}
-        className="youtube-clean-video youtube-title-hidden absolute inset-0 h-full w-full border-0"
-        src={`https://www.youtube.com/embed/${videoId}?controls=0&playsinline=1&rel=0&showinfo=0&modestbranding=1&enablejsapi=1`}
-        title={title}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      />
-      {!isPlaying && (
-        <button
-          type="button"
-          className="absolute left-1/2 top-1/2 z-50 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-0 bg-black/60 text-white transition-transform hover:scale-105"
-          aria-label={`${title} চালু করুন`}
-          onClick={playVideo}
-        >
-          <span
-            className="ml-1 h-0 w-0 border-y-[11px] border-l-[16px] border-y-transparent border-l-white"
-            aria-hidden="true"
-          />
-        </button>
-      )}
-    </div>
-  );
-}
-
 function CardIcon({ type, className = "" }) {
   const common = "h-5 w-5 stroke-current fill-none stroke-[1.8]";
 
@@ -467,8 +424,6 @@ function App() {
   };
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mainYouTubeStarted, setMainYouTubeStarted] = useState(false);
-  const mainYouTubeRef = useRef(null);
 
   const [activeSection, setActiveSection] = useState("");
 
@@ -1121,62 +1076,13 @@ function App() {
           </div>
 
           <div className="mt-6 lg:mt-[52px]">
-            <div className="group relative mx-auto h-[197px] w-full overflow-hidden rounded-2xl border border-[#12345A] bg-[#071526] shadow-[0_18px_42px_rgba(2,8,24,0.28)] lg:h-[558px] lg:w-[992px] lg:rounded-[32px] lg:border-[#E8B84E]/[0.28]">
-              <iframe
-                ref={mainYouTubeRef}
-                className={`youtube-title-hidden absolute inset-0 h-full w-full border-0 transition-opacity duration-200 ${mainYouTubeStarted ? "opacity-100" : "opacity-0"}`}
-                src="https://www.youtube.com/embed/brdP8Tgy1nM?controls=0&playsinline=1&rel=0&showinfo=0&modestbranding=1&start=4&autoplay=1&mute=1&enablejsapi=1"
-                title="Oxford 3000 Vocab introduction"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-              {!mainYouTubeStarted && (
-                <button
-                  type="button"
-                  className="video-overlay-button absolute inset-0 z-10 block h-full w-full cursor-pointer border-0 bg-[#071526] p-0"
-                  aria-label="১ মিনিটের ভিডিও চালু করুন"
-                  onClick={() => {
-                    setMainYouTubeStarted(true);
-                    const playerWindow = mainYouTubeRef.current?.contentWindow;
-                    if (!playerWindow) return;
-                    playerWindow.postMessage(
-                      JSON.stringify({
-                        event: "command",
-                        func: "unMute",
-                        args: [],
-                      }),
-                      "*",
-                    );
-                    playerWindow.postMessage(
-                      JSON.stringify({
-                        event: "command",
-                        func: "playVideo",
-                        args: [],
-                      }),
-                      "*",
-                    );
-                  }}
-                >
-                  <img
-                    src={videoOverlay}
-                    alt="Watch the Oxford 3000 introduction"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                  <span
-                    className="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[#F6C84B] text-[#071526] transition-transform hover:scale-105 lg:h-20 lg:w-20"
-                    aria-hidden="true"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      className="h-6 w-6 lg:h-8 lg:w-8"
-                      aria-hidden="true"
-                    >
-                      <path d="M10 8l6 4-6 4V8z" fill="currentColor" />
-                    </svg>
-                  </span>
-                </button>
-              )}
-            </div>
+            <YouTubeOverlayVideo
+              video={embeddedVideoByName["how-it-works"]}
+              overlayImage={videoOverlay}
+              buttonLabel="১ মিনিটের ভিডিও চালু করুন"
+              srcParams="controls=0&playsinline=1&rel=0&showinfo=0&modestbranding=1&start=4&autoplay=1&mute=1&enablejsapi=1"
+              className="group relative mx-auto h-[197px] w-full overflow-hidden rounded-2xl border border-[#12345A] bg-[#071526] shadow-[0_18px_42px_rgba(2,8,24,0.28)] lg:h-[558px] lg:w-[992px] lg:rounded-[32px] lg:border-[#E8B84E]/[0.28]"
+            />
           </div>
         </div>
       </section>
@@ -1490,12 +1396,13 @@ function App() {
           className="absolute -top-[96px] h-px w-px"
           aria-hidden="true"
         />
-        <div className="mx-auto w-full max-w-[1120px]">
+        <div className="mx-auto w-full max-w-[1120px] max-md:flex max-md:flex-col">
           {/* =========================================================
         HERO
     ========================================================= */}
           <div
             className="
+        max-md:order-1
         grid
         items-center
         gap-[48px]
@@ -1579,27 +1486,13 @@ function App() {
             </div>
 
             {/* ================= HERO ARTWORK ================= */}
-            <div
-              className="
-          relative
-          flex
-          items-center
-          justify-center
-          lg:justify-end
-        "
-            >
-              <img
-                src={androidApp}
-                alt="Book and digital learning support"
-                className="
-            decision-artwork
-            block
-              w-full
-              max-w-[600px]
-            select-none
-            object-contain
-            drop-shadow-[0_20px_45px_rgba(0,0,0,0.45)]
-          "
+            <div>
+              <YouTubeOverlayVideo
+                video={embeddedVideoByName.mobileapp}
+                overlayImage={mobileVideoOverlay}
+                srcParams="controls=0&playsinline=1&rel=0&showinfo=0&modestbranding=1&autoplay=0&mute=1&enablejsapi=1"
+                className="decision-video-frame group mx-auto aspect-[467/831] w-[300px] max-w-full rounded-2xl border border-[#12345A] bg-[#071526] shadow-[0_18px_42px_rgba(2,8,24,0.28)] lg:w-full lg:max-w-[467px] lg:rounded-[32px] lg:border-[#E8B84E]/[0.28]"
+                overlayImageClassName="decision-video-overlay"
               />
             </div>
           </div>
@@ -1609,6 +1502,8 @@ function App() {
     ========================================================= */}
           <div
             className="
+        decision-feature-grid
+        max-md:order-2
         mt-[58px]
         grid
         grid-cols-1
@@ -2645,8 +2540,7 @@ function App() {
                 >
                   <YouTubeReviewVideo
                     className="absolute inset-0 z-0"
-                    videoId={reviewVideos[0]}
-                    title="Student review video 1"
+                    video={embeddedVideoByName.review1}
                     onSwipe={handleReviewSwipe}
                   />
                   {/* Background */}
@@ -2868,8 +2762,7 @@ function App() {
                 >
                   <YouTubeReviewVideo
                     className="absolute inset-0 z-0"
-                    videoId={reviewVideos[1]}
-                    title="Student review video 2"
+                    video={embeddedVideoByName.review2}
                     onSwipe={handleReviewSwipe}
                   />
                   {/* Background */}
@@ -3091,8 +2984,7 @@ function App() {
                 >
                   <YouTubeReviewVideo
                     className="absolute inset-0 z-0"
-                    videoId={reviewVideos[2]}
-                    title="Student review video 3"
+                    video={embeddedVideoByName.review3}
                     onSwipe={handleReviewSwipe}
                   />
                   {/* Background */}
@@ -3300,10 +3192,10 @@ function App() {
             CARD 04 - URL placeholder
         ======================================================= */}
                 {[
-                  ["০৪", reviewVideos[3]],
-                  ["০৫", reviewVideos[4]],
-                  ["০৬", reviewVideos[5]],
-                ].map(([number, videoId]) => (
+                  ["০৪", embeddedVideoByName.review4],
+                  ["০৫", embeddedVideoByName.review5],
+                  ["০৬", embeddedVideoByName.review6],
+                ].map(([number, video]) => (
                   <div
                     key={number}
                     className="
@@ -3321,8 +3213,7 @@ function App() {
                   >
                     <YouTubeReviewVideo
                       className="absolute inset-0 z-0"
-                      videoId={videoId}
-                      title={`Student review video ${number}`}
+                      video={video}
                       onSwipe={handleReviewSwipe}
                     />
                     <div className="student-card-caption absolute bottom-0 left-0 right-0 z-40 h-[66px] bg-[#121925] px-[18px] py-[10px] text-left">

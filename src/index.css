@@ -883,12 +883,6 @@ textarea:-webkit-autofill:focus {
   }
 }
 
-/* Keep each YouTube player inside the review card without changing card size. */
-.youtube-title-hidden {
-  top: -72px !important;
-  height: calc(100% + 144px) !important;
-}
-
 .student-proof-section .student-proof-card > div:first-child {
   position: absolute !important;
   inset: 0 0 88px 0 !important;
@@ -904,15 +898,6 @@ textarea:-webkit-autofill:focus {
   height: 100% !important;
   border: 0;
   border-radius: 24px 24px 0 0;
-}
-
-.student-proof-section
-  .student-proof-card
-  > div:first-child
-  iframe.youtube-clean-video {
-  top: -72px !important;
-  bottom: auto !important;
-  height: calc(100% + 144px) !important;
 }
 
 @media (min-width: 768px) {
@@ -6013,9 +5998,9 @@ textarea:-webkit-autofill:focus {
   }
 
   #decision > div > div:first-child > div:last-child img {
-    width: 290px !important;
-    max-width: 290px !important;
-    height: 215px !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 100% !important;
   }
 
   .decision-section > div > div:nth-child(2) {
@@ -8833,6 +8818,38 @@ textarea:-webkit-autofill:focus {
   }
 }
 
+/* Reduce the desktop decision video by 50px in both dimensions. */
+@media (min-width: 1200px) {
+  #decision {
+    box-sizing: border-box;
+    min-height: 1000px !important;
+    padding: 152px 0 172px !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #decision > div {
+    grid-template-rows: auto auto auto auto !important;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+  }
+
+  #decision > div > div:first-child > div:last-child {
+    width: 315px !important;
+    height: 640px !important;
+    min-height: 640px !important;
+    flex: 0 0 315px !important;
+  }
+
+  #decision .decision-video-frame {
+    width: 315px !important;
+    max-width: 315px !important;
+    height: 640px !important;
+    aspect-ratio: auto !important;
+  }
+}
+
 @keyframes appFeatureIconGlow {
   0%,
   100% {
@@ -10143,6 +10160,81 @@ section h3 {
   }
 }
 
+/* Keep the portrait decision video in normal flow on mobile so the feature
+   grid starts after the complete iframe instead of overlapping it. */
+@media (max-width: 767px) {
+  #decision {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  #decision > div > div:first-child > div:last-child {
+    width: 300px !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  #decision .decision-video-frame {
+    width: 300px !important;
+    height: auto !important;
+    aspect-ratio: 467 / 831 !important;
+  }
+
+  #decision .decision-feature-grid {
+    margin-top: 58px !important;
+  }
+}
+
+/* Reduce the decision video by 50px on tablet while preserving its portrait ratio. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  #decision > div > div:first-child > div:last-child {
+    width: 292px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    flex: 0 0 292px !important;
+  }
+
+  #decision .decision-video-frame {
+    width: 250px !important;
+    max-width: 250px !important;
+    height: auto !important;
+    aspect-ratio: 467 / 831 !important;
+  }
+}
+
+/* Final desktop override for the decision section. */
+@media (min-width: 1200px) {
+  #decision {
+    box-sizing: border-box !important;
+    min-height: 1000px !important;
+    padding: 152px 0 172px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  #decision > div {
+    grid-template-rows: auto auto auto auto !important;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+  }
+
+  #decision > div > div:first-child > div:last-child {
+    width: 315px !important;
+    max-width: 315px !important;
+    height: 640px !important;
+    min-height: 640px !important;
+    flex: 0 0 315px !important;
+  }
+
+  #decision .decision-video-frame {
+    width: 315px !important;
+    max-width: 315px !important;
+    height: 640px !important;
+    aspect-ratio: auto !important;
+  }
+}
+
 /* Final desktop override: show the package section in the tablet-style horizontal layout. */
 @media (min-width: 1024px) {
   #package {
@@ -10540,12 +10632,6 @@ section h3 {
 /* Keep the order summary card white across every viewport. */
 #order .order-summary {
   background: #ffffff !important;
-}
-
-/* The video overlay fills the frame; prevent legacy centered-play hover motion. */
-#how-it-works .video-overlay-button:hover {
-  box-shadow: none !important;
-  transform: none !important;
 }
 
 /* Tablet video frame from the provided layout specification. */
