@@ -10190,6 +10190,14 @@ section h3 {
     order: 3 !important;
     margin: 18px auto 0 !important;
   }
+
+  #decision .decision-video-overlay {
+    inset: -1px !important;
+    width: calc(100% + 2px) !important;
+    max-width: none !important;
+    height: calc(100% + 2px) !important;
+    transform: none !important;
+  }
 }
 
 /* Reduce the decision video by 50px on tablet while preserving its portrait ratio. */
