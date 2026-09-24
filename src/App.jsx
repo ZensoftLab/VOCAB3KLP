@@ -817,7 +817,7 @@ function App() {
     },
     {
       question: "আর্ডারের আগে আমায় খোঁজার প্রশ্ন?",
-      answer: "যেকোনো প্রশ্নের জন্য +8801410144536 নম্বরে যোগাযোগ করুন।",
+      answer: "যেকোনো প্রশ্নের জন্য 01924521442 নম্বরে যোগাযোগ করুন।",
     },
   ];
 
@@ -4753,7 +4753,7 @@ function App() {
                 </p>
 
                 <a
-                  href="tel:+8801410144536"
+                  href="tel:01924521442"
                   className="
               mt-[10px]
               inline-flex
@@ -4772,7 +4772,7 @@ function App() {
               hover:text-[#F2B81E]
             "
                 >
-                  +8801410144536
+                  01924521442
                 </a>
               </div>
             </div>
@@ -5531,7 +5531,7 @@ function App() {
                   text-[#536174]
                 "
                     >
-                      +8801410144536 নম্বরে কল করে সহায়তা দলের সঙ্গে কথা বলতে
+                      01924521442 নম্বরে কল করে সহায়তা দলের সঙ্গে কথা বলতে
                       পারেন।
                     </p>
                   </div>
@@ -5573,15 +5573,15 @@ function App() {
             <p className="mt-1 font-['Baloo_Da_2'] text-[16px] leading-[27px] text-white/65">
               হাতে পেয়ে দেখুন—পছন্দ না হলে ১০০% টাকা ফেরত। সহায়তা:{" "}
               <a
-                href="tel:+8801410144536"
+                href="tel:01924521442"
                 className="guarantee-number inline-block align-middle font-bold text-[#f7d77d] underline decoration-[#f7d77d]/70 underline-offset-4 transition hover:text-[#ffe29a]"
               >
-                +8801410144536
+                01924521442
               </a>
             </p>
           </div>
           <a
-            href="tel:01405458800"
+            href="tel:01924521442"
             className="guarantee-call flex min-h-[94px] items-center justify-center rounded-[14px] bg-[#E8B84E] px-5 py-3 text-center font-['Baloo_Da_2'] text-sm font-bold leading-5 text-[#071229] transition hover:bg-[#ffd86d] lg:min-h-0"
           >
             <span>
@@ -5589,7 +5589,7 @@ function App() {
                 কোনো প্রশ্ন আছে?
               </span>
               <span className="block text-[1rem] font-bold">
-                0140-545-8800-2
+                01924521442
               </span>
               <span className="block text-xs font-normal">কল করে কথা বলুন</span>
             </span>

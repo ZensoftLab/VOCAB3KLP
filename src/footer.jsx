@@ -143,14 +143,15 @@ function Footer() {
             flex
             w-full
             flex-col
-            items-start
+            items-end
+            text-right
             lg:w-[204.31px]
-            lg:items-start
+            lg:items-end
           "
         >
           {/* Phone */}
           <a
-            href="tel:+8801410144536"
+            href="tel:01924521442"
             className="
               flex
               h-[44px]
@@ -172,7 +173,7 @@ function Footer() {
                 text-[#D0D9E6]
               "
             >
-              কল করুন: +8801410144536
+              কল করুন: 01924521442
             </span>
           </a>
 
@@ -270,17 +271,19 @@ function Footer() {
           pt-[18px]
         "
       >
-        <div
-          className="
-            font-['Hind_Siliguri']
-            text-[11.4667px]
-            font-normal
-            leading-[19px]
-            tracking-[0.0358334px]
-            text-[#7F8DA2]
-          "
-        >
-          © 2026 English Commando. সর্বস্বত্ব সংরক্ষিত।
+        <div className="flex flex-col gap-1 font-['Hind_Siliguri'] text-[11.4667px] font-normal leading-[19px] tracking-[0.0358334px] text-[#7F8DA2] sm:flex-row sm:items-center sm:justify-between">
+          <span>© 2026 English Commando. সর্বস্বত্ব সংরক্ষিত।</span>
+          <span>
+            Developed by{" "}
+            <a
+              href="https://zensoftlab.com"
+              target="_blank"
+              rel="noreferrer"
+              className="text-[#B2BFD0] no-underline transition-colors hover:text-white"
+            >
+              Zensoftlab.com
+            </a>
+          </span>
         </div>
       </div>
     </footer>
