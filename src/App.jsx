@@ -15,7 +15,7 @@ import PrivacyPolicy from "./privacy-policy";
 import Confirm from "./confirm";
 import OrderError from "./order-error";
 import {
-  embeddedVideoByName,
+  useEmbeddedVideoCatalog,
   YouTubeOverlayVideo,
   YouTubeReviewVideo,
 } from "./Videoplayer";
@@ -396,6 +396,7 @@ function CardIcon({ type, className = "" }) {
 }
 
 function App() {
+  const { videoByName: embeddedVideoByName } = useEmbeddedVideoCatalog();
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(
     () =>
       typeof window !== "undefined" &&
@@ -902,14 +903,14 @@ function App() {
         as="image"
         href={heroArtworkDesktop}
         media="(min-width: 1024px)"
-        fetchPriority="high"
+        fetchpriority="high"
       />
       <link
         rel="preload"
         as="image"
         href={heroArtwork}
         media="(max-width: 1023px)"
-        fetchPriority="high"
+        fetchpriority="high"
       />
       <section
         id="top"

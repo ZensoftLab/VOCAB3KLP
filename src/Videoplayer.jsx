@@ -1,20 +1,62 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Videoplayer.css";
 
-export const embeddedVideos = [
-  { name: "how-it-works", url: "https://www.youtube.com/embed/brdP8Tgy1nM", title: "Oxford 3000 Vocab introduction" },
-  { name: "mobileapp", url: "https://www.youtube.com/embed/BVR8NcCoAiQ", title: "Oxford Vocab BD" },
-  { name: "review1", url: "https://www.youtube.com/embed/V1VpUy3DuVs", title: "Student review video 1" },
-  { name: "review2", url: "https://www.youtube.com/embed/cVzVMOY3kv0", title: "Student review video 2" },
-  { name: "review3", url: "https://www.youtube.com/embed/sPafKu0cRiY", title: "Student review video 3" },
-  { name: "review4", url: "https://www.youtube.com/embed/JYk6MtvYYlY", title: "Student review video 4" },
-  { name: "review5", url: "https://www.youtube.com/embed/jWMazDK0e_M", title: "Student review video 5" },
-  { name: "review6", url: "https://www.youtube.com/embed/EVRAAp-3nE8", title: "Student review video 6" },
+const REVIEW_VIDEOS_API =
+  "https://vocabadmin.englishcommando.bd/api/review-videos";
+
+const embeddedVideoNames = [
+  "how-it-works",
+  "mobileapp",
+  "review1",
+  "review2",
+  "review3",
+  "review4",
+  "review5",
+  "review6",
 ];
 
-export const embeddedVideoByName = Object.fromEntries(
-  embeddedVideos.map((video) => [video.name, video]),
-);
+export function useEmbeddedVideoCatalog() {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    fetch(REVIEW_VIDEOS_API, { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Video API request failed: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        const apiVideos = [...(data?.review_videos || [])]
+          .sort((first, second) => first.position - second.position)
+          .slice(0, embeddedVideoNames.length);
+
+        if (apiVideos.length !== embeddedVideoNames.length) return;
+
+        setVideos(
+          apiVideos.map((video, index) => ({
+            name: embeddedVideoNames[index],
+            title: video.title,
+            url: video.url,
+          })),
+        );
+      })
+      .catch((error) => {
+        if (error.name !== "AbortError") {
+          console.error("Unable to load review videos:", error);
+        }
+      });
+
+    return () => controller.abort();
+  }, []);
+
+  return {
+    videos,
+    videoByName: Object.fromEntries(videos.map((video) => [video.name, video])),
+  };
+}
 
 const createHiddenControlsUrl = (url, params = "") => {
   const playerParams = new URLSearchParams(params);
@@ -29,11 +71,13 @@ const postPlayerCommand = (playerWindow, func) => {
   );
 };
 
-export function YouTubeReviewVideo({ video, videoId, title, className = "" }) {
+export function YouTubeReviewVideo({ video, title, className = "" }) {
   const iframeRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const resolvedVideoUrl = video?.url || `https://www.youtube.com/embed/${videoId}`;
-  const resolvedTitle = video?.title || title;
+  const resolvedVideoUrl = video?.url;
+  const resolvedTitle = video?.title || title || "YouTube video";
+
+  if (!resolvedVideoUrl) return null;
 
   const playVideo = () => {
     postPlayerCommand(iframeRef.current?.contentWindow, "playVideo");
@@ -72,7 +116,6 @@ export function YouTubeReviewVideo({ video, videoId, title, className = "" }) {
 
 export function YouTubeOverlayVideo({
   video,
-  videoId,
   title,
   overlayImage,
   className = "",
@@ -83,9 +126,11 @@ export function YouTubeOverlayVideo({
 }) {
   const iframeRef = useRef(null);
   const [isStarted, setIsStarted] = useState(false);
-  const resolvedVideoUrl = video?.url || `https://www.youtube.com/embed/${videoId}`;
-  const resolvedTitle = video?.title || title;
+  const resolvedVideoUrl = video?.url;
+  const resolvedTitle = video?.title || title || "YouTube video";
   const resolvedButtonLabel = buttonLabel || `${resolvedTitle} চালু করুন`;
+
+  if (!resolvedVideoUrl) return null;
 
   const startVideo = () => {
     const playerWindow = iframeRef.current?.contentWindow;
