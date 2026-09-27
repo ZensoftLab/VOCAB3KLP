@@ -3204,6 +3204,13 @@ textarea:-webkit-autofill:focus {
   }
 }
 
+/* Match review cards to the portrait YouTube video ratio. */
+.student-proof-section .student-proof-card {
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 467 / 831 !important;
+}
+
 /* Final review-video containment overrides. */
 .student-proof-section .student-proof-card {
   overflow: hidden !important;

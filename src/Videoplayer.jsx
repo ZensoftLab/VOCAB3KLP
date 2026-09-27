@@ -88,7 +88,7 @@ export function YouTubeReviewVideo({ video, title, className = "" }) {
     <div className={`${className} relative overflow-hidden`}>
       <iframe
         ref={iframeRef}
-        className="youtube-clean-video youtube-title-hidden absolute inset-0 h-full w-full border-0"
+        className="youtube-clean-video youtube-review-video absolute inset-0 h-full w-full border-0"
         src={createHiddenControlsUrl(
           resolvedVideoUrl,
           "playsinline=1&rel=0&showinfo=0&modestbranding=1&enablejsapi=1",

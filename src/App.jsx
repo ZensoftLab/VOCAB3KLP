@@ -1024,7 +1024,6 @@ function App() {
                   width="568"
                   height="520"
                   loading="eager"
-                  fetchPriority="high"
                   decoding="async"
                   className="mx-auto block h-full w-full select-none object-contain drop-shadow-[0_18px_40px_rgba(0,0,0,0.45)]"
                 />
