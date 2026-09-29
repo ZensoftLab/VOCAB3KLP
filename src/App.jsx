@@ -175,7 +175,7 @@ function TypewriterSequence({ speed = 115 }) {
   return (
     <>
       <h1
-        className="hero-title-primary hero-typewriter mt-8 max-w-[505px] text-[clamp(2.25rem,4.2vw,3.625rem)] font-['Baloo_Da_2'] font-semibold leading-[1.35] tracking-[-2.27px] text-[#E8B84E] lg:whitespace-nowrap"
+        className="hero-title-primary hero-typewriter mt-8 max-w-[505px] text-[clamp(1.7rem,7.2vw,3.625rem)] font-['Baloo_Da_2'] font-semibold leading-[1.3] tracking-[-0.02em] text-[#E8B84E] lg:tracking-[-2.27px] lg:whitespace-nowrap"
         aria-label="অক্সফোর্ড ৩০০০ ভোকাব"
       >
         <span className="hero-typewriter-text">
@@ -186,7 +186,7 @@ function TypewriterSequence({ speed = 115 }) {
         </span>
       </h1>
       <h2
-        className="hero-title-secondary hero-typewriter mt-1 max-w-[505px] text-[clamp(2rem,3.9vw,3.625rem)] font-['Baloo_Da_2'] font-semibold leading-[1.35] tracking-[-2.27px] text-white lg:whitespace-nowrap"
+        className="hero-title-secondary hero-typewriter mt-1 max-w-[505px] text-[clamp(1.5rem,6.4vw,3.625rem)] font-['Baloo_Da_2'] font-semibold leading-[1.3] tracking-[-0.02em] text-white lg:tracking-[-2.27px] lg:whitespace-nowrap"
         aria-label="সম্পূর্ণ লার্নিং সিস্টেম"
       >
         <span className="hero-typewriter-text">
@@ -572,7 +572,7 @@ function App() {
   const autoAdvanceScheduledRef = useRef(false);
   const autoAdvancedForEntryRef = useRef(false);
   const [flipBookPage, setFlipBookPage] = useState(1);
-  const flipBookPageCount = 27;
+  const [flipBookPageCount, setFlipBookPageCount] = useState(38);
 
   const navigateFlipBook = (direction) => {
     if (!flipBookEngineReadyRef.current) {
@@ -666,7 +666,7 @@ function App() {
         { type: "flipbook-page", direction: "next" },
         window.location.origin,
       );
-    }, 250);
+    }, 50);
   };
 
   const handleFlipBookLoad = () => {
@@ -695,7 +695,7 @@ function App() {
           autoAdvanceScheduledRef.current = false;
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0.05, rootMargin: "400px 0px" },
     );
 
     observer.observe(bookSection);
@@ -730,6 +730,9 @@ function App() {
 
       if (event.data?.type === "flipbook-ready") {
         flipBookEngineReadyRef.current = true;
+        if (event.data?.pageCount) {
+          setFlipBookPageCount(Number(event.data.pageCount));
+        }
         resetFlipBook();
         autoAdvanceFlipBookOnce();
         return;

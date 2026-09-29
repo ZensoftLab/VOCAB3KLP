@@ -8220,12 +8220,13 @@ button {
 
   #top .hero-copy h1 {
     max-width: 100% !important;
-    font-size: clamp(20px, 7vw, 30px) !important;
-    white-space: nowrap !important;
+    font-size: clamp(27px, 7.2vw, 36px) !important;
+    white-space: normal !important;
   }
 
   #top .hero-copy h2 {
-    font-size: clamp(27px, 8vw, 34px) !important;
+    font-size: clamp(24px, 6.4vw, 33px) !important;
+    white-space: normal !important;
   }
 
   #top .hero-copy h1 .hero-word {

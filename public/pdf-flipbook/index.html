@@ -40,14 +40,20 @@
 
 
 
-    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <link rel="preconnect" href="https://cdnm.heyzine.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnm.heyzine.com">
 
     <link rel="preload" href="Oxford_3k.pdf" as="fetch" type="application/pdf" crossorigin>
+    <link rel="preload" href="js/pdf.worker.6.2.108.hz.10.l.min.mjs" as="script" crossorigin>
+    <link rel="preload" href="js/prod5.min.js" as="script">
+    <link rel="preload" href="js/prodhzp.min.js" as="script">
+
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
 
     <script src="pdf.6.2.108.hz.10.l.min.js" type="module"></script>
 
     <script type="text/javascript">
-        PDFJS_WORKER = 'https://cdnm.heyzine.com/flipbook/js/site/pdf.worker.6.2.108.hz.10.l.min.mjs?v5';
+        PDFJS_WORKER = 'js/pdf.worker.6.2.108.hz.10.l.min.mjs';
         PDFJS_CMAP_URL = 'https://cdnm.heyzine.com/flipbook/js/lib/pdfjs/bcmaps/';
         PDFJS_WASM_URL = 'https://cdnm.heyzine.com/flipbook/js/site/wasm62108/';
     </script>
@@ -55,7 +61,7 @@
     <script type="text/javascript">
         /*start-metadata*/
         var flipbookcfg = {
-            "id": "b074a6e6b00ffb1e2c3518792371226497f786fea",
+            "id": "cbfb3a7fae6390cde01e9b55f3aef7289411b4bb9",
             "app_name": "metadata-app-name",
             "app_ver": "1",
             "name": "11701373e356127b58814c213f6b193ea0e0d444.pdf",
@@ -68,14 +74,14 @@
             "admin_key": "",
             "surl": "/flip-book/11701373e3.html",
             "cover": 0,
-            "num_pages": 27,
+            "num_pages": 38,
             "viewer": "MAGAZINE",
             "thumbnail": "11701373e356127b58814c213f6b193ea0e0d444.pdf-thumb.jpg",
             "stats": 0,
             "readerToken": null,
             "design": {
                 "type": null,
-                "background": "https:\/\/cdnm.heyzine.com\/files\/backgrounds\/back5.svg",
+                "background": null,
                 "background_color": null,
                 "background_style": "",
                 "company_logo": null,
@@ -267,8 +273,8 @@
             <div ignore="1" class="page-findex page-findex-right" data-disable-events="true" data-disable-zoom="true" style="display: none;">
             </div>    
                 
-            <div class="swiper-button-next btnNext hz-icon hz-icon-md" data-disable-zoom="true" style="background-image: url('https://cdnm.heyzine.com/flipbook/img/iconset2_6.png')"></div>
-            <div class="swiper-button-prev btnPrevious hz-icon hz-icon-md" data-disable-zoom="true" style="background-image: url('https://cdnm.heyzine.com/flipbook/img/iconset2_6.png')"></div>
+            <div class="swiper-button-next btnNext hz-icon hz-icon-md" data-disable-zoom="true" style="background-image: url('images/iconset2_6.png')"></div>
+            <div class="swiper-button-prev btnPrevious hz-icon hz-icon-md" data-disable-zoom="true" style="background-image: url('images/iconset2_6.png')"></div>
         </div>
 
         <div class="bottom control-bottom" style="display: none !important;">
@@ -1240,13 +1246,13 @@
             </div>
         </div>
 
-        <audio id="audioPageTurn" style="display: none;" preload="auto">
+        <audio id="audioPageTurn" style="display: none;" preload="none">
             <source src="media/flip-ct-sm.mp3" type="audio/mpeg">
         </audio>
-        <audio id="audioPageTurn2" style="display: none;" preload="auto">
+        <audio id="audioPageTurn2" style="display: none;" preload="none">
             <source src="media/flip-ct-md.mp3" type="audio/mpeg">
         </audio>
-        <audio id="audioPageTurn3" style="display: none;" preload="auto">
+        <audio id="audioPageTurn3" style="display: none;" preload="none">
             <source src="media/flip-ct-lg.mp3" type="audio/mpeg">
         </audio>
 
@@ -1378,14 +1384,11 @@
         }, true);
 
         $(() => {
-            document.querySelectorAll('audio[id^="audioPageTurn"]').forEach((audio) => {
-                audio.load();
-            });
             heyzineDesign.load(flipbookcfg.design);
             heyzine.load('Oxford_3k.pdf', flipbookcfg).then(() => {
                 heyzineDesign.afterLoad(flipbookcfg.design);
                 window.parent.postMessage(
-                    { type: 'flipbook-ready' },
+                    { type: 'flipbook-ready', pageCount: flipbookcfg.num_pages },
                     window.location.origin,
                 );
                 // initServiceWorker();
