@@ -108,7 +108,7 @@ const featureCards = [
   },
 ];
 
-function TypewriterSequence({ speed = 115 }) {
+function TypewriterSequence({ speed = 70 }) {
   const [firstText, setFirstText] = useState("");
   const [secondText, setSecondText] = useState("");
   const [activeLine, setActiveLine] = useState(null);
@@ -515,7 +515,8 @@ function App() {
       book_id: 1,
       quantity: 1,
       customer_note: "",
-      delivery_charge: "50",
+      delivery_charge: "0",
+      total_amount: "499",
       discount_amount: "0",
       source: "website",
       landing_page: window.location.href,
