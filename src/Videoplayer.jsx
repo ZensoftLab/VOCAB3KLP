@@ -129,20 +129,22 @@ export function YouTubeOverlayVideo({
   const resolvedVideoUrl = video?.url;
   const resolvedTitle = video?.title || title || "YouTube video";
   const resolvedButtonLabel = buttonLabel || `${resolvedTitle} চালু করুন`;
+  const playerParams = new URLSearchParams(srcParams);
+  playerParams.set("autoplay", isStarted ? "1" : "0");
 
   if (!resolvedVideoUrl) return null;
 
   const startVideo = () => {
-    const playerWindow = iframeRef.current?.contentWindow;
-    if (!playerWindow) return;
-
-    postPlayerCommand(playerWindow, "unMute");
-    postPlayerCommand(playerWindow, "playVideo");
-    window.setTimeout(() => {
+    setIsStarted(true);
+    const play = () => {
+      const playerWindow = iframeRef.current?.contentWindow;
+      if (!playerWindow) return;
       postPlayerCommand(playerWindow, "unMute");
       postPlayerCommand(playerWindow, "playVideo");
-    }, 150);
-    setIsStarted(true);
+    };
+    play();
+    window.setTimeout(play, 150);
+    window.setTimeout(play, 500);
   };
 
   return (
@@ -150,7 +152,7 @@ export function YouTubeOverlayVideo({
       <iframe
         ref={iframeRef}
         className={`youtube-clean-video youtube-title-hidden absolute inset-0 h-full w-full border-0 transition-opacity duration-200 ${iframeClassName} ${isStarted ? "opacity-100" : "opacity-0"}`}
-        src={createHiddenControlsUrl(resolvedVideoUrl, srcParams)}
+        src={createHiddenControlsUrl(resolvedVideoUrl, playerParams.toString())}
         title={resolvedTitle}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
