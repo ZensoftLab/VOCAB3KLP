@@ -131,6 +131,7 @@ export function YouTubeOverlayVideo({
   const resolvedButtonLabel = buttonLabel || `${resolvedTitle} চালু করুন`;
   const playerParams = new URLSearchParams(srcParams);
   playerParams.set("autoplay", isStarted ? "1" : "0");
+  playerParams.set("mute", isStarted ? "0" : "1");
 
   if (!resolvedVideoUrl) return null;
 
@@ -145,6 +146,7 @@ export function YouTubeOverlayVideo({
     play();
     window.setTimeout(play, 150);
     window.setTimeout(play, 500);
+    window.setTimeout(play, 1000);
   };
 
   return (
