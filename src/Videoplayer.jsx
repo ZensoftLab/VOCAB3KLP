@@ -126,6 +126,7 @@ export function YouTubeOverlayVideo({
 }) {
   const iframeRef = useRef(null);
   const [isStarted, setIsStarted] = useState(false);
+  const [isOverlayVisible, setIsOverlayVisible] = useState(true);
   const resolvedVideoUrl = video?.url;
   const resolvedTitle = video?.title || title || "YouTube video";
   const resolvedButtonLabel = buttonLabel || `${resolvedTitle} চালু করুন`;
@@ -147,6 +148,7 @@ export function YouTubeOverlayVideo({
     window.setTimeout(play, 150);
     window.setTimeout(play, 500);
     window.setTimeout(play, 1000);
+    window.setTimeout(() => setIsOverlayVisible(false), 750);
   };
 
   return (
@@ -159,7 +161,7 @@ export function YouTubeOverlayVideo({
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
       />
-      {!isStarted && (
+      {isOverlayVisible && (
         <button
           type="button"
           className="video-overlay-button absolute inset-0 z-10 block h-full w-full cursor-pointer border-0 bg-[#071526] p-0"

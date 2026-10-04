@@ -1084,7 +1084,7 @@ function App() {
               video={embeddedVideoByName["how-it-works"]}
               overlayImage={videoOverlay}
               buttonLabel="১ মিনিটের ভিডিও চালু করুন"
-              srcParams="controls=0&playsinline=1&rel=0&showinfo=0&modestbranding=1&start=4&autoplay=0&mute=1&enablejsapi=1"
+              srcParams="controls=0&playsinline=1&rel=0&showinfo=0&modestbranding=1&autoplay=0&mute=1&enablejsapi=1"
               className="group relative mx-auto h-[197px] w-full overflow-hidden rounded-2xl border border-[#12345A] bg-[#071526] shadow-[0_18px_42px_rgba(2,8,24,0.28)] lg:h-[558px] lg:w-[992px] lg:rounded-[32px] lg:border-[#E8B84E]/[0.28]"
             />
           </div>

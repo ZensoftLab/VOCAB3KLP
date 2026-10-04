@@ -2996,6 +2996,10 @@ textarea:-webkit-autofill:focus {
 }
 
 @media (max-width: 800px) {
+  #top {
+    margin-top: 72px !important;
+  }
+
   .mobile-header {
     height: 72px;
     min-height: 72px;
@@ -11012,5 +11016,173 @@ section h3 {
     font-size: 12px;
     line-height: 18px;
     text-align: center;
+  }
+}
+
+/* Three-column footer layout. */
+.footer-root .footer-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 204.31px;
+  align-items: start !important;
+  gap: 48px !important;
+}
+
+.footer-root .footer-mobile-left,
+.footer-root .footer-quick-links,
+.footer-root .footer-mobile-links {
+  display: flex !important;
+  width: 100% !important;
+  min-width: 0;
+}
+
+.footer-column-heading {
+  margin: 0 0 14px;
+  color: #e8b84e;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-social-links a {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  color: #d0d9e6;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.footer-social-links a:hover,
+.footer-social-links a:focus-visible {
+  color: #e8b84e;
+  transform: translateY(-2px);
+}
+
+.footer-social-links svg {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-legal-link {
+  display: block;
+  margin: 0 0 8px;
+  color: #d0d9e6;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.footer-legal-link:hover,
+.footer-legal-link:focus-visible {
+  color: #ffffff;
+}
+
+.footer-copyright-column {
+  margin: 14px 0 0;
+  color: #7f8da2;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 11.4667px;
+  line-height: 19px;
+}
+
+@media (max-width: 700px) {
+  .footer-root {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 32px 20px 24px !important;
+  }
+
+  .footer-root .footer-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr) minmax(0, 1fr);
+    gap: 14px !important;
+    max-width: 100% !important;
+  }
+
+  .footer-root .footer-mobile-left {
+    align-items: flex-start !important;
+  }
+
+  .footer-root .footer-mobile-left > a {
+    align-self: flex-start !important;
+  }
+
+  .footer-root .footer-mobile-left p {
+    width: 100% !important;
+    height: auto !important;
+    text-align: left !important;
+    white-space: normal !important;
+  }
+
+  .footer-root .footer-mobile-left .footer-copyright-column {
+    margin-top: 10px;
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .footer-root .footer-quick-links,
+  .footer-root .footer-mobile-links {
+    height: auto !important;
+    min-height: 0 !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    text-align: left !important;
+  }
+
+  .footer-root .footer-mobile-links {
+    align-items: flex-end !important;
+    text-align: right !important;
+  }
+
+  .footer-column-heading {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .footer-social-links {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .footer-social-links a {
+    width: 28px;
+    height: 28px;
+  }
+
+  .footer-social-links svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-root .footer-legal-link {
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 0 7px !important;
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .footer-root .footer-mobile-copy {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 18px !important;
+    margin-top: 24px !important;
+    padding-top: 14px !important;
+    text-align: left !important;
+  }
+
+  .footer-root .footer-mobile-copy > div {
+    text-align: left !important;
   }
 }
